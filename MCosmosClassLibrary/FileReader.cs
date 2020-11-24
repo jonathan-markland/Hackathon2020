@@ -25,17 +25,20 @@ namespace MCosmosClassLibrary
 
         public FileReader ExpectLineStartingWith(string leftSideMatchRequired)
         {
+            throw new Exception("TODO");
             return this;
         }
 
         public FileReader ExpectWholeLine(string lineContentRequired)
         {
+            throw new Exception("TODO");
             return this;
         }
 
-        public T Parameter<T>(string leftSideMatchRequired, Func<string, T?> parser) where T:struct
+        public FileReader Parameter<T>(string leftSideMatchRequired, Func<string, T?> parser, out T result) where T:struct
         {
-
+            throw new Exception("TODO");
+            return this;
         }
     }
 
