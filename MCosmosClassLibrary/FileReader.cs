@@ -35,7 +35,10 @@ namespace MCosmosClassLibrary
             }
         }
 
-        private FileReader NextLineWhere(Func<string, bool> condition, Func<string> errorMessageGetter)
+        private FileReader NextLineWhere(
+            Func<string, bool> condition, 
+            Func<string> errorMessageGetter, 
+            Action<string> applyActionForRowFound)
         {
             var errorIndex = PositionIndex;
 
@@ -51,6 +54,7 @@ namespace MCosmosClassLibrary
                         var traceMsg = $"Scanning from line {FileText[errorIndex].LineNumber}, line {fileLine.LineNumber} ('{fileLine.String}') satisfied the condition.";
                         System.Diagnostics.Debug.WriteLine(traceMsg);
 
+                        applyActionForRowFound(fileLine.String);
                         return this;
                     }
                 }
@@ -68,32 +72,47 @@ namespace MCosmosClassLibrary
         {
             return NextLineWhere(
                 s => s.StartsWith(leftSideMatchRequired), 
-                () => $"Could not find a line beginning with '{leftSideMatchRequired}' from this point forwards.");
+                () => $"Could not find a line beginning with '{leftSideMatchRequired}' from this point forwards.",
+                _ => { });
         }
 
         public FileReader ExpectWholeLine(string lineContentRequired)
         {
             return NextLineWhere(
                 s => String.Compare(s, lineContentRequired) == 0,
-                () => $"Could not find a line containing '{lineContentRequired}' from this point forwards.");
+                () => $"Could not find a line containing '{lineContentRequired}' from this point forwards.",
+                _ => { });
         }
 
-        public FileReader Parameter<T>(string leftSideMatchRequired, Func<string, T?> parser, out T result) where T:struct
+        public FileReader Parameter(string leftSideMatchRequired, Func<string, Number> parser, Number result)
         {
-            var parseResult = parser("TODO -- string from file to the right side");
-            if (parseResult.HasValue)
-            {
-                result = parseResult.Value;
-                return this;
-            }
-            else
-            {
-                throw new Exception($"Failed to read value after '{leftSideMatchRequired}'."); // TODO: message according to parser type
-            }
-        }
 
-        
+            void TryParseNumber(string documentRow)
+            {
+                var rightHandSide = documentRow.Substring(leftSideMatchRequired.Length);
+                var parseResult = parser(rightHandSide);
+                if (parseResult != null)
+                {
+                    result.Value = parseResult.Value;
+                }
+                else
+                {
+                    throw new Exception($"Failed to read value after '{leftSideMatchRequired}'."); // TODO: message according to parser type
+                }
+            }
+
+            return NextLineWhere(
+                s => s.StartsWith(leftSideMatchRequired),
+                () => $"Could not find a line beginning with '{leftSideMatchRequired}' from this point forwards.",
+                TryParseNumber);
+        }
     }
+
+    public class Number
+    {
+        public double Value;
+    }
+
 
     internal class FileLine
     {
