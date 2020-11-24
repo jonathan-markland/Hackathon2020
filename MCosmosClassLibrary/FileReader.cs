@@ -84,16 +84,17 @@ namespace MCosmosClassLibrary
                 _ => { });
         }
 
-        public FileReader Parameter(string leftSideMatchRequired, Func<string, Number> parser, Number result)
+        public FileReader Parameter(string leftSideMatchRequired, Func<string, double?> parser, out double result)
         {
+            var tempSlot = new Box<double>();  // because we can't lambda-bind an 'out' parameter.   TODO: Is there a more C#-native solution?
 
             void TryParseNumber(string documentRow)
             {
                 var rightHandSide = documentRow.Substring(leftSideMatchRequired.Length);
                 var parseResult = parser(rightHandSide);
-                if (parseResult != null)
+                if (parseResult.HasValue)
                 {
-                    result.Value = parseResult.Value;
+                    tempSlot.BoxContent = parseResult.Value;
                 }
                 else
                 {
@@ -101,16 +102,19 @@ namespace MCosmosClassLibrary
                 }
             }
 
-            return NextLineWhere(
+            var retVal = NextLineWhere(
                 s => s.StartsWith(leftSideMatchRequired),
                 () => $"Could not find a line beginning with '{leftSideMatchRequired}' from this point forwards.",
                 TryParseNumber);
+
+            result = tempSlot.BoxContent;
+            return retVal;
         }
     }
 
-    public class Number
+    public class Box<T>
     {
-        public double Value;
+        public T BoxContent;
     }
 
 

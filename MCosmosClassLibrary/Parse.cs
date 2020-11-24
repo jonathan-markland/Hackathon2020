@@ -6,19 +6,19 @@ namespace MCosmosClassLibrary
 {
     public class Parse
     {
-        public static Number SoleNumber(string s)
+        public static double? SoleNumber(string s)
         {
-            return new Number { Value=0.0 }; // TODO
+            return 7.0; // TODO
         }
 
-        public static Number FirstNumberOfTwo(string s)
+        public static double? FirstNumberOfTwo(string s)
         {
-            return new Number { Value = 0.0 }; // TODO
+            return 7.0; // TODO
         }
 
-        public static Number ThirdNumberOfFour(string s)
+        public static double? ThirdNumberOfFour(string s)
         {
-            return new Number { Value = 0.0 }; // TODO
+            return 7.0; // TODO
         }
     }
 }
