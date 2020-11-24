@@ -25,20 +25,26 @@ namespace MCosmosClassLibrary
 
         public FileReader ExpectLineStartingWith(string leftSideMatchRequired)
         {
-            throw new Exception("TODO");
-            return this;
+            return this; // TODO
         }
 
         public FileReader ExpectWholeLine(string lineContentRequired)
         {
-            throw new Exception("TODO");
-            return this;
+            return this; // TODO
         }
 
         public FileReader Parameter<T>(string leftSideMatchRequired, Func<string, T?> parser, out T result) where T:struct
         {
-            throw new Exception("TODO");
-            return this;
+            var parseResult = parser("TODO -- string from file to the right side");
+            if (parseResult.HasValue)
+            {
+                result = parseResult.Value;
+                return this;
+            }
+            else
+            {
+                throw new Exception($"Failed to read value after '{leftSideMatchRequired}'."); // TODO: message according to parser type
+            }
         }
     }
 
