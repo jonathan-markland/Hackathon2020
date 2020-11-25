@@ -9,25 +9,84 @@ namespace TestProject
         public void LoadingTheTEST2FileLoadsExpectedResults()
         {
             var loadedFile = MCosmosClassLibrary.DiscFileLoader.LoadFromFile("TEST2.txt");
-			
-			Assert.Equal(28.03189, loadedFile.Diagonal.EtoFLeft1  );
-			Assert.Equal(28.10921 , loadedFile.Diagonal.EtoFLeft2 );
-			Assert.Equal(28.08107 , loadedFile.Diagonal.EtoFRight1 );
-			Assert.Equal(28.12824 , loadedFile.Diagonal.EtoFRight2 );
-			Assert.Equal(28.02423 , loadedFile.Diagonal.GtoDBack1 );
-			Assert.Equal(28.08362 , loadedFile.Diagonal.GtoDBack2 );
-			Assert.Equal(28.07349 , loadedFile.Diagonal.GtoDFront1 );
-			Assert.Equal(28.08503 , loadedFile.Diagonal.GtoDFront2 );
 
-			Assert.Equal(0.17347, loadedFile.Flatness.DatumD);
-			Assert.Equal(0.23289, loadedFile.Flatness.DatumE);
+			Assert.Equal("2222222222222222", loadedFile.Metadata.SerialNo);
+
 			Assert.Equal(0.20532, loadedFile.Flatness.DatumF);
+			Assert.Equal(0.23289, loadedFile.Flatness.DatumE);
+			Assert.Equal(0.17347, loadedFile.Flatness.DatumD);
 			Assert.Equal(0.17389, loadedFile.Flatness.DatumG);
 
 			Assert.Equal(0.02684, loadedFile.Parallel.DatumELH1);
 			Assert.Equal(0.15320, loadedFile.Parallel.DatumERH1);
-			Assert.Equal(0.10453, loadedFile.Parallel.DatumGBK1);
 			Assert.Equal(0.01577, loadedFile.Parallel.DatumGFR1);
+			Assert.Equal(0.10453, loadedFile.Parallel.DatumGBK1);
+
+			Assert.Equal(28.03189, loadedFile.Distances.EtoFLeft1  );
+			Assert.Equal(28.08107, loadedFile.Distances.EtoFRight1);
+			Assert.Equal(28.10921, loadedFile.Distances.EtoFLeft2 );
+			Assert.Equal(28.12824, loadedFile.Distances.EtoFRight2 );
+			Assert.Equal(28.07349, loadedFile.Distances.GtoDFront1);
+			Assert.Equal(28.02423, loadedFile.Distances.GtoDBack1 );
+			Assert.Equal(28.08503, loadedFile.Distances.GtoDFront2);
+			Assert.Equal(28.08362, loadedFile.Distances.GtoDBack2 );
+
+			Assert.False(loadedFile.Flatness.AllWithinTolerance, "Overall flatness expected to be out of tolerance for this file.");
+			Assert.False(loadedFile.Parallel.AllWithinTolerance, "Overall parallelism expected to be out of tolerance for this file.");
+		}
+
+		[Fact]
+		public void LoadingTheSerNo1FileLoadsExpectedResults()
+		{
+			var loadedFile = MCosmosClassLibrary.DiscFileLoader.LoadFromFile("Ser No 1    repeat -- 1.txt");
+
+			Assert.Equal("1", loadedFile.Metadata.SerialNo);
+
+			Assert.Equal(0.00127, loadedFile.Flatness.DatumF);
+			Assert.Equal(0.00145, loadedFile.Flatness.DatumE);
+			Assert.Equal(0.00122, loadedFile.Flatness.DatumD);
+			Assert.Equal(0.00113, loadedFile.Flatness.DatumG);
+
+			Assert.Equal(0.00180, loadedFile.Parallel.DatumELH1);
+			Assert.Equal(0.00165, loadedFile.Parallel.DatumERH1);
+			Assert.Equal(0.00161, loadedFile.Parallel.DatumGFR1);
+			Assert.Equal(0.00128, loadedFile.Parallel.DatumGBK1);
+
+			Assert.Equal(28.01644, loadedFile.Distances.EtoFLeft1);
+			Assert.Equal(28.01626, loadedFile.Distances.EtoFRight1);
+			Assert.Equal(28.01824, loadedFile.Distances.EtoFLeft2);
+			Assert.Equal(28.01746, loadedFile.Distances.EtoFRight2);
+			Assert.Equal(28.01817, loadedFile.Distances.GtoDFront1);
+			Assert.Equal(28.01658, loadedFile.Distances.GtoDBack1);
+			Assert.Equal(28.01960, loadedFile.Distances.GtoDFront2);
+			Assert.Equal(28.01759, loadedFile.Distances.GtoDBack2);
+		}
+
+		[Fact]
+		public void LoadingTheSerNo2FileLoadsExpectedResults()
+		{
+			var loadedFile = MCosmosClassLibrary.DiscFileLoader.LoadFromFile("Ser No 1    repeat -- 2.txt");
+
+			Assert.Equal("2", loadedFile.Metadata.SerialNo);
+
+			Assert.Equal(0.00124, loadedFile.Flatness.DatumF);
+			Assert.Equal(0.00145, loadedFile.Flatness.DatumE);
+			Assert.Equal(0.00125, loadedFile.Flatness.DatumD);
+			Assert.Equal(0.00120, loadedFile.Flatness.DatumG);
+
+			Assert.Equal(0.00184, loadedFile.Parallel.DatumELH1);
+			Assert.Equal(0.00160, loadedFile.Parallel.DatumERH1);
+			Assert.Equal(0.00159, loadedFile.Parallel.DatumGFR1);
+			Assert.Equal(0.00129, loadedFile.Parallel.DatumGBK1);
+
+			Assert.Equal(28.01655, loadedFile.Distances.EtoFLeft1);
+			Assert.Equal(28.01621, loadedFile.Distances.EtoFRight1);
+			Assert.Equal(28.01835, loadedFile.Distances.EtoFLeft2);
+			Assert.Equal(28.01757, loadedFile.Distances.EtoFRight2);
+			Assert.Equal(28.01774, loadedFile.Distances.GtoDFront1);
+			Assert.Equal(28.01652, loadedFile.Distances.GtoDBack1);
+			Assert.Equal(28.01963, loadedFile.Distances.GtoDFront2);
+			Assert.Equal(28.01780, loadedFile.Distances.GtoDBack2);
 		}
 	}
 }

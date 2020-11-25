@@ -44,5 +44,38 @@ namespace MCosmosClassLibrary
             }
             else return null;
         }
+
+        /// <summary>
+        /// Partial application in C#!
+        /// </summary>
+        public static Func<string,StringBox?> StringFromSecondColumn(string secondColumnLabelText)
+        {
+            StringBox? parseFunc(string s)
+            {
+                var i = s.LastIndexOf(secondColumnLabelText);
+                if (i >= 0)
+                {
+                    return new StringBox
+                    {
+                        Value = s.Substring(i + secondColumnLabelText.Length).Trim()
+                    };
+                }
+                else
+                {
+                    return null;
+                }
+            }
+
+            return parseFunc;
+        }
     }
+
+    /// <summary>
+    /// TODO: Find out what #nullable context is in C# 8.0
+    /// </summary>
+    public struct StringBox
+    {
+        public string Value;
+    }
+
 }

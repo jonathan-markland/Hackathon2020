@@ -25,29 +25,35 @@ namespace MCosmosClassLibrary
 
         private DiscInfo Load()
         {
-            ReadPreamble();
+            var metadata = LoadMetadata();
             var flatness = LoadFlatness();
             var parallelism = LoadParallelism();
             var diagonals = LoadDiagonals();
             ReadPostamble();
+            
             return new DiscInfo {
+                Metadata = metadata,
                 Flatness = flatness,
                 Parallel = parallelism,
-                Diagonal = diagonals
+                Distances = diagonals
             };
         }
 
         /// <summary>
         /// Just a means of being sure the file really is of the kind we're interested in.
         /// </summary>
-        private void ReadPreamble()
+        private DiscMetadata LoadMetadata()
         {
             reader
                 .ExpectLineStartingWith("Program Name   :")
                 .ExpectLineStartingWith("Date / Time    :")
-                .ExpectLineStartingWith("Drawing No     :")
+                .Parameter("Drawing No     :", Parse.StringFromSecondColumn("Serial No      :"), out StringBox serialNo)
                 .ExpectLineStartingWith("Issue No       :")
                 .ExpectLineStartingWith("Description    : Alignment Disc Hybrid");   // TODO: Could this title change?
+
+            return new DiscMetadata { 
+                SerialNo = serialNo.Value
+            };
         }
 
         private FlatnessMeasurements LoadFlatness()
@@ -87,7 +93,7 @@ namespace MCosmosClassLibrary
             };
         }
 
-        private DiagonalMeasurements LoadDiagonals()
+        private DistanceMeasurements LoadDiagonals()
         {
             // TODO: Talk to Dale and Louis about whether these -1.5 and -10.3 numbers could change.
             //       Are they user-definable?  Can they be fixed at certain values, or eliminated, or 
@@ -108,7 +114,7 @@ namespace MCosmosClassLibrary
                 .Parameter("222 G to D at -10.3 FR", Parse.ThirdNumberOfFour, out double GtoDFront2)  // TODO: 199 Datum E LH 1
                 .Parameter("224 G to D at -10.3 BK", Parse.ThirdNumberOfFour, out double GtoDBack2 );  // TODO: 199 Datum E LH 1
 
-            return new DiagonalMeasurements
+            return new DistanceMeasurements
             {
                 EtoFLeft1  = EtoFLeft1 ,
                 EtoFRight1 = EtoFRight1,

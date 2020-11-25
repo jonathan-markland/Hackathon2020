@@ -8,9 +8,18 @@ namespace MCosmosClassLibrary
     /// </summary>
     public class DiscInfo
     {
+        public DiscMetadata Metadata;
         public FlatnessMeasurements Flatness;
         public ParallelMeasurements Parallel; 
-        public DiagonalMeasurements Diagonal;
+        public DistanceMeasurements Distances;
+    }
+
+    public struct DiscMetadata
+    {
+        /// <summary>
+        /// The serial number of the disc.
+        /// </summary>
+        public string SerialNo;
     }
 
     /// <summary>
@@ -19,10 +28,27 @@ namespace MCosmosClassLibrary
     /// </summary>
     public struct FlatnessMeasurements
     {
+        public static double Tolerance = 0.002;
+        
         public double DatumF;
         public double DatumE;
         public double DatumD;
         public double DatumG;
+
+        /// <summary>
+        /// Returns true/false according to whether all of the values are within the tolerance allowed.
+        /// </summary>
+        public bool AllWithinTolerance
+        {
+            get
+            {
+                return
+                    this.DatumF < Tolerance &&
+                    this.DatumE < Tolerance &&
+                    this.DatumD < Tolerance &&
+                    this.DatumG < Tolerance;
+            }
+        }
     }
 
     /// <summary>
@@ -31,6 +57,8 @@ namespace MCosmosClassLibrary
     /// </summary>
     public struct ParallelMeasurements
     {
+        public static double Tolerance = 0.002;
+
         /// <summary>
         /// Datum E LH 1
         /// </summary>
@@ -50,9 +78,24 @@ namespace MCosmosClassLibrary
         /// Datum G BK 1
         /// </summary>
         public double DatumGBK1;
+
+        /// <summary>
+        /// Returns true/false according to whether all of the values are within the tolerance allowed.
+        /// </summary>
+        public bool AllWithinTolerance
+        {
+            get
+            {
+                return
+                    this.DatumELH1 < Tolerance &&
+                    this.DatumERH1 < Tolerance &&
+                    this.DatumGFR1 < Tolerance &&
+                    this.DatumGBK1 < Tolerance;
+            }
+        }
     }
 
-    public struct DiagonalMeasurements
+    public struct DistanceMeasurements
     {
         /// <summary>
         /// E to F at -1.5 LH
