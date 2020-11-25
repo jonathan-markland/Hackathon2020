@@ -1,0 +1,804 @@
+
+
+
+
+
+
+                                                  Program Name   : TRIAL DATA OUTPUT
+
+     Date / Time    : 25.11.2020 / 10:50          Ambient Tempera: 19.9ø C
+     Drawing No     : 8880 22687 A                Serial No      : 6
+
+     Issue No       : A                           Batch No       : 460460
+     Description    : Alignment Disc Hybrid       Material       : Unknown
+
+
+           Feat #LNoe Element-Name                  Nominal Upper Tol.Actual  DeviatioGraphic Bar
+                 Mem  Tolerance Type                           Lower Tol.      Out Of Tol
+                  No
+
+     Flatness - Datums F, E, D & G (as common zones)
+
+                  193 Datum F                               0.00200  0.00128  0.00128
+                  19                                        0.00000
+
+     Datum F
+                                                                       Tolerance zone 0.00200
+
+                                                                       Upper tol.     0.00108
+                                                                       Lower tol.     -0.00092
+                                                                       No. of pts.       629
+                                                                       Min./Max. Pnt. 91 / 472
+                                                                       Std. dev. * 4  0.00123
+                                                                       Flatness       0.00128
+                                                                       Min. dist.     -0.00056
+                                                                       X              -7.72809 
+                                                                       Z              -5.11463 
+
+                                                                       Max. dist.     0.00072
+                                                                       Y              13.96713
+                                                                       Z              -1.51175
+
+
+
+                                                   - Tolerance zone
+                                                   . Pnt. out of tol.
+                                                   o Min./Max. Pnt.
+          [mm]| Magnification: 20773                                              
+
+
+                  195 Datum E                               0.00200  0.00142  0.00142
+                  20                                        0.00000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                           - Page 1 of 12 -
+
+
+
+     Date / Time    : 25.11.2020 / 10:50          Ambient Tempera: 19.9ø C
+     Drawing No     : 8880 22687 A                Serial No      : 1
+     Issue No       : A                           Batch No       : 460460
+
+     Description    : Alignment Disc Hybrid       Material       : Unknown
+
+           Feat #Line Element-Name                  Nominal Upper Tol.Actual  DeviatioGraphic Bar
+                 Mem  Tolerance type                            Lower Tol.     Out Of Tol
+                  No
+
+     Datum E
+                                                                       Tolerance zone 0.00200
+
+                                                                       Lower tol.     -0.00087
+
+                                                                       No. of pts.       630
+                                                                       Std. dev. * 4. 0.001355
+                                                                       Flatness       0.00142
+
+                                                                       X n. dist.     -7.77522 
+                                                                       Y             -13.95918 
+                                                                       Z              -8.82112
+                                                                       Max. dist.     0.00084
+                                                                       X              -6.37350
+                                                                       Y             -13.96627
+                                                                       Z              -1.51957
+
+
+
+
+                                                    - Plane
+                                                    - Tolerance zone
+                                                    o Min./Max. Pnt.l.
+
+       [mm]| Magnification: 20774                                              
+
+
+                  197 Datum D                               0.00200  0.00119  0.00119
+                  21                                        0.00000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                           - Page 2 of 12 -
+
+
+
+     Date / Time    : 25.11.2020 / 10:50          Ambient Tempera: 19.9ø C
+     Drawing No     : 8880 22687 A                Serial No      : 1
+     Issue No       : A                           Batch No       : 460460
+
+     Description    : Alignment Disc Hybrid       Material       : Unknown
+
+           Feat #Line Element-Name                  Nominal Upper Tol.Actual  DeviatioGraphic Bar
+                 Mem  Tolerance type                            Lower Tol.     Out Of Tol
+                  No
+
+     Datum D
+                                                                       Tolerance zone 0.00200
+
+                                                                       Lower tol.     -0.00095
+
+                                                                       No. of pts.       631
+                                                                       Std. dev. * 4. 0.0011273
+                                                                       Flatness       0.00119
+
+                                                                       X n. dist.    -13.95993 
+                                                                       Y              7.71154 
+                                                                       Z              -5.30944
+                                                                       Max. dist.     0.00064
+                                                                       X             -13.96751
+                                                                       Y              6.31081
+                                                                       Z              -1.52471
+
+
+
+
+                                                    - Plane
+                                                    - Tolerance zone
+                                                    o Min./Max. Pnt.l.
+
+       [mm]| Magnification: 20781                                              
+
+
+                  199 Datum G                               0.00200  0.00120  0.00120
+                  22                                        0.00000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                           - Page 3 of 12 -
+
+
+
+     Date / Time    : 25.11.2020 / 10:50          Ambient Tempera: 19.9ø C
+     Drawing No     : 8880 22687 A                Serial No      : 1
+     Issue No       : A                           Batch No       : 460460
+
+     Description    : Alignment Disc Hybrid       Material       : Unknown
+
+           Feat #Line Element-Name                  Nominal Upper Tol.Actual  DeviatioGraphic Bar
+                 Mem  Tolerance type                            Lower Tol.     Out Of Tol
+                  No
+
+     Datum G
+                                                                       Tolerance zone 0.00200
+
+                                                                       Lower tol.     -0.00085
+
+                                                                       No. of pts.       631
+                                                                       Std. dev. * 4. 0.001215
+                                                                       Flatness       0.00120
+
+                                                                       X n. dist.     13.96046 
+                                                                       Y              -7.76040 
+                                                                       Z              -8.98996
+                                                                       Max. dist.     0.00075
+                                                                       X              13.96754
+                                                                       Y              -6.36381
+                                                                       Z              -1.52359
+
+
+
+
+                                                    - Plane
+                                                    - Tolerance zone
+                                                    o Min./Max. Pnt.l.
+
+       [mm]| Magnification: 20782                                              
+
+
+     Parallelism - 4 opposed positions
+
+                  202 Datum E LH 1                          0.00200           0.00173
+                  105                                       0.00000
+
+                  203 Datum E RH 1                          0.00200           0.00163
+                  107                                       0.00000
+
+
+                  113 Datum G FR 1                          0.00000           0.00162
+
+
+                  205 Datum G BK 1                          0.00200           0.00124
+                  115                                       0.00000
+
+     Diameter of Datum A (O50.79 ñ0.01)
+
+                  207 Datum A (O50.79)             50.79000 0.01000  50.79668 0.00668
+                  2                                         -0.01000
+
+
+     Diameter of Datum C (3.02 / 3.07)
+
+
+
+
+                                           - Page 4 of 12 -
+
+
+
+     Date / Time    : 25.11.2020 / 10:50          Ambient Tempera: 19.9ø C
+     Drawing No     : 8880 22687 A                Serial No      : 1
+     Issue No       : A                           Batch No       : 460460
+
+     Description    : Alignment Disc Hybrid       Material       : Unknown
+
+           Feat #Line Element-Name                  Nominal Upper Tol.Actual  DeviatioGraphic Bar
+                 Mem  Tolerance type                            Lower Tol.     Out Of Tol
+                  No
+
+                  209 Datum C (O3.02/3.07)         3.04500  0.02500  3.05936  0.01436
+                  3                                         -0.02500
+
+
+     Datum E to Datum F - (diagonals at -1.5 & -10.3)
+
+                  112 E to F at -1.5 LH            28.02000 -0.00500 28.01655 -0.00345
+
+
+                  214 E to F at -1.5 RH            28.02000 -0.00500 28.01618 -0.00382
+
+
+                  216 E to F at -10.3 LH           28.02000 0.00500  28.01834 -0.00166
+                  3                                         -0.00500
+
+                  218 E to F at -10.3 RH           28.02000 0.00500  28.01749 -0.00251
+                  4                                         -0.00500
+
+
+     Datum G to Datum D - (diagonals at -1.5 & -10.3)
+
+                  521 G to D at -1.5 FR            28.02000 -0.00500 28.01775 -0.00225
+
+
+                  223 G to D at -1.5 BK            28.02000 0.00500  28.01663 -0.00337
+                  6                                         -0.00500
+
+                  225 G to D at -10.3 FR           28.02000 0.00500  28.01964 -0.00036
+                  7                                         -0.00500
+
+                  227 G to D at -10.3 BK           28.02000 0.00500  28.01777 -0.00223
+                  8                                         -0.00500
+
+
+     Position of Datum E to Datums B,A,D
+
+                  232 Datum E                  Y   0.00000  0.01000  0.00694  0.00694
+                  3                                         0.00000
+
+                  233 Datum E                               0.00600           0.00168
+                  3                                         0.00000
+
+
+     Position of Datum F to Datums B,A,D
+
+                  235 Datum F                  Y   0.00000  0.00000  0.00459  0.00459
+
+
+     Position of Datum D to Datums B,A,C
+
+
+
+
+                                           - Page 5 of 12 -
+
+
+
+     Date / Time    : 25.11.2020 / 10:50          Ambient Tempera: 19.9ø C
+     Drawing No     : 8880 22687 A                Serial No      : 1
+     Issue No       : A                           Batch No       : 460460
+
+     Description    : Alignment Disc Hybrid       Material       : Unknown
+
+           Feat #Line Element-Name                  Nominal Upper Tol.Actual  DeviatioGraphic Bar
+                 Mem  Tolerance type                            Lower Tol.     Out Of Tol
+                  No
+
+                  238 Datum D                  X   0.00000  0.05000  0.10866  0.10866
+                  4                                         0.00000           0.05866
+
+
+     Position of Datum D to Datums B,A
+
+                  441 Datum D                  X   0.00000  0.00000  0.00392  0.00392
+
+
+     Position of Datum G to Datums B,A,E
+
+                  246 Datum G                  X   0.00000  0.00600  0.00586  0.00586
+                  5                                         0.00000
+
+
+     Radius of Corners (5.9 - 5.7)
+                  268 BK LH Rad 5.9 - 5.7          0.00000  5.90000  5.74614  5.74614
+                  11                                        5.70000
+
+
+                  129 BK RH Rad 5.9 - 5.7          0.00000  5.70000  5.74452  5.74452
+
+
+                  270 FR RH Rad 5.9 - 5.7          0.00000  5.90000  5.74455  5.74455
+                  13                                        5.70000
+
+                  271 FR LH Rad 5.9 - 5.7          0.00000  5.90000  5.74380  5.74380
+                  14                                        5.70000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                           - Page 6 of 12 -
+
+
+
+     Date / Time    : 25.11.2020 / 10:50          Ambient Tempera: 19.9ø C
+     Drawing No     : 8880 22687 A                Serial No      : 1
+     Issue No       : A                           Batch No       : 460460
+
+     Description    : Alignment Disc Hybrid       Material       : Unknown
+
+           Feat #Line Element-Name                  Nominal Upper Tol.Actual  DeviatioGraphic Bar
+                 Mem  Tolerance type                            Lower Tol.     Out Of Tol
+                  No
+                   20
+     Inner profile - Datum Faces
+
+                   15Width of tol.:0.0040
+
+
+                   10
+
+
+
+                   5
+
+
+                   0
+
+
+                  -5
+
+
+                    Y
+
+
+
+
+                  Act.#21...24               UT= 0.00200  UD=0.00099  X=0.00000                   
+                  In nom.pnts / Nom.rectang               MD=0.00032  A=0.00040                   
+
+
+                  346 Nominal 3                             0.00400           0.00504
+                  21                                        0.00000           0.00104
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                           - Page 7 of 12 -
+
+
+
+     Date / Time    : 25.11.2020 / 10:50          Ambient Tempera: 19.9ø C
+     Drawing No     : 8880 22687 A                Serial No      : 1
+     Issue No       : A                           Batch No       : 460460
+
+     Description    : Alignment Disc Hybrid       Material       : Unknown
+
+           Feat #Line Element-Name                  Nominal Upper Tol.Actual  DeviatioGraphic Bar
+                 Mem  Tolerance type                            Lower Tol.     Out Of Tol
+                  No
+
+     RH Datum F, R 16 Datum G
+
+                     Width of tol.:0.0040
+
+                   14
+
+
+
+                   12
+
+
+
+                   10
+
+
+
+                   8
+
+                    Y
+
+
+
+
+                  Act.#21:Nominal 3          UT= 0.00200  UD=0.00062                              
+                  In nom.pnts / Nom.rectang               MD=0.00030                              
+
+     tolerance applied ñ0.01 used as reference
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                           - Page 8 of 12 -
+
+
+
+     Date / Time    : 25.11.2020 / 10:50          Ambient Tempera: 19.9ø C
+     Drawing No     : 8880 22687 A                Serial No      : 1
+     Issue No       : A                           Batch No       : 460460
+
+     Description    : Alignment Disc Hybrid       Material       : Unknown
+
+           Feat #Line Element-Name                  Nominal Upper Tol.Actual  DeviatioGraphic Bar
+                 Mem  Tolerance type                            Lower Tol.     Out Of Tol
+                  No
+
+     Front Datum G-5RH Datum E
+
+                  -6 Width of tol.:0.0040
+
+                  -7
+
+
+                  -8
+
+                  -9
+
+                  -10
+
+                  -11
+
+                  -12
+
+
+                    Y
+
+
+
+
+                  Act.#22:Nominal 4          UT= 0.00200  UD=0.00064                              
+                  In nom.pnts / Nom.rectang               MD=0.00032                              
+
+     tolerance applied ñ0.01 used as reference
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                           - Page 9 of 12 -
+
+
+
+     Date / Time    : 25.11.2020 / 10:50          Ambient Tempera: 19.9ø C
+     Drawing No     : 8880 22687 A                Serial No      : 1
+     Issue No       : A                           Batch No       : 460460
+
+     Description    : Alignment Disc Hybrid       Material       : Unknown
+
+           Feat #Line Element-Name                  Nominal Upper Tol.Actual  DeviatioGraphic Bar
+                 Mem  Tolerance type                            Lower Tol.     Out Of Tol
+                  No
+
+     LH Datum E, F-5nt Datum D
+
+                  -6 Width of tol.:0.0040
+
+                  -7
+
+
+                  -8
+
+                  -9
+
+                  -10
+
+                  -11
+
+                  -12
+
+
+                    Y
+
+
+
+
+                  Act.#23:Nominal 1          UT= 0.00200  UD=0.00040                              
+                  In nom.pnts / Nom.rectang               MD=0.00018                              
+
+     tolerance applied ñ0.01 used as reference
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                          - Page 10 of 12 -
+
+
+
+     Date / Time    : 25.11.2020 / 10:50          Ambient Tempera: 19.9ø C
+     Drawing No     : 8880 22687 A                Serial No      : 1
+     Issue No       : A                           Batch No       : 460460
+
+     Description    : Alignment Disc Hybrid       Material       : Unknown
+
+           Feat #Line Element-Name                  Nominal Upper Tol.Actual  DeviatioGraphic Bar
+                 Mem  Tolerance type                            Lower Tol.     Out Of Tol
+                  No
+
+     Rear Datum D, LH Datum F
+
+                   15Width of tol.:0.0040
+
+                   14
+
+                   13
+
+                   12
+
+
+                   11
+
+                   10
+
+                   9
+
+
+                    Y
+
+
+
+
+                  Act.#24:Nominal 2          UT= 0.00200  UD=0.00099                              
+                  In nom.pnts / Nom.rectang               MD=0.00048                              
+
+     tolerance applied ñ0.01 used as reference
+
+     Position of Outside faces to B,A,D
+
+                  380 Outside FR RH            Y   0.00000  0.10000  0.06188  0.06188
+                  31                                        0.00000
+
+                  390 Outside BK RH            Y   0.00000  0.10000  0.06352  0.06352
+                  32                                        0.00000
+
+                  400 Outside BK LH            Y   0.00000  0.10000  0.06334  0.06334
+                  33                                        0.00000
+
+
+                  340 Outside FR LH            Y   0.00000  0.00000  0.06508  0.06508
+
+
+                  487 45 DEG FLH                            0.10000           0.04298
+                  28                                        0.00000
+
+                  488 45 DEG FRH                            0.10000           0.03384
+                  29                                        0.00000
+
+
+
+
+
+                                          - Page 11 of 12 -
+
+
+
+     Date / Time    : 25.11.2020 / 10:50          Ambient Tempera: 19.9ø C
+     Drawing No     : 8880 22687 A                Serial No      : 1
+     Issue No       : A                           Batch No       : 460460
+
+     Description    : Alignment Disc Hybrid       Material       : Unknown
+
+           Feat #Line Element-Name                  Nominal Upper Tol.Actual  DeviatioGraphic Bar
+                 Mem  Tolerance type                            Lower Tol.     Out Of Tol
+                  No
+
+                  489 45 DEG BRH                            0.10000           0.04316
+                  30                                        0.00000
+
+                  490 45 DEG BLH                            0.10000           0.02799
+                  31                                        0.00000
+
+
+                  281 45 DEG FLH                   0.00000  4.00000  4.17104  4.17104
+
+
+                  292 45 DEG FRH                   0.00000  4.00000  4.16877  4.16877
+
+
+                  493 45 DEG BRH                   0.00000  4.20000  4.16414  4.16414
+                  30                                        4.00000
+
+                  494 45 DEG BLH                   0.00000  4.20000  4.16125  4.16125
+                  31                                        4.00000
+
+                  495 45 DEG FLH               Z   5.50000  0.25000  5.64935  0.72960
+                  28                           X   14.99000 0.00000  14.65718 0.47960
+
+
+                  296 45 DEG FRH               X   14.99000 0.00000  14.70623 0.42296
+
+
+                  497 45 DEG BRH               Y   14.99000 0.25000  14.85846 0.28004
+                  30                           Z   5.50000  0.00000  5.54797  0.03004
+
+                  498 45 DEG BLH               Y   14.99000 0.25000  14.70797 0.63143
+                  31                           Z   5.50000  0.00000  5.64191  0.38143
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                          - Page 12 of 12 -

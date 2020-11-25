@@ -28,14 +28,14 @@ namespace MCosmosClassLibrary
             var metadata = LoadMetadata();
             var flatness = LoadFlatness();
             var parallelism = LoadParallelism();
-            var diagonals = LoadDiagonals();
+            var distances = LoadDistances();
             ReadPostamble();
             
             return new DiscInfo {
                 Metadata = metadata,
                 Flatness = flatness,
                 Parallel = parallelism,
-                Distances = diagonals
+                Distances = distances
             };
         }
 
@@ -92,7 +92,7 @@ namespace MCosmosClassLibrary
             };
         }
 
-        private DistanceMeasurements LoadDiagonals()
+        private DistanceMeasurements LoadDistances()
         {
             reader
                 .ExpectWholeLine("Datum E to Datum F - (diagonals at -1.5 & -10.3)")

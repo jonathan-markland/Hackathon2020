@@ -8,12 +8,12 @@ namespace MCosmosClassLibrary
     {
         public static string Headings
         {
-            get { return "\"flatDatumF\",\"flatDatumE\",\"flatDatumD\",\"flatDatumG\",\"paraDatumELH1\",\"paraDatumERH1\",\"paraDatumGFR1\",\"paraDatumGBK1\",\"distEtoFLeft1\",\"distEtoFRight1\",\"distEtoFLeft2\",\"distEtoFRight2\",\"distGtoDFront1\",\"distGtoDBack1\",\"distGtoDFront2\",\"distGtoDBack2\""; }
+            get { return "\"Serial No.\",\"flatDatumF\",\"flatDatumE\",\"flatDatumD\",\"flatDatumG\",\"paraDatumELH1\",\"paraDatumERH1\",\"paraDatumGFR1\",\"paraDatumGBK1\",\"distEtoFLeft1\",\"distEtoFRight1\",\"distEtoFLeft2\",\"distEtoFRight2\",\"distGtoDFront1\",\"distGtoDBack1\",\"distGtoDFront2\",\"distGtoDBack2\""; }
         }
 
         public static string GetLine(DiscInfo discInfo)
         {
-            var serialNo       = discInfo.Metadata.SerialNo;
+            var serialNo       = discInfo.Metadata.SerialNo;  // TODO: Escape for CSV
             var flatDatumF     = discInfo.Flatness.DatumF;
             var flatDatumE     = discInfo.Flatness.DatumE;
             var flatDatumD     = discInfo.Flatness.DatumD;

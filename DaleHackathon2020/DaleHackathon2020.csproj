@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ExampleFilesCollection\ExampleFilesCollection.csproj" />
     <ProjectReference Include="..\MCosmosClassLibrary\MCosmosClassLibrary.csproj" />
   </ItemGroup>
 
