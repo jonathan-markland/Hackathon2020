@@ -24,7 +24,7 @@ namespace MCosmosClassLibrary
 
             var sumDiffs = d1 + d2 + d3 + d4 + d5 + d6 + d7 + d8;
 
-            return Math.Sqrt(sumDiffs);
+            return Math.Sqrt(sumDiffs);  // TODO: Don't SQRT, just sort on the SQUARES.  Sqrt only on the pairs that make it to the final report.
         }
 
         public static List<Pair> ListOfMatchedPairs(List<DiscInfo> discList)
