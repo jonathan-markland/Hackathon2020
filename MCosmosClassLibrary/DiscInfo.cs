@@ -28,8 +28,8 @@ namespace MCosmosClassLibrary
     /// </summary>
     public struct FlatnessMeasurements
     {
-        public static double Tolerance = 0.002;
-        
+        public static double Tolerance = 0.002; // TODO: obsolete criteria - GradeA and GradeB instead
+
         public double DatumF;
         public double DatumE;
         public double DatumD;
@@ -57,7 +57,7 @@ namespace MCosmosClassLibrary
     /// </summary>
     public struct ParallelMeasurements
     {
-        public static double Tolerance = 0.002;
+        public static double Tolerance = 0.002;// TODO: obsolete criteria - GradeA and GradeB instead
 
         /// <summary>
         /// Datum E LH 1
