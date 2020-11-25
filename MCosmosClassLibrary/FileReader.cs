@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.IO;
 using System.Linq;
 
@@ -103,9 +101,9 @@ namespace MCosmosClassLibrary
                 _ => { });
         }
 
-        public FileReader Parameter(string leftSideMatchRequired, Func<string, double?> parser, out double result)
+        public FileReader Parameter<T>(string leftSideMatchRequired, Func<string, T?> parser, out T result) where T: struct
         {
-            var box = new Box<double>();  // because we can't lambda-bind an 'out' parameter.   TODO: Is there a more C#-native solution?
+            var box = new Box<T>();  // because we can't lambda-bind an 'out' parameter.   TODO: Is there a more C#-native solution?
 
             void TryExtractDataFromLineFound(string documentRow)
             {
