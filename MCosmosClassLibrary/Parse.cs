@@ -25,6 +25,16 @@ namespace MCosmosClassLibrary
             else return null;
         }
 
+        public static double? SecondNumberOfTwo(string s)
+        {
+            var splittings = s.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            if (splittings.Length == 2)
+            {
+                return SoleNumber(splittings[1]);
+            }
+            else return null;
+        }
+
         public static double? ThirdNumberOfFour(string s)
         {
             var splittings = s.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);

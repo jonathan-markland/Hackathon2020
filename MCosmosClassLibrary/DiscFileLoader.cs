@@ -73,10 +73,10 @@ namespace MCosmosClassLibrary
             reader
                 .ExpectWholeLine("Parallelism - 4 opposed positions")
                 // TODO: Talk to Dale and Louis about what these leading numbers (199 etc) actually are.
-                .Parameter("199 Datum E LH 1", Parse.FirstNumberOfTwo, out double datumELH1)
-                .Parameter("200 Datum E RH 1", Parse.FirstNumberOfTwo, out double datumERH1)
-                .Parameter("113 Datum G FR 1", Parse.FirstNumberOfTwo, out double datumGFR1)
-                .Parameter("202 Datum G BK 1", Parse.FirstNumberOfTwo, out double datumGBK1);
+                .Parameter("199 Datum E LH 1", Parse.SecondNumberOfTwo, out double datumELH1)
+                .Parameter("200 Datum E RH 1", Parse.SecondNumberOfTwo, out double datumERH1)
+                .Parameter("113 Datum G FR 1", Parse.SecondNumberOfTwo, out double datumGFR1)
+                .Parameter("202 Datum G BK 1", Parse.SecondNumberOfTwo, out double datumGBK1);
 
             return new ParallelMeasurements
             {

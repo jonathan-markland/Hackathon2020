@@ -24,10 +24,10 @@ namespace TestProject
 			Assert.Equal(0.20532, loadedFile.Flatness.DatumF);
 			Assert.Equal(0.17389, loadedFile.Flatness.DatumG);
 
-			Assert.Equal(0.002, loadedFile.Parallel.DatumELH1);
-			Assert.Equal(0.002, loadedFile.Parallel.DatumERH1);
-			Assert.Equal(0.002, loadedFile.Parallel.DatumGBK1);
-			Assert.Equal(0    , loadedFile.Parallel.DatumGFR1);
+			Assert.Equal(0.02684, loadedFile.Parallel.DatumELH1);
+			Assert.Equal(0.15320, loadedFile.Parallel.DatumERH1);
+			Assert.Equal(0.10453, loadedFile.Parallel.DatumGBK1);
+			Assert.Equal(0.01577, loadedFile.Parallel.DatumGFR1);
 		}
 	}
 }
