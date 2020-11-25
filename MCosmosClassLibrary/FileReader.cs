@@ -101,27 +101,31 @@ namespace MCosmosClassLibrary
                 _ => { });
         }
 
-        public FileReader Parameter<T>(string leftSideMatchRequired, Func<string, T?> parser, out T result) where T: struct
+        public FileReader Parameter<T>(string labelRequired, Func<string, T?> parser, out T result) where T: struct
         {
             var box = new Box<T>();  // because we can't lambda-bind an 'out' parameter.   TODO: Is there a more C#-native solution?
 
             void TryExtractDataFromLineFound(string documentRow)
             {
-                var rightHandSide = documentRow.Substring(leftSideMatchRequired.Length);
-                var parseResult = parser(rightHandSide);
-                if (parseResult.HasValue)
+                var i = documentRow.LastIndexOf(labelRequired);
+                if (i >= 0)
                 {
-                    box.Content = parseResult.Value;
+                    var rightHandSide = documentRow.Substring(i + labelRequired.Length).Trim();
+                    var parseResult = parser(rightHandSide);
+                    if (parseResult.HasValue)
+                    {
+                        box.Content = parseResult.Value;
+                    }
+
+                    return;
                 }
-                else
-                {
-                    throw new Exception($"Failed to read value after '{leftSideMatchRequired}'."); // TODO: message according to parser type
-                }
+
+                throw new Exception($"Failed to read value after '{labelRequired}'."); // TODO: message according to parser type
             }
 
             var retVal = NextLineWhere(
-                s => s.StartsWith(leftSideMatchRequired),
-                () => $"Could not find a line beginning with '{leftSideMatchRequired}' from this point forwards.",
+                s => s.Contains(labelRequired),
+                () => $"Could not find a line beginning with '{labelRequired}' from this point forwards.",
                 TryExtractDataFromLineFound);
 
             result = box.Content;

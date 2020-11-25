@@ -78,11 +78,10 @@ namespace MCosmosClassLibrary
         {
             reader
                 .ExpectWholeLine("Parallelism - 4 opposed positions")
-                // TODO: Talk to Dale and Louis about what these leading numbers (199 etc) actually are.
-                .Parameter("199 Datum E LH 1", Parse.SecondNumberOfTwo, out double datumELH1)
-                .Parameter("200 Datum E RH 1", Parse.SecondNumberOfTwo, out double datumERH1)
-                .Parameter("113 Datum G FR 1", Parse.SecondNumberOfTwo, out double datumGFR1)
-                .Parameter("202 Datum G BK 1", Parse.SecondNumberOfTwo, out double datumGBK1);
+                .Parameter("Datum E LH 1", Parse.SecondNumberOfTwo, out double datumELH1)
+                .Parameter("Datum E RH 1", Parse.SecondNumberOfTwo, out double datumERH1)
+                .Parameter("Datum G FR 1", Parse.SecondNumberOfTwo, out double datumGFR1)
+                .Parameter("Datum G BK 1", Parse.SecondNumberOfTwo, out double datumGBK1);
 
             return new ParallelMeasurements
             {
@@ -95,24 +94,18 @@ namespace MCosmosClassLibrary
 
         private DistanceMeasurements LoadDiagonals()
         {
-            // TODO: Talk to Dale and Louis about whether these -1.5 and -10.3 numbers could change.
-            //       Are they user-definable?  Can they be fixed at certain values, or eliminated, or 
-            //       replaced with a fixed, unchanging, text string?
             reader
                 .ExpectWholeLine("Datum E to Datum F - (diagonals at -1.5 & -10.3)")
-
-                // TODO: Talk to Dale and Louis about what these leading numbers (109 etc) actually are.
-                .Parameter("109 E to F at -1.5 LH",  Parse.ThirdNumberOfFour, out double EtoFLeft1 )  // TODO: 199 Datum E LH 1
-                .Parameter("211 E to F at -1.5 RH",  Parse.ThirdNumberOfFour, out double EtoFRight1)  // TODO: 199 Datum E LH 1
-                .Parameter("213 E to F at -10.3 LH", Parse.ThirdNumberOfFour, out double EtoFLeft2 )  // TODO: 199 Datum E LH 1
-                .Parameter("215 E to F at -10.3 RH", Parse.ThirdNumberOfFour, out double EtoFRight2)  // TODO: 199 Datum E LH 1
+                .Parameter("E to F at -1.5 LH",  Parse.ThirdNumberOfFour, out double EtoFLeft1 )  // TODO: 199 Datum E LH 1
+                .Parameter("E to F at -1.5 RH",  Parse.ThirdNumberOfFour, out double EtoFRight1)  // TODO: 199 Datum E LH 1
+                .Parameter("E to F at -10.3 LH", Parse.ThirdNumberOfFour, out double EtoFLeft2 )  // TODO: 199 Datum E LH 1
+                .Parameter("E to F at -10.3 RH", Parse.ThirdNumberOfFour, out double EtoFRight2)  // TODO: 199 Datum E LH 1
 
                 .ExpectWholeLine("Datum G to Datum D - (diagonals at -1.5 & -10.3)")
-
-                .Parameter("518 G to D at -1.5 FR",  Parse.ThirdNumberOfFour, out double GtoDFront1)  // TODO: 199 Datum E LH 1
-                .Parameter("220 G to D at -1.5 BK",  Parse.ThirdNumberOfFour, out double GtoDBack1 )  // TODO: 199 Datum E LH 1
-                .Parameter("222 G to D at -10.3 FR", Parse.ThirdNumberOfFour, out double GtoDFront2)  // TODO: 199 Datum E LH 1
-                .Parameter("224 G to D at -10.3 BK", Parse.ThirdNumberOfFour, out double GtoDBack2 );  // TODO: 199 Datum E LH 1
+                .Parameter("G to D at -1.5 FR",  Parse.ThirdNumberOfFour, out double GtoDFront1)  // TODO: 199 Datum E LH 1
+                .Parameter("G to D at -1.5 BK",  Parse.ThirdNumberOfFour, out double GtoDBack1 )  // TODO: 199 Datum E LH 1
+                .Parameter("G to D at -10.3 FR", Parse.ThirdNumberOfFour, out double GtoDFront2)  // TODO: 199 Datum E LH 1
+                .Parameter("G to D at -10.3 BK", Parse.ThirdNumberOfFour, out double GtoDBack2 );  // TODO: 199 Datum E LH 1
 
             return new DistanceMeasurements
             {
