@@ -11,8 +11,10 @@ namespace DaleHackathon2020
             // var filePath = @"C:\Users\ukjmak\OneDrive - Waters Corporation\Documents\Hackathon 2020 - Dale Beardsall - Quadrupole discs\TEST2 -- output from MCOSMOS software.txt";
             // var loadedFile = MCosmosClassLibrary.DiscFileLoader.LoadFromFile(filePath);
 
-            var discList = FolderProcessor.FolderToDiscList("ExampleFiles");
+            //var discList = FolderProcessor.FolderToDiscList("ExampleFiles");
+            var discList = ExampleFilesCollection.DalesSpreadsheetProvider.GroundAtStruder();
             var pairings = Mathematics.ListOfMatchedPairs(discList.ToList());
+
             foreach(Pair p in pairings)
             {
                 // TODO: Escape for CSV

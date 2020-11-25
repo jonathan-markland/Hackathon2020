@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MCosmosClassLibrary\MCosmosClassLibrary.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="ExampleFiles\Ser No 1    repeat -- 1.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
