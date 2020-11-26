@@ -10,7 +10,8 @@ namespace TestProject
         public void SerialiseDiscToCSVPassesFieldsThroughInExpectedOrder()
         {
             var metadata = new DiscMetadata {
-                SerialNo = "123"
+                SerialNo = "123",
+                OriginFilePath = "C:\\CMMFiles\\123.txt"
             };
 
             var flatness = new FlatnessMeasurements

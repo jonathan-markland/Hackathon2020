@@ -20,6 +20,11 @@ namespace MCosmosClassLibrary
         /// The serial number of the disc.
         /// </summary>
         public string SerialNo;
+
+        /// <summary>
+        /// The path to the file from which this data was loaded.
+        /// </summary>
+        public string OriginFilePath;
     }
 
     /// <summary>

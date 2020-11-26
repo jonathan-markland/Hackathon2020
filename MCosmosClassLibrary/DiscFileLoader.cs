@@ -11,15 +11,17 @@ namespace MCosmosClassLibrary
     {
         private FileReader reader;
         private DiscInfo results;
+        private string SourceFilePath;
 
         public static DiscInfo LoadFromFile(string sourceFilePath)
         {
             return new DiscFileLoader(sourceFilePath).results;
         }
 
-        private DiscFileLoader(string sourceFile)
+        private DiscFileLoader(string sourceFilePath)
         {
-            reader = new FileReader(sourceFile);
+            SourceFilePath = sourceFilePath;
+            reader = new FileReader(sourceFilePath);
             results = Load();
         }
 
@@ -52,7 +54,8 @@ namespace MCosmosClassLibrary
                 .ExpectLineStartingWith("Description    : Alignment Disc Hybrid");   // TODO: Could this title change?
 
             return new DiscMetadata { 
-                SerialNo = serialNo.Value
+                SerialNo = serialNo.Value,
+                OriginFilePath = SourceFilePath
             };
         }
 

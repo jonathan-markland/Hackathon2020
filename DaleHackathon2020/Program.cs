@@ -6,8 +6,11 @@ namespace DaleHackathon2020
 {
     class Program
     {
-        // TODO: Explain why a disc is the grade it is.
-        // 
+        // TODO: Uniqueness validation on the SerialNos.
+
+        // TODO: Process output:  Explain why a disc is the grade it is. (HTML colours on pre-filtered data).
+        // TODO: Process output:  Summary list of those DiscGradeInfos that were paired off this time.
+        // TODO: Process output:  Summary list of those DiscGradeInfos that were left over.
 
         static void Main(string[] args)
         {

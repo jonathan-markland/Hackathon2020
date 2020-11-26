@@ -12,7 +12,7 @@ namespace ExampleFilesCollection
             double ef15lh, double ef15rh, double ef103lh, double ef103rh,
             double gd15fr, double gd15bk, double gd103fr, double gd103bk)
         {
-            var metadata = new DiscMetadata { SerialNo = serialNo };
+            var metadata = new DiscMetadata { SerialNo = serialNo, OriginFilePath = $"C:\\CMMFiles\\{serialNo}.txt" };
             var flatness = new FlatnessMeasurements { DatumF = flatF, DatumE = flatE, DatumD = flatD, DatumG = flatG };
             var parallel = new ParallelMeasurements { DatumELH1 = elh1, DatumERH1 = erh1, DatumGFR1 = gfr1, DatumGBK1 = gbk1 };
             var distance = new DistanceMeasurements
