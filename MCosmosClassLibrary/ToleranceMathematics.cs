@@ -25,69 +25,6 @@ namespace MCosmosClassLibrary
         public static double DistToleranceA = 0.001;
         public static double DistToleranceB = 0.002;
 
-        /*
-        public static DiscGrade Grade(this DiscInfo disc)
-        {
-            return DiscGradeFor(disc.Flatness, disc.Parallel, disc.Distances);
-        }
-
-        public static DiscGrade DiscGradeFor(
-            FlatnessMeasurements flatness,
-            ParallelMeasurements parallel,
-            DistanceMeasurements distances)
-        {
-            if (flatness.Below(FlatParaToleranceA)
-                && parallel.Below(FlatParaToleranceA)
-                && distances.WithinBand(DistTarget, DistToleranceA))
-            {
-                return DiscGrade.GradeA;
-            }
-            else if (flatness.Below(FlatParaToleranceB)
-                && parallel.Below(FlatParaToleranceB)
-                && distances.WithinBand(DistTarget, DistToleranceB))
-            {
-                return DiscGrade.GradeB;
-            }
-            else
-            {
-                return DiscGrade.GradeC;
-            }
-        }
-
-        public static bool Below(this FlatnessMeasurements flatness, double tolerance)
-        {
-            return
-                flatness.DatumF <= tolerance &&
-                flatness.DatumE <= tolerance &&
-                flatness.DatumD <= tolerance &&
-                flatness.DatumG <= tolerance;
-        }
-
-        public static bool Below(this ParallelMeasurements parallel, double tolerance)
-        {
-            return
-                parallel.DatumELH1 <= tolerance &&
-                parallel.DatumERH1 <= tolerance &&
-                parallel.DatumGFR1 <= tolerance &&
-                parallel.DatumGBK1 <= tolerance;
-        }
-
-        public static bool WithinBand(this DistanceMeasurements distance, double target, double tolerance)
-        {
-            bool liesInBand(double n) { return (n >= target - tolerance) && (n <= target + tolerance); }
-
-            return
-                liesInBand(distance.EtoFLeft1 ) &&
-                liesInBand(distance.EtoFRight1) &&
-                liesInBand(distance.EtoFLeft2 ) &&
-                liesInBand(distance.EtoFRight2) &&
-                liesInBand(distance.GtoDFront1) &&
-                liesInBand(distance.GtoDBack1 ) &&
-                liesInBand(distance.GtoDFront2) &&
-                liesInBand(distance.GtoDBack2 );
-        }
-
-        */
 
 
         public static IEnumerable<DiscGradeInfo> IncludingGradeAandBonly(this IEnumerable<DiscGradeInfo> discList)
