@@ -49,7 +49,7 @@ namespace TestProject
                 Distances = distances
             };
 
-            var actual = CsvGenerator.GetLine(discInfo);
+            var actual = discInfo.CSVLine();
             var expectation = "\"123\",\"1.00000\",\"2.00000\",\"3.00000\",\"4.00000\",\"5.00000\",\"6.00000\",\"7.00000\",\"8.00000\",\"9.00000\",\"10.00000\",\"11.00000\",\"12.00000\",\"13.00000\",\"14.00000\",\"15.00000\",\"16.00000\"";
             Assert.Equal(expectation, actual);
         }

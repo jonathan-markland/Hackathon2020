@@ -30,9 +30,6 @@ namespace TestProject
 			Assert.Equal(28.02423, loadedFile.Distances.GtoDBack1 );
 			Assert.Equal(28.08503, loadedFile.Distances.GtoDFront2);
 			Assert.Equal(28.08362, loadedFile.Distances.GtoDBack2 );
-
-			Assert.False(loadedFile.Flatness.AllWithinTolerance, "Overall flatness expected to be out of tolerance for this file.");
-			Assert.False(loadedFile.Parallel.AllWithinTolerance, "Overall parallelism expected to be out of tolerance for this file.");
 		}
 
 		[Fact]
