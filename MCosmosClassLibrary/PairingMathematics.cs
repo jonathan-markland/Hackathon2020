@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
 
 namespace MCosmosClassLibrary
 {
-    public static class Mathematics
+    public static class PairingMathematics
     {
         public static double EuclideanDistanceBetween(
             DistanceMeasurements disc1, 
@@ -27,8 +26,9 @@ namespace MCosmosClassLibrary
             return Math.Sqrt(sumDiffs);  // TODO: Don't SQRT, just sort on the SQUARES.  Sqrt only on the pairs that make it to the final report.
         }
 
-        public static List<Pair> ListOfMatchedPairs(List<DiscInfo> discList)
+        public static List<Pair> AsListOfMatchedPairs(this IEnumerable<DiscInfo> discs)
         {
+            var discList = discs.ToList();
             var n = discList.Count;
             var resultCount = ((n * n) - n) / 2;
             var pairs = new List<Pair>(resultCount);
@@ -74,7 +74,7 @@ namespace MCosmosClassLibrary
             Disc1 = disc1;
             Disc2 = disc2;
             EuclideanDistance =
-                Mathematics.EuclideanDistanceBetween(
+                PairingMathematics.EuclideanDistanceBetween(
                     disc1.Distances, disc2.Distances);
         }
 

@@ -6,26 +6,25 @@ namespace DaleHackathon2020
 {
     class Program
     {
+        // TODO: Explain why a disc is the grade it is.
+        // 
+
         static void Main(string[] args)
         {
-            // var filePath = @"C:\Users\ukjmak\OneDrive - Waters Corporation\Documents\Hackathon 2020 - Dale Beardsall - Quadrupole discs\TEST2 -- output from MCOSMOS software.txt";
-            // var loadedFile = MCosmosClassLibrary.DiscFileLoader.LoadFromFile(filePath);
+            var primaryList = ExampleFilesCollection.DalesSpreadsheetProvider.GroundAtStruder();
 
-            //var discList = FolderProcessor.FolderToDiscList("ExampleFiles");
-            var discList = ExampleFilesCollection.DalesSpreadsheetProvider.GroundAtStruder();
-            var pairings = Mathematics.ListOfMatchedPairs(discList.ToList());
+            foreach (DiscInfo disc in primaryList)
+            {
+                Console.WriteLine(disc.CSVLineWithGrade());
+            }
+
+            var filteredList = primaryList.IncludingGradeAandBonly();
+            var pairings = filteredList.AsListOfMatchedPairs();
 
             foreach(Pair p in pairings)
             {
-                // TODO: Escape for CSV
-                Console.WriteLine($"\"{p.EuclideanDistance}\", \"{p.Disc1.Metadata.SerialNo}\", \"{p.Disc2.Metadata.SerialNo}\"");
+                Console.WriteLine(p.CSVLine());
             }
-
-            //foreach(var line in csv)
-            //{
-            //    Console.WriteLine(line);
-            //}
-
 
             Console.WriteLine("Complete");
         }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
 namespace MCosmosClassLibrary
 {
     public static class CsvGenerator
@@ -11,7 +8,7 @@ namespace MCosmosClassLibrary
             get { return "\"Serial No.\",\"flatDatumF\",\"flatDatumE\",\"flatDatumD\",\"flatDatumG\",\"paraDatumELH1\",\"paraDatumERH1\",\"paraDatumGFR1\",\"paraDatumGBK1\",\"distEtoFLeft1\",\"distEtoFRight1\",\"distEtoFLeft2\",\"distEtoFRight2\",\"distGtoDFront1\",\"distGtoDBack1\",\"distGtoDFront2\",\"distGtoDBack2\""; }
         }
 
-        public static string GetLine(DiscInfo discInfo)
+        public static string CSVLine(this DiscInfo discInfo)
         {
             var serialNo       = discInfo.Metadata.SerialNo;  // TODO: Escape for CSV
             var flatDatumF     = discInfo.Flatness.DatumF;
@@ -31,6 +28,19 @@ namespace MCosmosClassLibrary
             var distGtoDFront2 = discInfo.Distances.GtoDFront2;
             var distGtoDBack2  = discInfo.Distances.GtoDBack2;
             return $"\"{serialNo}\",\"{flatDatumF:0.00000}\",\"{flatDatumE:0.00000}\",\"{flatDatumD:0.00000}\",\"{flatDatumG:0.00000}\",\"{paraDatumELH1:0.00000}\",\"{paraDatumERH1:0.00000}\",\"{paraDatumGFR1:0.00000}\",\"{paraDatumGBK1:0.00000}\",\"{distEtoFLeft1:0.00000}\",\"{distEtoFRight1:0.00000}\",\"{distEtoFLeft2:0.00000}\",\"{distEtoFRight2:0.00000}\",\"{distGtoDFront1:0.00000}\",\"{distGtoDBack1:0.00000}\",\"{distGtoDFront2:0.00000}\",\"{distGtoDBack2:0.00000}\"";
+        }
+
+        public static string CSVLineWithGrade(this DiscInfo disc)
+        {
+            var gradeOfDisc = disc.Grade();
+            return disc.CSVLine() + $",\"{gradeOfDisc}\"";
+        }
+
+        public static string CSVLine(this Pair p)
+        {
+            var gradeOfDisc1 = p.Disc1.Grade();
+            var gradeOfDisc2 = p.Disc2.Grade();
+            return $"\"{p.EuclideanDistance}\", \"{p.Disc1.Metadata.SerialNo}\", \"{gradeOfDisc1.ToString()}\", \"{p.Disc2.Metadata.SerialNo}\", \"{gradeOfDisc2.ToString()}\"";
         }
     }
 }

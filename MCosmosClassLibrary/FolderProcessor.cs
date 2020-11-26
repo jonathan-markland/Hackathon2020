@@ -21,7 +21,7 @@ namespace MCosmosClassLibrary
 
             foreach(DiscInfo discInfo in FolderToDiscList(folderPath))
             {
-                yield return CsvGenerator.GetLine(discInfo);
+                yield return discInfo.CSVLine();
             }
         }
     }

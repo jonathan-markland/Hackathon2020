@@ -28,27 +28,10 @@ namespace MCosmosClassLibrary
     /// </summary>
     public struct FlatnessMeasurements
     {
-        public static double Tolerance = 0.002; // TODO: obsolete criteria - GradeA and GradeB instead
-
         public double DatumF;
         public double DatumE;
         public double DatumD;
         public double DatumG;
-
-        /// <summary>
-        /// Returns true/false according to whether all of the values are within the tolerance allowed.
-        /// </summary>
-        public bool AllWithinTolerance
-        {
-            get
-            {
-                return
-                    this.DatumF < Tolerance &&
-                    this.DatumE < Tolerance &&
-                    this.DatumD < Tolerance &&
-                    this.DatumG < Tolerance;
-            }
-        }
     }
 
     /// <summary>
@@ -57,8 +40,6 @@ namespace MCosmosClassLibrary
     /// </summary>
     public struct ParallelMeasurements
     {
-        public static double Tolerance = 0.002;// TODO: obsolete criteria - GradeA and GradeB instead
-
         /// <summary>
         /// Datum E LH 1
         /// </summary>
@@ -78,21 +59,6 @@ namespace MCosmosClassLibrary
         /// Datum G BK 1
         /// </summary>
         public double DatumGBK1;
-
-        /// <summary>
-        /// Returns true/false according to whether all of the values are within the tolerance allowed.
-        /// </summary>
-        public bool AllWithinTolerance
-        {
-            get
-            {
-                return
-                    this.DatumELH1 < Tolerance &&
-                    this.DatumERH1 < Tolerance &&
-                    this.DatumGFR1 < Tolerance &&
-                    this.DatumGBK1 < Tolerance;
-            }
-        }
     }
 
     public struct DistanceMeasurements
