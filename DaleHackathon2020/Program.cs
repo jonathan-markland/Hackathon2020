@@ -18,10 +18,12 @@ namespace DaleHackathon2020
 
             var gradedPrimaryList = primaryList.Select(disc => disc.DiscGradeInfo());
 
-            // foreach (DiscGradeInfo disc in gradedPrimaryList)
-            // {
-            //     Console.WriteLine(disc.CSVLine());
-            // }
+            foreach (DiscGradeInfo disc in gradedPrimaryList)
+            {
+                Console.WriteLine(disc.CSVLineDetailed());
+            }
+
+
 
             var filteredList = gradedPrimaryList.IncludingGradeAandBonly();
 
