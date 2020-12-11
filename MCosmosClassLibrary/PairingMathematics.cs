@@ -12,14 +12,14 @@ namespace MCosmosClassLibrary
         {
             double squared(double v) { return v * v; }
 
-            var d1 = squared(disc1.EtoFLeft1  - disc2.EtoFLeft1);
-            var d2 = squared(disc1.EtoFRight1 - disc2.EtoFRight1);
-            var d3 = squared(disc1.EtoFLeft2  - disc2.EtoFLeft2);
-            var d4 = squared(disc1.EtoFRight2 - disc2.EtoFRight2);
-            var d5 = squared(disc1.GtoDFront1 - disc2.GtoDFront1);
-            var d6 = squared(disc1.GtoDBack1  - disc2.GtoDBack1);
-            var d7 = squared(disc1.GtoDFront2 - disc2.GtoDFront2);
-            var d8 = squared(disc1.GtoDBack2  - disc2.GtoDBack2);
+            var d1 = squared(disc1.EtoFLeft1 .Value - disc2.EtoFLeft1 .Value);
+            var d2 = squared(disc1.EtoFRight1.Value - disc2.EtoFRight1.Value);
+            var d3 = squared(disc1.EtoFLeft2 .Value - disc2.EtoFLeft2 .Value);
+            var d4 = squared(disc1.EtoFRight2.Value - disc2.EtoFRight2.Value);
+            var d5 = squared(disc1.GtoDFront1.Value - disc2.GtoDFront1.Value);
+            var d6 = squared(disc1.GtoDBack1 .Value - disc2.GtoDBack1 .Value);
+            var d7 = squared(disc1.GtoDFront2.Value - disc2.GtoDFront2.Value);
+            var d8 = squared(disc1.GtoDBack2 .Value - disc2.GtoDBack2 .Value);
 
             var sumDiffs = d1 + d2 + d3 + d4 + d5 + d6 + d7 + d8;
 

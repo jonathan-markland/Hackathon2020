@@ -63,10 +63,10 @@ namespace MCosmosClassLibrary
         {
             reader
                 .ExpectWholeLine("Flatness - Datums F, E, D & G (as common zones)")
-                .ExpectWholeLine("Datum F").Parameter("Flatness", Parse.SoleNumber, out double flatF)
-                .ExpectWholeLine("Datum E").Parameter("Flatness", Parse.SoleNumber, out double flatE)
-                .ExpectWholeLine("Datum D").Parameter("Flatness", Parse.SoleNumber, out double flatD)
-                .ExpectWholeLine("Datum G").Parameter("Flatness", Parse.SoleNumber, out double flatG);
+                .ExpectWholeLine("Datum F").Parameter("Flatness", Parse.FlatnessNumber, out MeasureAndGrade flatF)
+                .ExpectWholeLine("Datum E").Parameter("Flatness", Parse.FlatnessNumber, out MeasureAndGrade flatE)
+                .ExpectWholeLine("Datum D").Parameter("Flatness", Parse.FlatnessNumber, out MeasureAndGrade flatD)
+                .ExpectWholeLine("Datum G").Parameter("Flatness", Parse.FlatnessNumber, out MeasureAndGrade flatG);
 
             return new FlatnessMeasurements
             {
@@ -81,10 +81,10 @@ namespace MCosmosClassLibrary
         {
             reader
                 .ExpectWholeLine("Parallelism - 4 opposed positions")
-                .Parameter("Datum E LH 1", Parse.SecondNumberOfTwo, out double datumELH1)
-                .Parameter("Datum E RH 1", Parse.SecondNumberOfTwo, out double datumERH1)
-                .Parameter("Datum G FR 1", Parse.SecondNumberOfTwo, out double datumGFR1)
-                .Parameter("Datum G BK 1", Parse.SecondNumberOfTwo, out double datumGBK1);
+                .Parameter("Datum E LH 1", Parse.ParallelNumber, out MeasureAndGrade datumELH1)
+                .Parameter("Datum E RH 1", Parse.ParallelNumber, out MeasureAndGrade datumERH1)
+                .Parameter("Datum G FR 1", Parse.ParallelNumber, out MeasureAndGrade datumGFR1)
+                .Parameter("Datum G BK 1", Parse.ParallelNumber, out MeasureAndGrade datumGBK1);
 
             return new ParallelMeasurements
             {
@@ -99,16 +99,16 @@ namespace MCosmosClassLibrary
         {
             reader
                 .ExpectWholeLine("Datum E to Datum F - (diagonals at -1.5 & -10.3)")
-                .Parameter("E to F at -1.5 LH",  Parse.ThirdNumberOfFour, out double EtoFLeft1 )  // TODO: 199 Datum E LH 1
-                .Parameter("E to F at -1.5 RH",  Parse.ThirdNumberOfFour, out double EtoFRight1)  // TODO: 199 Datum E LH 1
-                .Parameter("E to F at -10.3 LH", Parse.ThirdNumberOfFour, out double EtoFLeft2 )  // TODO: 199 Datum E LH 1
-                .Parameter("E to F at -10.3 RH", Parse.ThirdNumberOfFour, out double EtoFRight2)  // TODO: 199 Datum E LH 1
+                .Parameter("E to F at -1.5 LH",  Parse.DistanceNumber, out MeasureAndGrade EtoFLeft1 )  // TODO: 199 Datum E LH 1
+                .Parameter("E to F at -1.5 RH",  Parse.DistanceNumber, out MeasureAndGrade EtoFRight1)  // TODO: 199 Datum E LH 1
+                .Parameter("E to F at -10.3 LH", Parse.DistanceNumber, out MeasureAndGrade EtoFLeft2 )  // TODO: 199 Datum E LH 1
+                .Parameter("E to F at -10.3 RH", Parse.DistanceNumber, out MeasureAndGrade EtoFRight2)  // TODO: 199 Datum E LH 1
 
                 .ExpectWholeLine("Datum G to Datum D - (diagonals at -1.5 & -10.3)")
-                .Parameter("G to D at -1.5 FR",  Parse.ThirdNumberOfFour, out double GtoDFront1)  // TODO: 199 Datum E LH 1
-                .Parameter("G to D at -1.5 BK",  Parse.ThirdNumberOfFour, out double GtoDBack1 )  // TODO: 199 Datum E LH 1
-                .Parameter("G to D at -10.3 FR", Parse.ThirdNumberOfFour, out double GtoDFront2)  // TODO: 199 Datum E LH 1
-                .Parameter("G to D at -10.3 BK", Parse.ThirdNumberOfFour, out double GtoDBack2 );  // TODO: 199 Datum E LH 1
+                .Parameter("G to D at -1.5 FR",  Parse.DistanceNumber, out MeasureAndGrade GtoDFront1)  // TODO: 199 Datum E LH 1
+                .Parameter("G to D at -1.5 BK",  Parse.DistanceNumber, out MeasureAndGrade GtoDBack1 )  // TODO: 199 Datum E LH 1
+                .Parameter("G to D at -10.3 FR", Parse.DistanceNumber, out MeasureAndGrade GtoDFront2)  // TODO: 199 Datum E LH 1
+                .Parameter("G to D at -10.3 BK", Parse.DistanceNumber, out MeasureAndGrade GtoDBack2 );  // TODO: 199 Datum E LH 1
 
             return new DistanceMeasurements
             {

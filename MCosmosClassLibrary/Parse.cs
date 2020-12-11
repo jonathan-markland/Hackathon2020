@@ -6,43 +6,53 @@ namespace MCosmosClassLibrary
 {
     public class Parse
     {
-        public static double? SoleNumber(string s)
+        public static MeasureAndGrade? FlatnessNumber(string s)
+        {
+            if (double.TryParse(s.Trim(), out double d))
+            {
+                var grade = ToleranceMathematics.FlatParaGradeFor(d);
+                return new MeasureAndGrade(d, grade);
+            }
+            else return null;
+        }
+
+        private static double? SoleNumberX(string s) // TODO: rename
         {
             if (double.TryParse(s.Trim(), out double d))
             {
                 return d;
             }
-            else return null;
+            return null;
         }
 
-        public static double? FirstNumberOfTwo(string s)
+        public static MeasureAndGrade? ParallelNumber(string s)
         {
             var splittings = s.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
             if (splittings.Length == 2)
             {
-                return SoleNumber(splittings[0]);
+                var value = SoleNumberX(splittings[1]);
+                if (value != null)
+                {
+                    var grade = ToleranceMathematics.FlatParaGradeFor(value.Value);
+                    return new MeasureAndGrade(value.Value, grade);
+                }
             }
-            else return null;
+            return null;
         }
 
-        public static double? SecondNumberOfTwo(string s)
-        {
-            var splittings = s.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-            if (splittings.Length == 2)
-            {
-                return SoleNumber(splittings[1]);
-            }
-            else return null;
-        }
-
-        public static double? ThirdNumberOfFour(string s)
+        public static MeasureAndGrade? DistanceNumber(string s)
         {
             var splittings = s.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
             if (splittings.Length == 4)
             {
-                return SoleNumber(splittings[2]);
+                var value = SoleNumberX(splittings[2]);
+                if (value != null)
+                {
+                    var grade = ToleranceMathematics.DistanceGradeFor(value.Value);
+                    return new MeasureAndGrade(value.Value, grade);
+                }
             }
-            else return null;
+            return null;
         }
 
         /// <summary>

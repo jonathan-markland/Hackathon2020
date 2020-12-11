@@ -13,19 +13,39 @@ namespace ExampleFilesCollection
             double gd15fr, double gd15bk, double gd103fr, double gd103bk)
         {
             var metadata = new DiscMetadata { SerialNo = serialNo, OriginFilePath = $"C:\\CMMFiles\\{serialNo}.txt" };
-            var flatness = new FlatnessMeasurements { DatumF = flatF, DatumE = flatE, DatumD = flatD, DatumG = flatG };
-            var parallel = new ParallelMeasurements { DatumELH1 = elh1, DatumERH1 = erh1, DatumGFR1 = gfr1, DatumGBK1 = gbk1 };
+
+            MeasureAndGrade flatGraded(double n) { return new MeasureAndGrade(n, ToleranceMathematics.FlatParaGradeFor(n)); }
+            MeasureAndGrade paraGraded(double n) { return new MeasureAndGrade(n, ToleranceMathematics.FlatParaGradeFor(n)); }
+            MeasureAndGrade distGraded(double n) { return new MeasureAndGrade(n, ToleranceMathematics.DistanceGradeFor(n)); }
+
+            var flatness = new FlatnessMeasurements 
+            { 
+                DatumF = flatGraded(flatF), 
+                DatumE = flatGraded(flatE), 
+                DatumD = flatGraded(flatD), 
+                DatumG = flatGraded(flatG) 
+            };
+
+            var parallel = new ParallelMeasurements 
+            { 
+                DatumELH1 = paraGraded(elh1), 
+                DatumERH1 = paraGraded(erh1), 
+                DatumGFR1 = paraGraded(gfr1), 
+                DatumGBK1 = paraGraded(gbk1) 
+            };
+            
             var distance = new DistanceMeasurements
             {
-                EtoFLeft1 = ef15lh,
-                EtoFRight1 = ef15rh,
-                EtoFLeft2 = ef103lh,
-                EtoFRight2 = ef103rh,
-                GtoDBack1 = gd15fr,
-                GtoDFront1 = gd15bk,
-                GtoDFront2 = gd103fr,
-                GtoDBack2 = gd103bk
+                EtoFLeft1  = distGraded(ef15lh),
+                EtoFRight1 = distGraded(ef15rh),
+                EtoFLeft2  = distGraded(ef103lh),
+                EtoFRight2 = distGraded(ef103rh),
+                GtoDBack1  = distGraded(gd15fr),
+                GtoDFront1 = distGraded(gd15bk),
+                GtoDFront2 = distGraded(gd103fr),
+                GtoDBack2  = distGraded(gd103bk)
             };
+            
             return new DiscInfo
             {
                 Metadata = metadata,

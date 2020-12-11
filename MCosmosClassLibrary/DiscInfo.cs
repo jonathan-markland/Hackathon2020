@@ -2,6 +2,18 @@
 
 namespace MCosmosClassLibrary
 {
+    public enum DiscGrade
+    {
+        GradeA, GradeB, GradeC
+    }
+
+    public struct MeasureAndGrade
+    {
+        public MeasureAndGrade(double value, DiscGrade grade) { this.Value = value; this.Grade = grade; }
+        public readonly double Value;
+        public readonly DiscGrade Grade;
+    }
+
     /// <summary>
     /// All information pertaining to a Quadrupole disc, as
     /// obtained from an MCOSMOS text file.
@@ -33,10 +45,10 @@ namespace MCosmosClassLibrary
     /// </summary>
     public struct FlatnessMeasurements
     {
-        public double DatumF;
-        public double DatumE;
-        public double DatumD;
-        public double DatumG;
+        public MeasureAndGrade DatumF;
+        public MeasureAndGrade DatumE;
+        public MeasureAndGrade DatumD;
+        public MeasureAndGrade DatumG;
     }
 
     /// <summary>
@@ -48,22 +60,22 @@ namespace MCosmosClassLibrary
         /// <summary>
         /// Datum E LH 1
         /// </summary>
-        public double DatumELH1;
+        public MeasureAndGrade DatumELH1;
 
         /// <summary>
         /// Datum E RH 1
         /// </summary>
-        public double DatumERH1;
+        public MeasureAndGrade DatumERH1;
 
         /// <summary>
         /// Datum G FR 1
         /// </summary>
-        public double DatumGFR1;
+        public MeasureAndGrade DatumGFR1;
 
         /// <summary>
         /// Datum G BK 1
         /// </summary>
-        public double DatumGBK1;
+        public MeasureAndGrade DatumGBK1;
     }
 
     public struct DistanceMeasurements
@@ -71,42 +83,42 @@ namespace MCosmosClassLibrary
         /// <summary>
         /// E to F at -1.5 LH
         /// </summary>
-        public double EtoFLeft1;
+        public MeasureAndGrade EtoFLeft1;
 
         /// <summary>
         /// E to F at -1.5 RH
         /// </summary>
-        public double EtoFRight1;
+        public MeasureAndGrade EtoFRight1;
 
         /// <summary>
         /// E to F at -10.3 LH
         /// </summary>
-        public double EtoFLeft2;
+        public MeasureAndGrade EtoFLeft2;
 
         /// <summary>
         /// E to F at -10.3 RH
         /// </summary>
-        public double EtoFRight2;
+        public MeasureAndGrade EtoFRight2;
 
         /// <summary>
         /// G to D at -1.5 FR
         /// </summary>
-        public double GtoDFront1;
+        public MeasureAndGrade GtoDFront1;
 
         /// <summary>
         /// G to D at -1.5 BK
         /// </summary>
-        public double GtoDBack1;
+        public MeasureAndGrade GtoDBack1;
 
         /// <summary>
         /// G to D at -10.3 FR
         /// </summary>
-        public double GtoDFront2;
+        public MeasureAndGrade GtoDFront2;
 
         /// <summary>
         /// G to D at -10.3 BK
         /// </summary>
-        public double GtoDBack2;
+        public MeasureAndGrade GtoDBack2;
 
     }
 }
