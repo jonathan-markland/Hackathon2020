@@ -27,7 +27,7 @@ namespace MCosmosClassLibrary
             var distGtoDBack1  = discInfo.Distances.GtoDBack1;
             var distGtoDFront2 = discInfo.Distances.GtoDFront2;
             var distGtoDBack2  = discInfo.Distances.GtoDBack2;
-            return $"\"{serialNo}\",\"{flatDatumF:0.00000}\",\"{flatDatumE:0.00000}\",\"{flatDatumD:0.00000}\",\"{flatDatumG:0.00000}\",\"{paraDatumELH1:0.00000}\",\"{paraDatumERH1:0.00000}\",\"{paraDatumGFR1:0.00000}\",\"{paraDatumGBK1:0.00000}\",\"{distEtoFLeft1:0.00000}\",\"{distEtoFRight1:0.00000}\",\"{distEtoFLeft2:0.00000}\",\"{distEtoFRight2:0.00000}\",\"{distGtoDFront1:0.00000}\",\"{distGtoDBack1:0.00000}\",\"{distGtoDFront2:0.00000}\",\"{distGtoDBack2:0.00000}\"";
+            return $"\"{serialNo}\",\"{flatDatumF.Value:0.00000}\",\"{flatDatumE.Value:0.00000}\",\"{flatDatumD.Value:0.00000}\",\"{flatDatumG.Value:0.00000}\",\"{paraDatumELH1.Value:0.00000}\",\"{paraDatumERH1.Value:0.00000}\",\"{paraDatumGFR1.Value:0.00000}\",\"{paraDatumGBK1.Value:0.00000}\",\"{distEtoFLeft1.Value:0.00000}\",\"{distEtoFRight1.Value:0.00000}\",\"{distEtoFLeft2.Value:0.00000}\",\"{distEtoFRight2.Value:0.00000}\",\"{distGtoDFront1.Value:0.00000}\",\"{distGtoDBack1.Value:0.00000}\",\"{distGtoDFront2.Value:0.00000}\",\"{distGtoDBack2.Value:0.00000}\"";
         }
 
         /// <summary>
