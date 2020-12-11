@@ -25,7 +25,7 @@ namespace MCosmosClassLibrary
 
 
 
-        public static IEnumerable<DiscGradeInfo> IncludingGradeAandBonly(this IEnumerable<DiscGradeInfo> discList)
+        public static IEnumerable<DiscInfo> IncludingGradeAandBonly(this IEnumerable<DiscInfo> discList)
         {
             return discList.Where(disc =>
             {
@@ -35,39 +35,29 @@ namespace MCosmosClassLibrary
         }
 
         /// <summary>
-        /// Calculate and return all grading information for the given disc.
-        /// This includes a complete breakdown of what grade is achieved by each field.
-        /// </summary>
-        public static DiscGradeInfo DiscGradeInfo(this DiscInfo discInfo)
-        {
-            return new DiscGradeInfo 
-            {
-                Disc = discInfo,
-                OverallGrade = OverallGradeFrom(discInfo)
-            };
-        }
-
-        /// <summary>
         /// Get the overall grade for the disc from the detail records.
         /// </summary>
-        public static DiscGrade OverallGradeFrom(DiscInfo discInfo)
+        public static DiscGrade OverallGradeFrom(
+            FlatnessMeasurements flatness, 
+            ParallelMeasurements parallel, 
+            DistanceMeasurements distances)
         {
-            return discInfo.Flatness.DatumF.Grade
-                .Floor(discInfo.Flatness.DatumE.Grade)
-                .Floor(discInfo.Flatness.DatumD.Grade)
-                .Floor(discInfo.Flatness.DatumG.Grade)
-                .Floor(discInfo.Parallel.DatumELH1.Grade)
-                .Floor(discInfo.Parallel.DatumERH1.Grade)
-                .Floor(discInfo.Parallel.DatumGFR1.Grade)
-                .Floor(discInfo.Parallel.DatumGBK1.Grade)
-                .Floor(discInfo.Distances.EtoFLeft1.Grade)
-                .Floor(discInfo.Distances.EtoFRight1.Grade)
-                .Floor(discInfo.Distances.EtoFLeft2.Grade)
-                .Floor(discInfo.Distances.EtoFRight2.Grade)
-                .Floor(discInfo.Distances.GtoDFront1.Grade)
-                .Floor(discInfo.Distances.GtoDBack1.Grade)
-                .Floor(discInfo.Distances.GtoDFront2.Grade)
-                .Floor(discInfo.Distances.GtoDBack2.Grade);
+            return flatness.DatumF.Grade
+                .Floor(flatness.DatumE.Grade)
+                .Floor(flatness.DatumD.Grade)
+                .Floor(flatness.DatumG.Grade)
+                .Floor(parallel.DatumELH1.Grade)
+                .Floor(parallel.DatumERH1.Grade)
+                .Floor(parallel.DatumGFR1.Grade)
+                .Floor(parallel.DatumGBK1.Grade)
+                .Floor(distances.EtoFLeft1.Grade)
+                .Floor(distances.EtoFRight1.Grade)
+                .Floor(distances.EtoFLeft2.Grade)
+                .Floor(distances.EtoFRight2.Grade)
+                .Floor(distances.GtoDFront1.Grade)
+                .Floor(distances.GtoDBack1.Grade)
+                .Floor(distances.GtoDFront2.Grade)
+                .Floor(distances.GtoDBack2.Grade);
         }
 
         public static DiscGrade Floor(this DiscGrade a, DiscGrade b)

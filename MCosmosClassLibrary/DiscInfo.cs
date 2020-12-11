@@ -20,10 +20,24 @@ namespace MCosmosClassLibrary
     /// </summary>
     public class DiscInfo
     {
-        public DiscMetadata Metadata;
-        public FlatnessMeasurements Flatness;
-        public ParallelMeasurements Parallel; 
-        public DistanceMeasurements Distances;
+        public DiscInfo(
+            DiscMetadata metadata, 
+            FlatnessMeasurements flatness, 
+            ParallelMeasurements parallel, 
+            DistanceMeasurements distances)
+        {
+            Metadata = metadata;
+            Flatness = flatness;
+            Parallel = parallel;
+            Distances = distances;
+            OverallGrade = ToleranceMathematics.OverallGradeFrom(flatness, parallel, distances);
+        }
+
+        public readonly DiscMetadata Metadata;
+        public readonly FlatnessMeasurements Flatness;
+        public readonly ParallelMeasurements Parallel; 
+        public readonly DistanceMeasurements Distances;
+        public readonly DiscGrade OverallGrade;
     }
 
     public struct DiscMetadata

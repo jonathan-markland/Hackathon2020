@@ -13,9 +13,7 @@ namespace TestProject
         {
             var primaryList = DalesSpreadsheetProvider.GroundAtStruder();
 
-            var gradedPrimaryList = primaryList.Select(disc => disc.DiscGradeInfo());
-
-            var filteredList = gradedPrimaryList.IncludingGradeAandBonly();
+            var filteredList = primaryList.IncludingGradeAandBonly();
 
             var pairings = filteredList.AsListOfMatchedPairs();
 

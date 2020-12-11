@@ -32,13 +32,7 @@ namespace MCosmosClassLibrary
             var parallelism = LoadParallelism();
             var distances = LoadDistances();
             ReadPostamble();
-            
-            return new DiscInfo {
-                Metadata = metadata,
-                Flatness = flatness,
-                Parallel = parallelism,
-                Distances = distances
-            };
+            return new DiscInfo(metadata, flatness, parallelism, distances);
         }
 
         /// <summary>

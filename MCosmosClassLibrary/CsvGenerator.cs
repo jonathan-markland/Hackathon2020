@@ -8,7 +8,7 @@ namespace MCosmosClassLibrary
             get { return "\"Serial No.\",\"flatDatumF\",\"flatDatumE\",\"flatDatumD\",\"flatDatumG\",\"paraDatumELH1\",\"paraDatumERH1\",\"paraDatumGFR1\",\"paraDatumGBK1\",\"distEtoFLeft1\",\"distEtoFRight1\",\"distEtoFLeft2\",\"distEtoFRight2\",\"distGtoDFront1\",\"distGtoDBack1\",\"distGtoDFront2\",\"distGtoDBack2\""; }
         }
 
-        public static string CSVLine(this DiscInfo discInfo)
+        public static string CSVLineOnItsOwn(this DiscInfo discInfo)  // TODO: rename
         {
             var serialNo       = discInfo.Metadata.SerialNo;  // TODO: Escape for CSV
             var flatDatumF     = discInfo.Flatness.DatumF;
@@ -33,19 +33,19 @@ namespace MCosmosClassLibrary
         /// <summary>
         /// Includes serial number, readings and overall grade of disc.
         /// </summary>
-        public static string CSVLine(this DiscGradeInfo disc)
+        public static string CSVLineWithOverallGrade(this DiscInfo disc)
         {
-            return disc.Disc.CSVLine() + $",\"{disc.OverallGrade}\"";
+            return disc.CSVLineOnItsOwn() + $",\"{disc.OverallGrade}\"";
         }
 
         public static string CSVLine(this Pair p)
         {
             var gradeOfDisc1 = p.Disc1.OverallGrade;
             var gradeOfDisc2 = p.Disc2.OverallGrade;
-            return $"\"{p.EuclideanDistance}\", \"{p.Disc1.Disc.Metadata.SerialNo}\", \"{gradeOfDisc1.ToString()}\", \"{p.Disc2.Disc.Metadata.SerialNo}\", \"{gradeOfDisc2.ToString()}\"";
+            return $"\"{p.EuclideanDistance}\", \"{p.Disc1.Metadata.SerialNo}\", \"{gradeOfDisc1.ToString()}\", \"{p.Disc2.Metadata.SerialNo}\", \"{gradeOfDisc2.ToString()}\"";
         }
 
-        public static string CSVLineDetailed(this DiscGradeInfo discInfo)
+        public static string CSVLineDetailed(this DiscInfo discInfo)
         {
             string Field(string s)
             {
@@ -62,24 +62,24 @@ namespace MCosmosClassLibrary
                 return Field($"{mag.Value:0.00000}") + Field(ToLetter(mag.Grade));
             }
 
-            var serialNo = discInfo.Disc.Metadata.SerialNo;  // TODO: Escape for CSV
+            var serialNo = discInfo.Metadata.SerialNo;  // TODO: Escape for CSV
 
-            var flatDatumF = discInfo.Disc.Flatness.DatumF;
-            var flatDatumE = discInfo.Disc.Flatness.DatumE;
-            var flatDatumD = discInfo.Disc.Flatness.DatumD;
-            var flatDatumG = discInfo.Disc.Flatness.DatumG;
-            var paraDatumELH1 = discInfo.Disc.Parallel.DatumELH1;
-            var paraDatumERH1 = discInfo.Disc.Parallel.DatumERH1;
-            var paraDatumGFR1 = discInfo.Disc.Parallel.DatumGFR1;
-            var paraDatumGBK1 = discInfo.Disc.Parallel.DatumGBK1;
-            var distEtoFLeft1 = discInfo.Disc.Distances.EtoFLeft1;
-            var distEtoFRight1 = discInfo.Disc.Distances.EtoFRight1;
-            var distEtoFLeft2 = discInfo.Disc.Distances.EtoFLeft2;
-            var distEtoFRight2 = discInfo.Disc.Distances.EtoFRight2;
-            var distGtoDFront1 = discInfo.Disc.Distances.GtoDFront1;
-            var distGtoDBack1 = discInfo.Disc.Distances.GtoDBack1;
-            var distGtoDFront2 = discInfo.Disc.Distances.GtoDFront2;
-            var distGtoDBack2 = discInfo.Disc.Distances.GtoDBack2;
+            var flatDatumF = discInfo.Flatness.DatumF;
+            var flatDatumE = discInfo.Flatness.DatumE;
+            var flatDatumD = discInfo.Flatness.DatumD;
+            var flatDatumG = discInfo.Flatness.DatumG;
+            var paraDatumELH1 = discInfo.Parallel.DatumELH1;
+            var paraDatumERH1 = discInfo.Parallel.DatumERH1;
+            var paraDatumGFR1 = discInfo.Parallel.DatumGFR1;
+            var paraDatumGBK1 = discInfo.Parallel.DatumGBK1;
+            var distEtoFLeft1 = discInfo.Distances.EtoFLeft1;
+            var distEtoFRight1 = discInfo.Distances.EtoFRight1;
+            var distEtoFLeft2 = discInfo.Distances.EtoFLeft2;
+            var distEtoFRight2 = discInfo.Distances.EtoFRight2;
+            var distGtoDFront1 = discInfo.Distances.GtoDFront1;
+            var distGtoDBack1 = discInfo.Distances.GtoDBack1;
+            var distGtoDFront2 = discInfo.Distances.GtoDFront2;
+            var distGtoDBack2 = discInfo.Distances.GtoDBack2;
 
             var gradeOverall = ToLetter(discInfo.OverallGrade);
 

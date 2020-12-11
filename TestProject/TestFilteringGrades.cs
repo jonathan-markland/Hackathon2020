@@ -15,11 +15,9 @@ namespace TestProject
 
             var primaryList = DalesSpreadsheetProvider.GroundAtStruder();
 
-            var gradedPrimaryList = primaryList.Select(disc => disc.DiscGradeInfo());
+            var filteredList = primaryList.IncludingGradeAandBonly();
 
-            var filteredList = gradedPrimaryList.IncludingGradeAandBonly();
-
-            var stringList = filteredList.Select(discGradeInfo => discGradeInfo.CSVLine()).ToList();
+            var stringList = filteredList.Select(discGradeInfo => discGradeInfo.CSVLineWithOverallGrade()).ToList();
 
             var expected = new List<string>
             {

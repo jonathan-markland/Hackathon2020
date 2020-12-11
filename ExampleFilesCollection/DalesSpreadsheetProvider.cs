@@ -45,14 +45,8 @@ namespace ExampleFilesCollection
                 GtoDFront2 = distGraded(gd103fr),
                 GtoDBack2  = distGraded(gd103bk)
             };
-            
-            return new DiscInfo
-            {
-                Metadata = metadata,
-                Flatness = flatness,
-                Parallel = parallel,
-                Distances = distance
-            };
+
+            return new DiscInfo(metadata, flatness, parallel, distance);
         }
 
         public static IEnumerable<DiscInfo> GroundAtStruder()

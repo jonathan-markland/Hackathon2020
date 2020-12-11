@@ -26,7 +26,7 @@ namespace MCosmosClassLibrary
             return Math.Sqrt(sumDiffs);  // TODO: Don't SQRT, just sort on the SQUARES.  Sqrt only on the pairs that make it to the final report.
         }
 
-        public static List<Pair> AsListOfMatchedPairs(this IEnumerable<DiscGradeInfo> discs)
+        public static List<Pair> AsListOfMatchedPairs(this IEnumerable<DiscInfo> discs)
         {
             var discList = discs.ToList();
             var n = discList.Count;
@@ -50,7 +50,7 @@ namespace MCosmosClassLibrary
 
         public static IEnumerable<Pair> WithoutRepeatUsages(this IOrderedEnumerable<Pair> pairs)
         {
-            var alreadySeen = new List<DiscGradeInfo>();  // TODO: Possibly use associative container, suspect limited benefit at this time.
+            var alreadySeen = new List<DiscInfo>();  // TODO: Possibly use associative container, suspect limited benefit at this time.
 
             foreach(Pair p in pairs)
             {
@@ -69,17 +69,17 @@ namespace MCosmosClassLibrary
     /// </summary>
     public class Pair
     {
-        public Pair(DiscGradeInfo disc1, DiscGradeInfo disc2)
+        public Pair(DiscInfo disc1, DiscInfo disc2)
         {
             Disc1 = disc1;
             Disc2 = disc2;
             EuclideanDistance =
                 PairingMathematics.EuclideanDistanceBetween(
-                    disc1.Disc.Distances, disc2.Disc.Distances);
+                    disc1.Distances, disc2.Distances);
         }
 
-        public readonly DiscGradeInfo Disc1;
-        public readonly DiscGradeInfo Disc2;
+        public readonly DiscInfo Disc1;
+        public readonly DiscInfo Disc2;
         public readonly double EuclideanDistance;
     }
 }
