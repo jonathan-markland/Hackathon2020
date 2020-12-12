@@ -35,8 +35,12 @@ namespace MCosmosClassLibrary
         /// </summary>
         public static string CSVLineWithOverallGrade(this DiscInfo disc)
         {
+            // TODO: There is no companion that provides the headings for this case.
+
             return disc.CSVLineOnItsOwn() + $",\"{disc.OverallGrade}\"";
         }
+
+        // TODO: There is no function that outputs full grade detail to CSV.
 
         public static string CSVLine(this Pair p)
         {

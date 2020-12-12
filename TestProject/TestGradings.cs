@@ -8,8 +8,58 @@ namespace TestProject
 {
     public class TestGradings
     {
+        [Theory]
+        [InlineData(DiscGrade.GradeA, DiscGrade.GradeA, DiscGrade.GradeA)]
+        [InlineData(DiscGrade.GradeA, DiscGrade.GradeB, DiscGrade.GradeB)]
+        [InlineData(DiscGrade.GradeA, DiscGrade.GradeC, DiscGrade.GradeC)]
+        [InlineData(DiscGrade.GradeB, DiscGrade.GradeA, DiscGrade.GradeB)]
+        [InlineData(DiscGrade.GradeB, DiscGrade.GradeB, DiscGrade.GradeB)]
+        [InlineData(DiscGrade.GradeB, DiscGrade.GradeC, DiscGrade.GradeC)]
+        [InlineData(DiscGrade.GradeC, DiscGrade.GradeA, DiscGrade.GradeC)]
+        [InlineData(DiscGrade.GradeC, DiscGrade.GradeB, DiscGrade.GradeC)]
+        [InlineData(DiscGrade.GradeC, DiscGrade.GradeC, DiscGrade.GradeC)]
+        public void FloorFunctionTests(DiscGrade first, DiscGrade second, DiscGrade expected)
+        {
+            var actual = ToleranceMathematics.Floor(first, second);
+            Assert.Equal(expected, actual);
+        }
+
+
+
+        [Theory]
+        [InlineData(0.0     , DiscGrade.GradeA)]
+        [InlineData(0.002   , DiscGrade.GradeA)]
+        [InlineData(0.002001, DiscGrade.GradeB)]
+        [InlineData(0.0025  , DiscGrade.GradeB)]
+        [InlineData(0.002501, DiscGrade.GradeC)]
+        public void FlatnessAndParallelGradings(double measurement, DiscGrade expected)
+        {
+            var actual = ToleranceMathematics.FlatParaGradeFor(measurement);
+            Assert.Equal(expected, actual);
+        }
+
+
+
+        [Theory]
+        [InlineData(28.020,           DiscGrade.GradeA)]
+        [InlineData(28.020 - 0.001,   DiscGrade.GradeA)]
+        [InlineData(28.020 + 0.001,   DiscGrade.GradeA)]
+        [InlineData(28.020 - 0.00101, DiscGrade.GradeB)]
+        [InlineData(28.020 + 0.00101, DiscGrade.GradeB)]
+        [InlineData(28.020 - 0.002,   DiscGrade.GradeB)]
+        [InlineData(28.020 + 0.002,   DiscGrade.GradeB)]
+        [InlineData(28.020 - 0.00201, DiscGrade.GradeC)]
+        [InlineData(28.020 + 0.00201, DiscGrade.GradeC)]
+        public void DistanceGradings(double measurement, DiscGrade expected)
+        {
+            var actual = ToleranceMathematics.DistanceGradeFor(measurement);
+            Assert.Equal(expected, actual);
+        }
+
+
+
         [Fact]
-        public void TestThatStruderCanBeGraded()
+        public void TestThatStruderDiscsCanBeOverallGraded()
         {
             var primaryList = DalesSpreadsheetProvider.GroundAtStruder();
 

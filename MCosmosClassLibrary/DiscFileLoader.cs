@@ -13,7 +13,7 @@ namespace MCosmosClassLibrary
         private DiscInfo results;
         private string SourceFilePath;
 
-        public static DiscInfo LoadFromFile(string sourceFilePath)
+        public static DiscInfo LoadDiscFromFile(string sourceFilePath)
         {
             return new DiscFileLoader(sourceFilePath).results;
         }

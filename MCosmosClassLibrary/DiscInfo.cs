@@ -12,6 +12,10 @@ namespace MCosmosClassLibrary
         public MeasureAndGrade(double value, DiscGrade grade) { this.Value = value; this.Grade = grade; }
         public readonly double Value;
         public readonly DiscGrade Grade;
+        public override string ToString() 
+        {
+            return $"({Value},{Grade})";
+        }
     }
 
     /// <summary>

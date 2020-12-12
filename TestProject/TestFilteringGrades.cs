@@ -11,7 +11,7 @@ namespace TestProject
         [Fact]
         public void TestThatStruderCanBeFilteredOnGradesAandB()
         {
-            // TODO: Prove GradeA -- needs a different dataset
+            // TODO: Prove GradeA -- needs a different dataset because all these are GradeB
 
             var primaryList = DalesSpreadsheetProvider.GroundAtStruder();
 
