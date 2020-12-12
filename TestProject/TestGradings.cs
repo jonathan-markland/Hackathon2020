@@ -13,7 +13,7 @@ namespace TestProject
         {
             var primaryList = DalesSpreadsheetProvider.GroundAtStruder();
 
-            var stringList = primaryList.Select(discGradeInfo => discGradeInfo.CSVLineWithOverallGrade()).ToList();
+            var stringList = primaryList.Select(disc => disc.CSVLineWithOverallGrade()).ToList();
 
             var expected = new List<string> 
             {

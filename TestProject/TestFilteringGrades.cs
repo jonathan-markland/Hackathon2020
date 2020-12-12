@@ -17,7 +17,7 @@ namespace TestProject
 
             var filteredList = primaryList.IncludingGradeAandBonly();
 
-            var stringList = filteredList.Select(discGradeInfo => discGradeInfo.CSVLineWithOverallGrade()).ToList();
+            var stringList = filteredList.Select(disc => disc.CSVLineWithOverallGrade()).ToList();
 
             var expected = new List<string>
             {

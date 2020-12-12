@@ -4,6 +4,9 @@ using System.Linq;
 
 namespace MCosmosClassLibrary
 {
+    /// <summary>
+    /// This is an assistance class, not really primary.  (TODO sort out)
+    /// </summary>
     public class FileReader
     {
         private int PositionIndex;
