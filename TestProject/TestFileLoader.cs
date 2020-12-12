@@ -7,7 +7,7 @@ namespace TestProject
         [Fact]
         public void LoadingTheTEST2FileLoadsExpectedResults()
         {
-            var loadedFile = MCosmosClassLibrary.DiscFileLoader.LoadFromFile("TEST2.txt");
+            var loadedFile = MCosmosClassLibrary.DiscFileLoader.LoadFromFile("SerialNo_2222222222222222.txt");
 
 			Assert.Equal("2222222222222222", loadedFile.Metadata.SerialNo);
 
