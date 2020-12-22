@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Collections.ObjectModel;
 using MCosmosClassLibrary;
 
 namespace MCosmosFolderWatcher.Models
@@ -34,12 +35,12 @@ namespace MCosmosFolderWatcher.Models
         /// <summary>
         /// Files successfully loaded and parsed as discs
         /// </summary>
-        public List<DiscInfo> Discs;
+        public ReadOnlyCollection<DiscInfo> Discs;
 
         /// <summary>
         /// If non-empty, is the file processing errors of individual files.
         /// </summary>
-        public List<FileProcessingError> FileProcessingErrors;
+        public ReadOnlyCollection<FileProcessingError> FileProcessingErrors;
     }
 
     /// <summary>
@@ -50,11 +51,11 @@ namespace MCosmosFolderWatcher.Models
         /// <summary>
         /// The path to the file that had a processing error.
         /// </summary>
-        public string PathToErrantFile;
+        public string PathToErrantFile { get; init; }
 
         /// <summary>
         /// The error message text.
         /// </summary>
-        public string Error;
+        public string Error { get; init; }
     }
 }

@@ -6,9 +6,9 @@ using MCosmosFolderWatcher.Models;
 
 namespace MCosmosFolderWatcher.Algorithms
 {
-    public class BatchFolderLoader
+    public static class BatchFolderLoader
     {
-        public BatchBase LoadDiscsFromFolder(string pathToFolder)
+        public static BatchBase LoadDiscsFromFolder(string pathToFolder)
         {
             try
             {
@@ -25,7 +25,7 @@ namespace MCosmosFolderWatcher.Algorithms
         }
 
 
-        private BatchBase LoadDiscsFromFolder2(string pathToFolder)
+        private static BatchBase LoadDiscsFromFolder2(string pathToFolder)
         {
             // A best-effort returning error detail for individual files.
 
@@ -50,7 +50,10 @@ namespace MCosmosFolderWatcher.Algorithms
                 }
             }
 
-            return new Batch { Discs = discs, FileProcessingErrors = errors };
+            var rodiscs = discs.AsReadOnly();
+            var roerrors = errors.AsReadOnly();
+
+            return new Batch { PathToFolder = pathToFolder, Discs = rodiscs, FileProcessingErrors = roerrors };
         }
     }
 }
