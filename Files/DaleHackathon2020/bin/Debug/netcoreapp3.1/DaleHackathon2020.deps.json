@@ -1,0 +1,50 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "DaleHackathon2020/1.0.0": {
+        "dependencies": {
+          "ExampleFilesCollection": "1.0.0",
+          "MCosmosClassLibrary": "1.0.0"
+        },
+        "runtime": {
+          "DaleHackathon2020.dll": {}
+        }
+      },
+      "ExampleFilesCollection/1.0.0": {
+        "dependencies": {
+          "MCosmosClassLibrary": "1.0.0"
+        },
+        "runtime": {
+          "ExampleFilesCollection.dll": {}
+        }
+      },
+      "MCosmosClassLibrary/1.0.0": {
+        "runtime": {
+          "MCosmosClassLibrary.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "DaleHackathon2020/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ExampleFilesCollection/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MCosmosClassLibrary/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

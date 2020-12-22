@@ -1,0 +1,19 @@
+
+24/11/2020
+----------
+Manufacturer of machine - Mitutoyo
+There is a "template" facility allowing us to fix an output format.
+Louis Goldsby - Solihull - operator.
+Louis can produce a run of documents for 30 discs overnight.
+David Jackson - will take a look at Jonathan's outline of the problem to see if he thinks cosine sim might be possible.
+Graham Steel - thinks this is more than a hackathon.
+Angela Beesley - Meeting 3pm method for maths
+
+The more varience in the part itself == less likely another part 
+will match, say 5 micron diff between max and min measurement.
+
+Angela can use Matlab 
+
+Possible future = ideal pairs MAY still fail in Wexford.
+
+

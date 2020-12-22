@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<style>
+
+.fakescreen {
+	width: 500px; 
+	height: 500px;
+	overflow: auto;
+}
+
+
+
+.handcursor {
+  cursor: pointer;
+}
+
+
+
+.perfectcentercolumn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.dialogsinglecolumn {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: auto;
+}
+
+
+
+
+/* To do an overlay:
+
+   Create an outer containing div, with child divs as layers.
+
+   On the outer containing div:
+   Set class = overlaycontainer.
+   Choose display: as per requirements.  Tested for stability as block, inline-block.
+   NOTE:  You MUST set a width: and height: or the whole thing will disappear!
+   
+   On all child divs:
+   Set class = overlaymember.
+   Use left: and top: to perform origin offsetting of each child individually.
+   Note that if used, overriding overflow:hidden to, say, overflow:auto only 
+   makes sense on the topmost (last child) div.
+*/
+
+.overlaycontainer {
+  position:relative;
+  overflow:hidden;
+}
+
+.overlaymember {
+  position: absolute;
+  overflow: hidden;
+  display: block;
+  width:100%;
+  height:100%;
+}
+
+
+
+.bgback1   { background-color: #444444; }  .fgback1   { color: #FFFFFF; }
+.bgback2   { background-color: #DDDDDD; }  .fgback2   { color: #000000; }
+.bgsplash1 { background-color: #1BA8F0; }  .fgsplash1 { color: #000000; }
+
+
+.container {
+	display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-areas: 'main main menu';
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.main { grid-area: main; }
+.menu { grid-area: menu; padding:1rem; }
+
+.watersimage {
+	width: 75%;
+}
+
+#text{
+  font-size: 50px;
+  color: red;
+}
+
+</style>
+
+
+<div class="fakescreen" style="background-color:grey;">
+
+<!--   Offset alignment disc background plate
+	<div style="width:100%; height:100%; background-color:yellow; overflow:hidden;">
+		<img style="position:relative; left:50%; top:50%; width:100%; height:100%;" src="AlignmentDisc3D.svg" alt="Alignment Disc"/>
+	</div>
+-->
+
+<!--   Offset alignment disc inline-block
+	Text Text Text Text Text Text Text Text Text Text Text Text Text Text 
+	<div style="display:inline-block; width:7em; height:7em; background-color:lightgrey; overflow:hidden;">
+		<img style="position:relative; left:50%; top:50%; width:100%; height:100%;" src="AlignmentDisc3D.svg" alt="Alignment Disc"/>
+	</div>
+	Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text 
+-->
+
+<!--   Working overlay
+
+	Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text 
+	<div style="display:inline-block; width:20em; height:20em; ">
+		<div class="overlaycontainer bgsplash1">
+			<img class="overlaymember" style="left:50%; top:50%;" src="AlignmentDisc3D.svg" alt="Alignment Disc"/>
+			<div class="overlaymember" style="overflow:auto;">
+				<div id="text">Overlay Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text </div>
+			</div>
+		</div>
+	</div>
+	Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text 
+-->
+
+	Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text 
+	<div class="overlaycontainer bgsplash1" style="display:inline-block; width:20em; height:20em;">
+		<img class="overlaymember" style="left:50%; top:50%;" src="AlignmentDisc3D.svg" alt="Alignment Disc"/>
+		<div class="overlaymember" style="overflow:auto;">
+			<div id="text">Overlay Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text </div>
+		</div>
+	</div>
+	Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text 
+
+
+
+
+<!--
+	<div class="container">
+
+
+
+      <div class="main perfectcentercolumn bgsplash1 fgsplash1">
+      	<img class="watersimage" src="waters-logo-black.svg" alt="Waters Corporation"/>
+		<div>asdfasdf2345</div>
+      </div>
+      <div class="menu dialogsinglecolumn bgback1 fgback1">
+		<div>asdfasdf2345</div>
+		<div>asdfasdf2345</div>
+		<div>asdfasdf2345</div>
+		<div>asdfasdf2345</div>
+		<div>asdfasdf2345</div>
+		<div>asdfasdf2345</div>
+		<div>asdfasdf2345</div>
+		<div>asdfasdf2345</div>
+		<div>asdfasdf2345</div>
+		<div>asdfasdf2345</div>
+		<div>asdfasdf2345</div>
+		<div>asdfasdf2345</div>
+		<div>asdfasdf2345</div>
+		<div>asdfasdf2345</div>
+		<div>asdfasdf2345</div>
+		<div>asdfasdf2345</div>
+		<div>asdfasdf2345</div>
+		<div>asdfasdf2345</div>
+		<div>asdfasdf2345</div>
+		<div>asdfasdf2345</div>
+		<div>asdfasdf2345</div>
+		<div>asdfasdf2345</div>
+		<div>asdfasdf2345</div>
+		<div>asdfasdf2345</div>
+		<div>asdfasdf2345</div>
+		<div>asdfasdf2345</div>
+		<div>asdfasdf2345</div>
+		<div>asdfasdf2345</div>
+		<div>asdfasdf2345</div>
+		<div>asdfasdf2345</div>
+		<div>asdfasdf2345</div>
+		<div>asdfasdf2345</div>
+		<div>asdfasdf2345</div>
+		<div>asdfasdf2345</div>
+		<div>asdfasdf2345</div>
+		<div>asdfasdf2345</div>
+		<div>asdfasdf2345</div>
+		<div>asdfasdf2345</div>
+		<div>asdfasdf2345</div>
+		<div>asdfasdf2345</div>
+		<div>asdfasdf2345</div>
+      </div>
+    </div>
+-->
+
+</div>
+
+
+</body>
+
+</html>
