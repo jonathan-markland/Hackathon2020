@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DaleHackathon2020", "DaleHa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MCosmosClassLibrary", "MCosmosClassLibrary\MCosmosClassLibrary.csproj", "{1A77E623-B352-485D-86D6-392B5196525F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject", "TestProject\TestProject.csproj", "{94C7CE02-DAA7-4F20-8783-1B73C371A21A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject", "TestProject\TestProject.csproj", "{94C7CE02-DAA7-4F20-8783-1B73C371A21A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleFilesCollection", "ExampleFilesCollection\ExampleFilesCollection.csproj", "{A5D07FDC-E5D1-49EF-BA02-CA026DF857D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCosmosFolderWatcher", "MCosmosFolderWatcher\MCosmosFolderWatcher.csproj", "{381CCEE4-D888-4F68-9B48-1A5A03DD48F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{A5D07FDC-E5D1-49EF-BA02-CA026DF857D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5D07FDC-E5D1-49EF-BA02-CA026DF857D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5D07FDC-E5D1-49EF-BA02-CA026DF857D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{381CCEE4-D888-4F68-9B48-1A5A03DD48F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{381CCEE4-D888-4F68-9B48-1A5A03DD48F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{381CCEE4-D888-4F68-9B48-1A5A03DD48F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{381CCEE4-D888-4F68-9B48-1A5A03DD48F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
