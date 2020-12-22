@@ -91,6 +91,25 @@
     <None Update="ExampleFiles\SerialNo_2222222222222222.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="GoodAndBadFiles\HalfMissing.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="GoodAndBadFiles\Ser No 1    repeat -- 1.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="GoodAndBadFiles\Ser No 1    repeat -- 2.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="GoodAndBadFiles\Ser No 1    repeat -- 3.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="GoodAndBadFiles\TotallyEmpty.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="GoodAndBadFiles\" />
   </ItemGroup>
 
 </Project>
