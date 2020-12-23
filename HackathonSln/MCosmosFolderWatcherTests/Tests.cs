@@ -6,7 +6,7 @@ using MCosmosFolderWatcher.Models;
 
 namespace MCosmosFolderWatcherTests
 {
-    public class Tests
+    public class LoadDiscsFromFolderScenarios
     {
         private string InCurrentDirectory(string path)
         {
@@ -26,7 +26,7 @@ namespace MCosmosFolderWatcherTests
 
 
         [Fact]
-        public void PerfectLoad()
+        public void FolderHasAllGoodFiles()
         {
             var batchLoadResult =
                 BatchFolderLoader.LoadDiscsFromFolder(
@@ -44,7 +44,7 @@ namespace MCosmosFolderWatcherTests
 
 
         [Fact]
-        public void NonExistentBatchFolder()
+        public void FolderDoesntExist()
         {
             var batchLoadResult =
                 BatchFolderLoader.LoadDiscsFromFolder(
@@ -64,7 +64,7 @@ namespace MCosmosFolderWatcherTests
 
 
         [Fact]
-        public void OneFileHeldOpen()
+        public void AnotherProcessHasLockedFile()
         {
             var fileToOpenExclusively =
                 Path.Combine(
@@ -96,7 +96,7 @@ namespace MCosmosFolderWatcherTests
 
 
         [Fact]
-        public void GoodAndBadFiles()
+        public void FolderHasGoodAndBadFiles()
         {
             var batchLoadResult =
                 BatchFolderLoader.LoadDiscsFromFolder(

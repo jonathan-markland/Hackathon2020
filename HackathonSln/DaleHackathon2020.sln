@@ -7,13 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DaleHackathon2020", "DaleHa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MCosmosClassLibrary", "MCosmosClassLibrary\MCosmosClassLibrary.csproj", "{1A77E623-B352-485D-86D6-392B5196525F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject", "TestProject\TestProject.csproj", "{94C7CE02-DAA7-4F20-8783-1B73C371A21A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MCosmosClassLibraryTests", "TestProject\MCosmosClassLibraryTests.csproj", "{94C7CE02-DAA7-4F20-8783-1B73C371A21A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleFilesCollection", "ExampleFilesCollection\ExampleFilesCollection.csproj", "{A5D07FDC-E5D1-49EF-BA02-CA026DF857D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExampleFilesCollection", "ExampleFilesCollection\ExampleFilesCollection.csproj", "{A5D07FDC-E5D1-49EF-BA02-CA026DF857D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCosmosFolderWatcher", "MCosmosFolderWatcher\MCosmosFolderWatcher.csproj", "{381CCEE4-D888-4F68-9B48-1A5A03DD48F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MCosmosFolderWatcher", "MCosmosFolderWatcher\MCosmosFolderWatcher.csproj", "{381CCEE4-D888-4F68-9B48-1A5A03DD48F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCosmosFolderWatcherTests", "MCosmosFolderWatcherTests\MCosmosFolderWatcherTests.csproj", "{372C7FFB-1CAC-43CA-B6A6-35E69BC667C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MCosmosFolderWatcherTests", "MCosmosFolderWatcherTests\MCosmosFolderWatcherTests.csproj", "{372C7FFB-1CAC-43CA-B6A6-35E69BC667C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

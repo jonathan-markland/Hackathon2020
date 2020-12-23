@@ -6,7 +6,7 @@ using ExampleFilesCollection;
 
 namespace TestProject
 {
-    public class TestGradings
+    public class GradeCalculationScenarios
     {
         [Theory]
         [InlineData(DiscGrade.GradeA, DiscGrade.GradeA, DiscGrade.GradeA)]
@@ -18,7 +18,7 @@ namespace TestProject
         [InlineData(DiscGrade.GradeC, DiscGrade.GradeA, DiscGrade.GradeC)]
         [InlineData(DiscGrade.GradeC, DiscGrade.GradeB, DiscGrade.GradeC)]
         [InlineData(DiscGrade.GradeC, DiscGrade.GradeC, DiscGrade.GradeC)]
-        public void FloorFunctionTests(DiscGrade first, DiscGrade second, DiscGrade expected)
+        public void Floor(DiscGrade first, DiscGrade second, DiscGrade expected)
         {
             var actual = ToleranceMathematics.Floor(first, second);
             Assert.Equal(expected, actual);
@@ -32,7 +32,7 @@ namespace TestProject
         [InlineData(0.002001, DiscGrade.GradeB)]
         [InlineData(0.0025  , DiscGrade.GradeB)]
         [InlineData(0.002501, DiscGrade.GradeC)]
-        public void FlatnessAndParallelGradings(double measurement, DiscGrade expected)
+        public void FlatParaGradeFor(double measurement, DiscGrade expected)
         {
             var actual = ToleranceMathematics.FlatParaGradeFor(measurement);
             Assert.Equal(expected, actual);
@@ -50,7 +50,7 @@ namespace TestProject
         [InlineData(28.020 + 0.002,   DiscGrade.GradeB)]
         [InlineData(28.020 - 0.00201, DiscGrade.GradeC)]
         [InlineData(28.020 + 0.00201, DiscGrade.GradeC)]
-        public void DistanceGradings(double measurement, DiscGrade expected)
+        public void DistanceGradeFor(double measurement, DiscGrade expected)
         {
             var actual = ToleranceMathematics.DistanceGradeFor(measurement);
             Assert.Equal(expected, actual);
@@ -59,7 +59,45 @@ namespace TestProject
 
 
         [Fact]
-        public void TestThatStruderDiscsCanBeOverallGraded()
+        public void StruderFilteredOnOverallGradesAandB()
+        {
+            // TODO: Prove GradeA -- needs a different dataset because all these are GradeB
+
+            var primaryList = DalesSpreadsheetProvider.GroundAtStruder();
+
+            var filteredList = primaryList.IncludingGradeAandBonly();
+
+            var stringList = filteredList.Select(disc => disc.CSVLineWithOverallGrade()).ToList();
+
+            var expected = new List<string>
+            {
+                "'008','0.00128','0.00120','0.00119','0.00127','0.00108','0.00151','0.00059','0.00113','28.02057','28.02113','28.02105','28.02199','28.02140','28.02024','28.02007','28.02154','GradeB'",
+                "'015','0.00198','0.00084','0.00089','0.00083','0.00168','0.00190','0.00157','0.00223','28.01998','28.02024','28.02095','28.02147','28.01999','28.01907','28.02021','28.02123','GradeB'",
+                "'S011','0.00148','0.00171','0.00220','0.00168','0.00089','0.00085','0.00103','0.00097','28.02112','28.02170','28.01980','28.02120','28.02060','28.01980','28.01828','28.01914','GradeB'",
+                "'S021','0.00165','0.00150','0.00120','0.00228','0.00138','0.00117','0.00107','0.00152','28.01895','28.01976','28.01883','28.01931','28.02040','28.01936','28.01884','28.02020','GradeB'",
+                "'S024','0.00127','0.00160','0.00151','0.00160','0.00109','0.00139','0.00110','0.00139','28.01994','28.02080','28.01934','28.01996','28.02013','28.01937','28.01831','28.01919','GradeB'",
+                "'S027','0.00120','0.00153','0.00133','0.00145','0.00122','0.00123','0.00092','0.00163','28.02133','28.02157','28.02107','28.02129','28.02081','28.01985','28.01966','28.02063','GradeB'",
+                "'S043','0.00145','0.00182','0.00146','0.00173','0.00180','0.00171','0.00134','0.00184','28.01947','28.01981','28.01989','28.02027','28.01904','28.01849','28.01849','28.01969','GradeB'",
+                "'S063','0.00127','0.00082','0.00090','0.00088','0.00146','0.00167','0.00132','0.00202','28.01920','28.01936','28.01998','28.02014','28.01887','28.01801','28.01857','28.01975','GradeB'",
+                "'S067','0.00107','0.00107','0.00114','0.00099','0.00104','0.00095','0.00108','0.00145','28.02028','28.02035','28.02052','28.02133','28.01952','28.01858','28.01928','28.02088','GradeB'",
+                "'S070','0.00107','0.00100','0.00122','0.00113','0.00057','0.00065','0.00065','0.00112','28.02190','28.01973','28.02075','28.02045','28.02102','28.02108','28.02176','28.02172','GradeB'",
+                "'S074','0.00105','0.00099','0.00119','0.00109','0.00063','0.00056','0.00051','0.00069','28.01912','28.01954','28.02002','28.02028','28.01930','28.01860','28.01920','28.02042','GradeB'",
+                "'S076','0.00074','0.00092','0.00100','0.00089','0.00062','0.00061','0.00050','0.00090','28.01992','28.01976','28.02042','28.02066','28.01940','28.01824','28.01876','28.02002','GradeB'",
+                "'S079','0.00098','0.00085','0.00125','0.00113','0.00087','0.00081','0.00066','0.00078','28.02103','28.02091','28.02137','28.02117','28.01921','28.01819','28.01815','28.01917','GradeB'",
+                "'S080','0.00145','0.00096','0.00155','0.00134','0.00050','0.00054','0.00051','0.00091','28.02123','28.02186','28.02137','28.02138','28.02084','28.02046','28.02042','28.02116','GradeB'",
+                "'S082','0.00111','0.00132','0.00142','0.00148','0.00070','0.00079','0.00070','0.00113','28.02074','28.02069','28.02103','28.02089','28.01948','28.01830','28.01912','28.02046','GradeB'",
+                "'S102','0.00091','0.00105','0.00093','0.00101','0.00061','0.00072','0.00078','0.00127','28.02055','28.02089','28.02132','28.02155','28.01992','28.01932','28.01992','28.02100','GradeB'",
+                "'S116','0.00094','0.00129','0.00107','0.00117','0.00062','0.00112','0.00091','0.00126','28.02008','28.02016','28.02054','28.02052','28.01969','28.01837','28.01873','28.02009','GradeB'",
+                "'S119','0.00159','0.00200','0.00151','0.00183','0.00124','0.00150','0.00123','0.00139','28.02006','28.02017','28.02099','28.02099','28.01949','28.01865','28.01985','28.02081','GradeB'",
+            };
+
+            Assert.Equal(expected.WithDoubleQuotes(), stringList);
+        }
+
+
+
+        [Fact]
+        public void OverallGradesForFullStruderDataset()
         {
             var primaryList = DalesSpreadsheetProvider.GroundAtStruder();
 

@@ -4,7 +4,7 @@ using MCosmosClassLibrary;
 
 namespace TestProject
 {
-    public class TestCSV
+    public class CsvGenerationScenarios
     {
         [Fact]
         public void SerialiseDiscToCSVPassesFieldsThroughInExpectedOrder()

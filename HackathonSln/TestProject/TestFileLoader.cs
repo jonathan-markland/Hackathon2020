@@ -3,9 +3,10 @@ using MCosmosClassLibrary;
 
 namespace TestProject
 {
-    public class TestFileLoader
-    {
+    public class DiscFileLoaderScenarios
+	{
 		// TODO: Manually examine that the disc grades are correct anyway.
+		// TODO: We have no tests on known-bad files.
 
 
 
@@ -18,7 +19,7 @@ namespace TestProject
 
 
         [Fact]
-        public void LoadingTheTEST2FileLoadsExpectedResults()
+        public void ExpectationsForSerialNo_2222222222222222File()
         {
             var disc = MCosmosClassLibrary.DiscFileLoader.LoadDiscFromFile("ExampleFiles\\SerialNo_2222222222222222.txt");
 
@@ -45,7 +46,7 @@ namespace TestProject
 		}
 
 		[Fact]
-		public void LoadingTheSerNo1FileLoadsExpectedResults()
+		public void ExpectationsForSerNo1File()
 		{
 			var disc = MCosmosClassLibrary.DiscFileLoader.LoadDiscFromFile("ExampleFiles\\Ser No 1    repeat -- 1.txt");
 
@@ -72,7 +73,7 @@ namespace TestProject
 		}
 
 		[Fact]
-		public void LoadingTheSerNo2FileLoadsExpectedResults()
+		public void ExpectationsForSerNo2File()
 		{
 			var disc = MCosmosClassLibrary.DiscFileLoader.LoadDiscFromFile("ExampleFiles\\Ser No 1    repeat -- 2.txt");
 

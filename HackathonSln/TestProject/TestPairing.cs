@@ -6,10 +6,10 @@ using ExampleFilesCollection;
 
 namespace TestProject
 {
-    public class TestPairing
+    public class PairingAlgorithmScenarios
     {
         [Fact]
-        public void TestStruderPairs()
+        public void ExpectationsForTheStruderDataset()
         {
             var primaryList = DalesSpreadsheetProvider.GroundAtStruder();
 
