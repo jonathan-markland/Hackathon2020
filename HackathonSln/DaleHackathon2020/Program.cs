@@ -16,22 +16,25 @@ namespace DaleHackathon2020
         {
             var primaryList = ExampleFilesCollection.DalesSpreadsheetProvider.GroundAtStruder();
 
-            foreach (DiscInfo disc in primaryList)
-            {
-                Console.WriteLine(disc.CSVLineDetailed());
-            }
+            // foreach (DiscInfo disc in primaryList)
+            // {
+            //     Console.WriteLine(disc.CSVLineDetailed());
+            // }
 
 
 
             var filteredList = primaryList.IncludingGradeAandBonly();
 
-            foreach (DiscInfo disc in filteredList)
-            {
-                Console.WriteLine(disc.CSVLineOnItsOwn());
-            }
+            // foreach (DiscInfo disc in filteredList)
+            // {
+            //     Console.WriteLine(disc.CSVLineOnItsOwn());
+            // }
 
+            var oddList = filteredList.ToList();
+            oddList.RemoveAt(0);
+            
 
-            var pairings = filteredList.AsListOfMatchedPairs();
+            var pairings = oddList.AsListOfMatchedPairs();
 
             foreach(Pair p in pairings)
             {
