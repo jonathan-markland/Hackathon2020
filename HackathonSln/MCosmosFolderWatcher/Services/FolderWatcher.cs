@@ -11,8 +11,8 @@ namespace MCosmosFolderWatcher.Services
             _thread = new Thread(() => { 
                 while(!_shutdownRequested)
                 {
-                    var updatedData = Algorithms.BatchFolderLoader.LoadDiscsFromFolder(folderPath);
-                    _threadData.BatchBase = updatedData;
+                    var updatedFolderData = Algorithms.BatchFolderLoader.LoadDiscsFromFolder(folderPath);
+                    _threadData.FolderData = updatedFolderData;
                     Thread.Sleep(5000); // TODO: OS watch folder
                 }
             });
@@ -31,7 +31,7 @@ namespace MCosmosFolderWatcher.Services
         /// <summary>
         /// Obtain the most recent view of the folder.  Threadsafe.
         /// </summary>
-        public Models.BatchBase BatchBase { get { return _threadData.BatchBase; } }
+        public Models.BatchBase FolderData { get { return _threadData.FolderData; } }
 
         private volatile bool _shutdownRequested = false;
         private Thread _thread;
@@ -39,7 +39,7 @@ namespace MCosmosFolderWatcher.Services
 
         private class ThreadData
         {
-            public volatile Models.BatchBase BatchBase = null;
+            public volatile Models.BatchBase FolderData = null;
         }
     }
 }
