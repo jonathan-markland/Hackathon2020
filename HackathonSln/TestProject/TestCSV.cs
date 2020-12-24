@@ -26,13 +26,12 @@ namespace TestProject
                 datumG: flatGraded(4.0)
             );
 
-            var parallel = new ParallelMeasurements
-            {
-                DatumELH1 = paraGraded(5.0),
-                DatumERH1 = paraGraded(6.0),
-                DatumGFR1 = paraGraded(7.0),
-                DatumGBK1 = paraGraded(8.0),
-            };
+            var parallel = new ParallelMeasurements(
+                datumELH1: paraGraded(5.0),
+                datumERH1: paraGraded(6.0),
+                datumGFR1: paraGraded(7.0),
+                datumGBK1: paraGraded(8.0)
+            );
 
             var distances = new DistanceMeasurements
             {

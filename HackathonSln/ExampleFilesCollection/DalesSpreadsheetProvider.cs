@@ -25,13 +25,12 @@ namespace ExampleFilesCollection
                 datumG: flatGraded(flatG) 
             );
 
-            var parallel = new ParallelMeasurements 
-            { 
-                DatumELH1 = paraGraded(elh1), 
-                DatumERH1 = paraGraded(erh1), 
-                DatumGFR1 = paraGraded(gfr1), 
-                DatumGBK1 = paraGraded(gbk1) 
-            };
+            var parallel = new ParallelMeasurements(
+                datumELH1: paraGraded(elh1), 
+                datumERH1: paraGraded(erh1), 
+                datumGFR1: paraGraded(gfr1), 
+                datumGBK1: paraGraded(gbk1) 
+            );
             
             var distance = new DistanceMeasurements
             {

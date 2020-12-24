@@ -79,13 +79,12 @@ namespace MCosmosClassLibrary
                 .Parameter("Datum G FR 1", Parse.ParallelNumber, out MeasureAndGrade datumGFR1)
                 .Parameter("Datum G BK 1", Parse.ParallelNumber, out MeasureAndGrade datumGBK1);
 
-            return new ParallelMeasurements
-            {
-                DatumELH1 = datumELH1,
-                DatumERH1 = datumERH1,
-                DatumGFR1 = datumGFR1,
-                DatumGBK1 = datumGBK1,
-            };
+            return new ParallelMeasurements(
+                datumELH1: datumELH1,
+                datumERH1: datumERH1,
+                datumGFR1: datumGFR1,
+                datumGBK1: datumGBK1
+            );
         }
 
         private DistanceMeasurements LoadDistances()

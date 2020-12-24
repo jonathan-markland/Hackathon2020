@@ -87,25 +87,37 @@ namespace MCosmosClassLibrary
     /// </summary>
     public struct ParallelMeasurements
     {
+        public ParallelMeasurements(
+            MeasureAndGrade datumELH1,
+            MeasureAndGrade datumERH1,
+            MeasureAndGrade datumGFR1,
+            MeasureAndGrade datumGBK1)
+        {
+            DatumELH1 = datumELH1;
+            DatumERH1 = datumERH1;
+            DatumGFR1 = datumGFR1;
+            DatumGBK1 = datumGBK1;
+        }
+
         /// <summary>
         /// Datum E LH 1
         /// </summary>
-        public MeasureAndGrade DatumELH1;
+        public readonly MeasureAndGrade DatumELH1;
 
         /// <summary>
         /// Datum E RH 1
         /// </summary>
-        public MeasureAndGrade DatumERH1;
+        public readonly MeasureAndGrade DatumERH1;
 
         /// <summary>
         /// Datum G FR 1
         /// </summary>
-        public MeasureAndGrade DatumGFR1;
+        public readonly MeasureAndGrade DatumGFR1;
 
         /// <summary>
         /// Datum G BK 1
         /// </summary>
-        public MeasureAndGrade DatumGBK1;
+        public readonly MeasureAndGrade DatumGBK1;
     }
 
     public struct DistanceMeasurements
