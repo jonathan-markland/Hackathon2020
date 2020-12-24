@@ -46,15 +46,17 @@ namespace MCosmosClassLibrary
 
     public struct DiscMetadata
     {
+        public DiscMetadata(string serialNo, string originFilePath) { SerialNo = serialNo; OriginFilePath = originFilePath; }
+
         /// <summary>
         /// The serial number of the disc.
         /// </summary>
-        public string SerialNo;
+        public readonly string SerialNo;
 
         /// <summary>
         /// The path to the file from which this data was loaded.
         /// </summary>
-        public string OriginFilePath;
+        public readonly string OriginFilePath;
     }
 
     /// <summary>

@@ -47,10 +47,7 @@ namespace MCosmosClassLibrary
                 .ExpectLineStartingWith("Issue No       :")
                 .ExpectLineStartingWith("Description    : Alignment Disc Hybrid");   // TODO: Could this title change?
 
-            return new DiscMetadata { 
-                SerialNo = serialNo.Value,
-                OriginFilePath = SourceFilePath
-            };
+            return new DiscMetadata(serialNo.Value, SourceFilePath);
         }
 
         private FlatnessMeasurements LoadFlatness()

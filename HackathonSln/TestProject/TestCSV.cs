@@ -9,10 +9,7 @@ namespace TestProject
         [Fact]
         public void SerialiseDiscToCSVPassesFieldsThroughInExpectedOrder()
         {
-            var metadata = new DiscMetadata {
-                SerialNo = "123",
-                OriginFilePath = "C:\\CMMFiles\\123.txt"
-            };
+            var metadata = new DiscMetadata("123", "C:\\CMMFiles\\123.txt");
 
             // TODO: copy-pasted from DaleSpreadsheetProvider.cs
             MeasureAndGrade flatGraded(double n) { return new MeasureAndGrade(n, ToleranceMathematics.FlatParaGradeFor(n)); }

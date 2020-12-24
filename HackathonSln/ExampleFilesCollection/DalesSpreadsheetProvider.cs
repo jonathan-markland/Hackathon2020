@@ -12,7 +12,7 @@ namespace ExampleFilesCollection
             double ef15lh, double ef15rh, double ef103lh, double ef103rh,
             double gd15fr, double gd15bk, double gd103fr, double gd103bk)
         {
-            var metadata = new DiscMetadata { SerialNo = serialNo, OriginFilePath = $"C:\\CMMFiles\\{serialNo}.txt" };
+            var metadata = new DiscMetadata(serialNo, $"C:\\CMMFiles\\{serialNo}.txt");
 
             MeasureAndGrade flatGraded(double n) { return new MeasureAndGrade(n, ToleranceMathematics.FlatParaGradeFor(n)); }
             MeasureAndGrade paraGraded(double n) { return new MeasureAndGrade(n, ToleranceMathematics.FlatParaGradeFor(n)); }
