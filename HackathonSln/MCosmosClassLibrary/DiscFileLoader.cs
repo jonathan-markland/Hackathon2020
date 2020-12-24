@@ -62,13 +62,12 @@ namespace MCosmosClassLibrary
                 .ExpectWholeLine("Datum D").Parameter("Flatness", Parse.FlatnessNumber, out MeasureAndGrade flatD)
                 .ExpectWholeLine("Datum G").Parameter("Flatness", Parse.FlatnessNumber, out MeasureAndGrade flatG);
 
-            return new FlatnessMeasurements
-            {
-                DatumF = flatF,
-                DatumE = flatE,
-                DatumD = flatD,
-                DatumG = flatG,
-            };
+            return new FlatnessMeasurements(
+                datumF: flatF,
+                datumE: flatE,
+                datumD: flatD,
+                datumG: flatG
+            );
         }
 
         private ParallelMeasurements LoadParallelism()

@@ -18,13 +18,12 @@ namespace ExampleFilesCollection
             MeasureAndGrade paraGraded(double n) { return new MeasureAndGrade(n, ToleranceMathematics.FlatParaGradeFor(n)); }
             MeasureAndGrade distGraded(double n) { return new MeasureAndGrade(n, ToleranceMathematics.DistanceGradeFor(n)); }
 
-            var flatness = new FlatnessMeasurements 
-            { 
-                DatumF = flatGraded(flatF), 
-                DatumE = flatGraded(flatE), 
-                DatumD = flatGraded(flatD), 
-                DatumG = flatGraded(flatG) 
-            };
+            var flatness = new FlatnessMeasurements(
+                datumF: flatGraded(flatF), 
+                datumE: flatGraded(flatE), 
+                datumD: flatGraded(flatD), 
+                datumG: flatGraded(flatG) 
+            );
 
             var parallel = new ParallelMeasurements 
             { 

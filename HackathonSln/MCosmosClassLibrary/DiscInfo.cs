@@ -63,10 +63,22 @@ namespace MCosmosClassLibrary
     /// </summary>
     public struct FlatnessMeasurements
     {
-        public MeasureAndGrade DatumF;
-        public MeasureAndGrade DatumE;
-        public MeasureAndGrade DatumD;
-        public MeasureAndGrade DatumG;
+        public FlatnessMeasurements(
+            MeasureAndGrade datumF,
+            MeasureAndGrade datumE,
+            MeasureAndGrade datumD,
+            MeasureAndGrade datumG)
+        {
+            DatumF = datumF;
+            DatumE = datumE;
+            DatumD = datumD;
+            DatumG = datumG;
+        }
+
+        public readonly MeasureAndGrade DatumF;
+        public readonly MeasureAndGrade DatumE;
+        public readonly MeasureAndGrade DatumD;
+        public readonly MeasureAndGrade DatumG;
     }
 
     /// <summary>

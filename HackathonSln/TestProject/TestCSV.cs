@@ -19,13 +19,12 @@ namespace TestProject
             MeasureAndGrade paraGraded(double n) { return new MeasureAndGrade(n, ToleranceMathematics.FlatParaGradeFor(n)); }
             MeasureAndGrade distGraded(double n) { return new MeasureAndGrade(n, ToleranceMathematics.DistanceGradeFor(n)); }
 
-            var flatness = new FlatnessMeasurements
-            {
-                DatumF = flatGraded(1.0),
-                DatumE = flatGraded(2.0),
-                DatumD = flatGraded(3.0),
-                DatumG = flatGraded(4.0),
-            };
+            var flatness = new FlatnessMeasurements(
+                datumF: flatGraded(1.0),
+                datumE: flatGraded(2.0),
+                datumD: flatGraded(3.0),
+                datumG: flatGraded(4.0)
+            );
 
             var parallel = new ParallelMeasurements
             {
