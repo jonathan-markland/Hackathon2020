@@ -102,17 +102,16 @@ namespace MCosmosClassLibrary
                 .Parameter("G to D at -10.3 FR", Parse.DistanceNumber, out MeasureAndGrade GtoDFront2)  // TODO: 199 Datum E LH 1
                 .Parameter("G to D at -10.3 BK", Parse.DistanceNumber, out MeasureAndGrade GtoDBack2 );  // TODO: 199 Datum E LH 1
 
-            return new DistanceMeasurements
-            {
-                EtoFLeft1  = EtoFLeft1 ,
-                EtoFRight1 = EtoFRight1,
-                EtoFLeft2  = EtoFLeft2 ,
-                EtoFRight2 = EtoFRight2,
-                GtoDFront1 = GtoDFront1,
-                GtoDBack1  = GtoDBack1 ,
-                GtoDFront2 = GtoDFront2,
-                GtoDBack2  = GtoDBack2 ,
-            };
+            return new DistanceMeasurements(
+                etoFLeft1  : EtoFLeft1 ,
+                etoFRight1 : EtoFRight1,
+                etoFLeft2  : EtoFLeft2 ,
+                etoFRight2 : EtoFRight2,
+                gtoDFront1 : GtoDFront1,
+                gtoDBack1  : GtoDBack1 ,
+                gtoDFront2 : GtoDFront2,
+                gtoDBack2  : GtoDBack2 
+            );
         }
 
         /// <summary>

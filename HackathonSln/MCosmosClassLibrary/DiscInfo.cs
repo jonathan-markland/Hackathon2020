@@ -122,45 +122,65 @@ namespace MCosmosClassLibrary
 
     public struct DistanceMeasurements
     {
+        public DistanceMeasurements(
+            MeasureAndGrade etoFLeft1,
+            MeasureAndGrade etoFRight1,
+            MeasureAndGrade etoFLeft2,
+            MeasureAndGrade etoFRight2,
+            MeasureAndGrade gtoDFront1,
+            MeasureAndGrade gtoDBack1,
+            MeasureAndGrade gtoDFront2,
+            MeasureAndGrade gtoDBack2)
+        {
+            EtoFLeft1  = etoFLeft1;
+            EtoFRight1 = etoFRight1;
+            EtoFLeft2  = etoFLeft2;
+            EtoFRight2 = etoFRight2;
+            GtoDFront1 = gtoDFront1;
+            GtoDBack1  = gtoDBack1;
+            GtoDFront2 = gtoDFront2;
+            GtoDBack2  = gtoDBack2;
+        }
+
         /// <summary>
         /// E to F at -1.5 LH
         /// </summary>
-        public MeasureAndGrade EtoFLeft1;
+        public readonly MeasureAndGrade EtoFLeft1;
 
         /// <summary>
         /// E to F at -1.5 RH
         /// </summary>
-        public MeasureAndGrade EtoFRight1;
+        public readonly MeasureAndGrade EtoFRight1;
 
         /// <summary>
         /// E to F at -10.3 LH
         /// </summary>
-        public MeasureAndGrade EtoFLeft2;
+        public readonly MeasureAndGrade EtoFLeft2;
 
         /// <summary>
         /// E to F at -10.3 RH
         /// </summary>
-        public MeasureAndGrade EtoFRight2;
+        public readonly MeasureAndGrade EtoFRight2;
 
         /// <summary>
         /// G to D at -1.5 FR
         /// </summary>
-        public MeasureAndGrade GtoDFront1;
+        public readonly MeasureAndGrade GtoDFront1;
 
         /// <summary>
         /// G to D at -1.5 BK
         /// </summary>
-        public MeasureAndGrade GtoDBack1;
+        public readonly MeasureAndGrade GtoDBack1;
 
         /// <summary>
         /// G to D at -10.3 FR
         /// </summary>
-        public MeasureAndGrade GtoDFront2;
+        public readonly MeasureAndGrade GtoDFront2;
 
         /// <summary>
         /// G to D at -10.3 BK
         /// </summary>
-        public MeasureAndGrade GtoDBack2;
+        public readonly MeasureAndGrade GtoDBack2;
 
     }
 }

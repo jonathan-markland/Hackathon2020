@@ -33,17 +33,16 @@ namespace TestProject
                 datumGBK1: paraGraded(8.0)
             );
 
-            var distances = new DistanceMeasurements
-            {
-                EtoFLeft1  = distGraded(9.0),
-                EtoFRight1 = distGraded(10.0),
-                EtoFLeft2  = distGraded(11.0),
-                EtoFRight2 = distGraded(12.0),
-                GtoDFront1 = distGraded(13.0),
-                GtoDBack1  = distGraded(14.0),
-                GtoDFront2 = distGraded(15.0),
-                GtoDBack2  = distGraded(16.0),
-            };
+            var distances = new DistanceMeasurements(
+                etoFLeft1  : distGraded(9.0),
+                etoFRight1 : distGraded(10.0),
+                etoFLeft2  : distGraded(11.0),
+                etoFRight2 : distGraded(12.0),
+                gtoDFront1 : distGraded(13.0),
+                gtoDBack1  : distGraded(14.0),
+                gtoDFront2 : distGraded(15.0),
+                gtoDBack2  : distGraded(16.0)
+            );
 
             var discInfo = new DiscInfo(metadata, flatness, parallel, distances);
             var actual = discInfo.CSVLineOnItsOwn();

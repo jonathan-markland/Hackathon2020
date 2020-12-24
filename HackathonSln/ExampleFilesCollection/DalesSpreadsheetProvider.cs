@@ -32,17 +32,16 @@ namespace ExampleFilesCollection
                 datumGBK1: paraGraded(gbk1) 
             );
             
-            var distance = new DistanceMeasurements
-            {
-                EtoFLeft1  = distGraded(ef15lh),
-                EtoFRight1 = distGraded(ef15rh),
-                EtoFLeft2  = distGraded(ef103lh),
-                EtoFRight2 = distGraded(ef103rh),
-                GtoDBack1  = distGraded(gd15fr),
-                GtoDFront1 = distGraded(gd15bk),
-                GtoDFront2 = distGraded(gd103fr),
-                GtoDBack2  = distGraded(gd103bk)
-            };
+            var distance = new DistanceMeasurements(
+                etoFLeft1  : distGraded(ef15lh),
+                etoFRight1 : distGraded(ef15rh),
+                etoFLeft2  : distGraded(ef103lh),
+                etoFRight2 : distGraded(ef103rh),
+                gtoDBack1  : distGraded(gd15fr),
+                gtoDFront1 : distGraded(gd15bk),
+                gtoDFront2 : distGraded(gd103fr),
+                gtoDBack2  : distGraded(gd103bk)
+            );
 
             return new DiscInfo(metadata, flatness, parallel, distance);
         }
