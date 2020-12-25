@@ -2,7 +2,7 @@
 using System.IO;
 using System.Linq;
 
-namespace MCosmosClassLibrary
+namespace GeneralClassLibrary
 {
     /// <summary>
     /// This is an assistance class, not really primary.  (TODO sort out)
