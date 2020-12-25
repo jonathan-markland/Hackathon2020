@@ -12,34 +12,29 @@ namespace TestProject
         {
             var metadata = new DiscMetadata("123", "C:\\CMMFiles\\123.txt");
 
-            // TODO: copy-pasted from DaleSpreadsheetProvider.cs
-            MeasureAndGrade flatGraded(double n) { return new MeasureAndGrade(n, ToleranceMathematics.FlatParaGradeFor(n)); }
-            MeasureAndGrade paraGraded(double n) { return new MeasureAndGrade(n, ToleranceMathematics.FlatParaGradeFor(n)); }
-            MeasureAndGrade distGraded(double n) { return new MeasureAndGrade(n, ToleranceMathematics.DistanceGradeFor(n)); }
-
             var flatness = new FlatnessMeasurements(
-                datumF: flatGraded(1.0),
-                datumE: flatGraded(2.0),
-                datumD: flatGraded(3.0),
-                datumG: flatGraded(4.0)
+                datumF: new FlatnessMeasure(1.0),
+                datumE: new FlatnessMeasure(2.0),
+                datumD: new FlatnessMeasure(3.0),
+                datumG: new FlatnessMeasure(4.0)
             );
 
             var parallel = new ParallelMeasurements(
-                datumELH1: paraGraded(5.0),
-                datumERH1: paraGraded(6.0),
-                datumGFR1: paraGraded(7.0),
-                datumGBK1: paraGraded(8.0)
+                datumELH1: new ParallelMeasure(5.0),
+                datumERH1: new ParallelMeasure(6.0),
+                datumGFR1: new ParallelMeasure(7.0),
+                datumGBK1: new ParallelMeasure(8.0)
             );
 
             var distances = new DistanceMeasurements(
-                etoFLeft1  : distGraded(9.0),
-                etoFRight1 : distGraded(10.0),
-                etoFLeft2  : distGraded(11.0),
-                etoFRight2 : distGraded(12.0),
-                gtoDFront1 : distGraded(13.0),
-                gtoDBack1  : distGraded(14.0),
-                gtoDFront2 : distGraded(15.0),
-                gtoDBack2  : distGraded(16.0)
+                etoFLeft1  : new DistanceMeasure(9.0),
+                etoFRight1 : new DistanceMeasure(10.0),
+                etoFLeft2  : new DistanceMeasure(11.0),
+                etoFRight2 : new DistanceMeasure(12.0),
+                gtoDFront1 : new DistanceMeasure(13.0),
+                gtoDBack1  : new DistanceMeasure(14.0),
+                gtoDFront2 : new DistanceMeasure(15.0),
+                gtoDBack2  : new DistanceMeasure(16.0)
             );
 
             var discInfo = new DiscInfo(metadata, flatness, parallel, distances);

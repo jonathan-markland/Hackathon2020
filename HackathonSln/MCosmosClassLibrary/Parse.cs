@@ -1,22 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using MCosmosClassLibrary.Models;
 
 namespace MCosmosClassLibrary
 {
     public class Parse
     {
-        public static MeasureAndGrade? FlatnessNumber(string s)
-        {
-            if (double.TryParse(s.Trim(), out double d))
-            {
-                var grade = ToleranceMathematics.FlatParaGradeFor(d);
-                return new MeasureAndGrade(d, grade);
-            }
-            else return null;
-        }
-
         private static double? SoleNumberX(string s) // TODO: rename
         {
             if (double.TryParse(s.Trim(), out double d))
@@ -26,7 +14,16 @@ namespace MCosmosClassLibrary
             return null;
         }
 
-        public static MeasureAndGrade? ParallelNumber(string s)
+        public static FlatnessMeasure? FlatnessNumber(string s)
+        {
+            if (double.TryParse(s.Trim(), out double d))
+            {
+                return new FlatnessMeasure(d);
+            }
+            else return null;
+        }
+
+        public static ParallelMeasure? ParallelNumber(string s)
         {
             var splittings = s.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
             if (splittings.Length == 2)
@@ -34,14 +31,13 @@ namespace MCosmosClassLibrary
                 var value = SoleNumberX(splittings[1]);
                 if (value != null)
                 {
-                    var grade = ToleranceMathematics.FlatParaGradeFor(value.Value);
-                    return new MeasureAndGrade(value.Value, grade);
+                    return new ParallelMeasure(value.Value);
                 }
             }
             return null;
         }
 
-        public static MeasureAndGrade? DistanceNumber(string s)
+        public static DistanceMeasure? DistanceNumber(string s)
         {
             var splittings = s.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
             if (splittings.Length == 4)
@@ -49,8 +45,7 @@ namespace MCosmosClassLibrary
                 var value = SoleNumberX(splittings[2]);
                 if (value != null)
                 {
-                    var grade = ToleranceMathematics.DistanceGradeFor(value.Value);
-                    return new MeasureAndGrade(value.Value, grade);
+                    return new DistanceMeasure(value.Value);
                 }
             }
             return null;
