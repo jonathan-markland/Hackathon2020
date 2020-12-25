@@ -15,33 +15,29 @@ namespace ExampleFilesCollection
         {
             var metadata = new DiscMetadata(serialNo, $"C:\\CMMFiles\\{serialNo}.txt");
 
-            MeasureAndGrade flatGraded(double n) { return new MeasureAndGrade(n, ToleranceMathematics.FlatParaGradeFor(n)); }
-            MeasureAndGrade paraGraded(double n) { return new MeasureAndGrade(n, ToleranceMathematics.FlatParaGradeFor(n)); }
-            MeasureAndGrade distGraded(double n) { return new MeasureAndGrade(n, ToleranceMathematics.DistanceGradeFor(n)); }
-
             var flatness = new FlatnessMeasurements(
-                datumF: flatGraded(flatF), 
-                datumE: flatGraded(flatE), 
-                datumD: flatGraded(flatD), 
-                datumG: flatGraded(flatG) 
+                datumF: new FlatnessMeasure(flatF), 
+                datumE: new FlatnessMeasure(flatE), 
+                datumD: new FlatnessMeasure(flatD), 
+                datumG: new FlatnessMeasure(flatG) 
             );
 
             var parallel = new ParallelMeasurements(
-                datumELH1: paraGraded(elh1), 
-                datumERH1: paraGraded(erh1), 
-                datumGFR1: paraGraded(gfr1), 
-                datumGBK1: paraGraded(gbk1) 
+                datumELH1: new ParallelMeasure(elh1), 
+                datumERH1: new ParallelMeasure(erh1), 
+                datumGFR1: new ParallelMeasure(gfr1), 
+                datumGBK1: new ParallelMeasure(gbk1) 
             );
             
             var distance = new DistanceMeasurements(
-                etoFLeft1  : distGraded(ef15lh),
-                etoFRight1 : distGraded(ef15rh),
-                etoFLeft2  : distGraded(ef103lh),
-                etoFRight2 : distGraded(ef103rh),
-                gtoDBack1  : distGraded(gd15fr),
-                gtoDFront1 : distGraded(gd15bk),
-                gtoDFront2 : distGraded(gd103fr),
-                gtoDBack2  : distGraded(gd103bk)
+                etoFLeft1  : new DistanceMeasure(ef15lh),
+                etoFRight1 : new DistanceMeasure(ef15rh),
+                etoFLeft2  : new DistanceMeasure(ef103lh),
+                etoFRight2 : new DistanceMeasure(ef103rh),
+                gtoDBack1  : new DistanceMeasure(gd15fr),
+                gtoDFront1 : new DistanceMeasure(gd15bk),
+                gtoDFront2 : new DistanceMeasure(gd103fr),
+                gtoDBack2  : new DistanceMeasure(gd103bk)
             );
 
             return new DiscInfo(metadata, flatness, parallel, distance);

@@ -64,6 +64,7 @@ namespace MCosmosClassLibrary.Models
     /// </summary>
     public struct FlatnessMeasure
     {
+        public FlatnessMeasure(double flatness) { Flatness = flatness; }
         public double Flatness { get; init; }
     }
 
@@ -74,15 +75,20 @@ namespace MCosmosClassLibrary.Models
     public struct FlatnessMeasurements
     {
         public FlatnessMeasurements(
-            MeasureAndGrade datumF,
-            MeasureAndGrade datumE,
-            MeasureAndGrade datumD,
-            MeasureAndGrade datumG)
+            FlatnessMeasure datumF,
+            FlatnessMeasure datumE,
+            FlatnessMeasure datumD,
+            FlatnessMeasure datumG)
         {
-            DatumF = datumF;
-            DatumE = datumE;
-            DatumD = datumD;
-            DatumG = datumG;
+            MeasureAndGrade flatGraded(double n) 
+            { 
+                return new MeasureAndGrade(n, ToleranceMathematics.FlatParaGradeFor(n)); 
+            }
+            
+            DatumF = flatGraded(datumF.Flatness);
+            DatumE = flatGraded(datumE.Flatness);
+            DatumD = flatGraded(datumD.Flatness);
+            DatumG = flatGraded(datumG.Flatness);
         }
 
         public readonly MeasureAndGrade DatumF;
@@ -96,6 +102,7 @@ namespace MCosmosClassLibrary.Models
     /// </summary>
     public struct ParallelMeasure
     {
+        public ParallelMeasure(double parallel) { Parallel = parallel; }
         public double Parallel { get; init; }
     }
 
@@ -107,15 +114,20 @@ namespace MCosmosClassLibrary.Models
     public struct ParallelMeasurements
     {
         public ParallelMeasurements(
-            MeasureAndGrade datumELH1,
-            MeasureAndGrade datumERH1,
-            MeasureAndGrade datumGFR1,
-            MeasureAndGrade datumGBK1)
+            ParallelMeasure datumELH1,
+            ParallelMeasure datumERH1,
+            ParallelMeasure datumGFR1,
+            ParallelMeasure datumGBK1)
         {
-            DatumELH1 = datumELH1;
-            DatumERH1 = datumERH1;
-            DatumGFR1 = datumGFR1;
-            DatumGBK1 = datumGBK1;
+            MeasureAndGrade paraGraded(double n) 
+            { 
+                return new MeasureAndGrade(n, ToleranceMathematics.FlatParaGradeFor(n)); 
+            }
+
+            DatumELH1 = paraGraded(datumELH1.Parallel);
+            DatumERH1 = paraGraded(datumERH1.Parallel);
+            DatumGFR1 = paraGraded(datumGFR1.Parallel);
+            DatumGBK1 = paraGraded(datumGBK1.Parallel);
         }
 
         /// <summary>
@@ -144,29 +156,35 @@ namespace MCosmosClassLibrary.Models
     /// </summary>
     public struct DistanceMeasure
     {
+        public DistanceMeasure(double distance) { Distance = distance; }
         public double Distance  { get; init; }
     }
 
     public struct DistanceMeasurements
     {
         public DistanceMeasurements(
-            MeasureAndGrade etoFLeft1,
-            MeasureAndGrade etoFRight1,
-            MeasureAndGrade etoFLeft2,
-            MeasureAndGrade etoFRight2,
-            MeasureAndGrade gtoDFront1,
-            MeasureAndGrade gtoDBack1,
-            MeasureAndGrade gtoDFront2,
-            MeasureAndGrade gtoDBack2)
+            DistanceMeasure etoFLeft1,
+            DistanceMeasure etoFRight1,
+            DistanceMeasure etoFLeft2,
+            DistanceMeasure etoFRight2,
+            DistanceMeasure gtoDFront1,
+            DistanceMeasure gtoDBack1,
+            DistanceMeasure gtoDFront2,
+            DistanceMeasure gtoDBack2)
         {
-            EtoFLeft1  = etoFLeft1;
-            EtoFRight1 = etoFRight1;
-            EtoFLeft2  = etoFLeft2;
-            EtoFRight2 = etoFRight2;
-            GtoDFront1 = gtoDFront1;
-            GtoDBack1  = gtoDBack1;
-            GtoDFront2 = gtoDFront2;
-            GtoDBack2  = gtoDBack2;
+            MeasureAndGrade distGraded(double n) 
+            { 
+                return new MeasureAndGrade(n, ToleranceMathematics.DistanceGradeFor(n)); 
+            }
+
+            EtoFLeft1  = distGraded(etoFLeft1 .Distance);
+            EtoFRight1 = distGraded(etoFRight1.Distance);
+            EtoFLeft2  = distGraded(etoFLeft2 .Distance);
+            EtoFRight2 = distGraded(etoFRight2.Distance);
+            GtoDFront1 = distGraded(gtoDFront1.Distance);
+            GtoDBack1  = distGraded(gtoDBack1 .Distance);
+            GtoDFront2 = distGraded(gtoDFront2.Distance);
+            GtoDBack2  = distGraded(gtoDBack2 .Distance);
         }
 
         /// <summary>
