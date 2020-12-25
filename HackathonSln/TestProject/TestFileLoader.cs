@@ -1,5 +1,4 @@
 using Xunit;
-using MCosmosClassLibrary;
 using MCosmosClassLibrary.Models;
 using MCosmosClassLibrary.Services;
 
