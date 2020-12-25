@@ -1,4 +1,5 @@
-﻿
+﻿using MCosmosClassLibrary.Models;
+
 namespace MCosmosClassLibrary
 {
     public static class CsvGenerator

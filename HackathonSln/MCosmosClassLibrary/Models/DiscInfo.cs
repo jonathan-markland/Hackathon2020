@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MCosmosClassLibrary
+namespace MCosmosClassLibrary.Models
 {
     public enum DiscGrade
     {

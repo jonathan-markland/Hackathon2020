@@ -2,6 +2,7 @@
 using System.Linq;
 using Xunit;
 using MCosmosClassLibrary;
+using MCosmosClassLibrary.Models;
 using ExampleFilesCollection;
 
 namespace TestProject

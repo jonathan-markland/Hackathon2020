@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using MCosmosClassLibrary;
+using MCosmosClassLibrary.Models;
 
 namespace MCosmosFolderWatcher.Models
 {

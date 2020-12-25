@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using MCosmosClassLibrary;
+using MCosmosClassLibrary.Models;
 
 namespace ExampleFilesCollection
 {

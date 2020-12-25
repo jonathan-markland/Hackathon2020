@@ -2,6 +2,7 @@
 using System.IO;
 using System.Collections.Generic;
 using MCosmosClassLibrary;
+using MCosmosClassLibrary.Models;
 using MCosmosFolderWatcher.Models;
 
 namespace MCosmosFolderWatcher.Algorithms

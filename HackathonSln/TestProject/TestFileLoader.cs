@@ -1,5 +1,6 @@
 using Xunit;
 using MCosmosClassLibrary;
+using MCosmosClassLibrary.Models;
 
 namespace TestProject
 {
