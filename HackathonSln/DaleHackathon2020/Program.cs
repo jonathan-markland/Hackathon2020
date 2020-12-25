@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Linq;
 using MCosmosClassLibrary;
-using MCosmosClassLibrary.Models;
-
 
 namespace DaleHackathon2020
 {
@@ -38,10 +36,10 @@ namespace DaleHackathon2020
 
             var pairings = oddList.AsListOfMatchedPairs();
 
-            foreach(Pair p in pairings)
-            {
-                Console.WriteLine(p.CSVLine());
-            }
+            // foreach(Pair p in pairings)
+            // {
+            //     Console.WriteLine(p.CSVLine());
+            // }
 
             Console.WriteLine("Complete");
         }

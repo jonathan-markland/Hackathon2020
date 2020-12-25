@@ -1,6 +1,6 @@
 ﻿using MCosmosClassLibrary.Models;
 
-namespace MCosmosClassLibrary
+namespace TestProject
 {
     public static class CsvGenerator
     {
@@ -41,14 +41,14 @@ namespace MCosmosClassLibrary
             return disc.CSVLineOnItsOwn() + $",\"{disc.OverallGrade}\"";
         }
 
-        // TODO: There is no function that outputs full grade detail to CSV.
-
         public static string CSVLine(this Pair p)
         {
             var gradeOfDisc1 = p.Disc1.OverallGrade;
             var gradeOfDisc2 = p.Disc2.OverallGrade;
             return $"\"{p.EuclideanDistance}\", \"{p.Disc1.Metadata.SerialNo}\", \"{gradeOfDisc1.ToString()}\", \"{p.Disc2.Metadata.SerialNo}\", \"{gradeOfDisc2.ToString()}\"";
         }
+
+        // TODO: Use this in the test framework.  We should capture all the grades.
 
         public static string CSVLineDetailed(this DiscInfo discInfo)
         {
