@@ -12,7 +12,7 @@ namespace MCosmosClassLibrary.Models
         public MeasureAndGrade(double value, DiscGrade grade) { this.Value = value; this.Grade = grade; }
         public readonly double Value;
         public readonly DiscGrade Grade;
-        public override string ToString() 
+        public override string ToString()
         {
             return $"({Value},{Grade})";
         }
@@ -25,9 +25,9 @@ namespace MCosmosClassLibrary.Models
     public class DiscInfo
     {
         public DiscInfo(
-            DiscMetadata metadata, 
-            FlatnessMeasurements flatness, 
-            ParallelMeasurements parallel, 
+            DiscMetadata metadata,
+            FlatnessMeasurements flatness,
+            ParallelMeasurements parallel,
             DistanceMeasurements distances)
         {
             Metadata = metadata;
@@ -39,7 +39,7 @@ namespace MCosmosClassLibrary.Models
 
         public readonly DiscMetadata Metadata;
         public readonly FlatnessMeasurements Flatness;
-        public readonly ParallelMeasurements Parallel; 
+        public readonly ParallelMeasurements Parallel;
         public readonly DistanceMeasurements Distances;
         public readonly DiscGrade OverallGrade;
     }
@@ -57,6 +57,14 @@ namespace MCosmosClassLibrary.Models
         /// The path to the file from which this data was loaded.
         /// </summary>
         public readonly string OriginFilePath;
+    }
+
+    /// <summary>
+    /// Strong type wrapper for a flatness measurement.
+    /// </summary>
+    public struct FlatnessMeasure
+    {
+        public double Flatness { get; init; }
     }
 
     /// <summary>
@@ -82,6 +90,15 @@ namespace MCosmosClassLibrary.Models
         public readonly MeasureAndGrade DatumD;
         public readonly MeasureAndGrade DatumG;
     }
+
+    /// <summary>
+    /// Strong type wrapper for a parallel measurement.
+    /// </summary>
+    public struct ParallelMeasure
+    {
+        public double Parallel { get; init; }
+    }
+
 
     /// <summary>
     /// Parallelism - 4 opposed positions.
@@ -120,6 +137,14 @@ namespace MCosmosClassLibrary.Models
         /// Datum G BK 1
         /// </summary>
         public readonly MeasureAndGrade DatumGBK1;
+    }
+
+    /// <summary>
+    /// Strong type wrapper for a distance measurement.
+    /// </summary>
+    public struct DistanceMeasure
+    {
+        public double Distance  { get; init; }
     }
 
     public struct DistanceMeasurements
