@@ -1,7 +1,7 @@
 using Xunit;
 using MCosmosClassLibrary;
 using MCosmosClassLibrary.Models;
-using MCosmosClassLibrary.Algorithms;
+using MCosmosClassLibrary.Services;
 
 namespace TestProject
 {

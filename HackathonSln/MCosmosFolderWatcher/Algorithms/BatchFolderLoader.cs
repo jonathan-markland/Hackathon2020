@@ -1,9 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
-using MCosmosClassLibrary;
 using MCosmosClassLibrary.Models;
-using MCosmosClassLibrary.Algorithms;
+using MCosmosClassLibrary.Services;
 using MCosmosFolderWatcher.Models;
 
 namespace MCosmosFolderWatcher.Algorithms

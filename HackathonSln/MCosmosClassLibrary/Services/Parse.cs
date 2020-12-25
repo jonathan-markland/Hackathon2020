@@ -1,8 +1,7 @@
 ﻿using System;
-using MCosmosClassLibrary.Algorithms;
 using MCosmosClassLibrary.Models;
 
-namespace MCosmosClassLibrary.Algorithms
+namespace MCosmosClassLibrary.Services
 {
     public class Parse
     {
