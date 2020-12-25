@@ -4,7 +4,7 @@ using System.Text;
 using MCosmosClassLibrary.Models;
 using GeneralClassLibrary;
 
-namespace MCosmosClassLibrary
+namespace MCosmosClassLibrary.Algorithms
 {
     /// <summary>
     /// Parses and loads the disc information file.

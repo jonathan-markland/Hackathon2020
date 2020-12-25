@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using MCosmosClassLibrary;
+using MCosmosClassLibrary.Algorithms;
 
 namespace DaleHackathon2020
 {

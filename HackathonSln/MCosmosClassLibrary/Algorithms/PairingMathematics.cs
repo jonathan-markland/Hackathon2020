@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using MCosmosClassLibrary.Algorithms;
 using MCosmosClassLibrary.Models;
 
-namespace MCosmosClassLibrary
+namespace MCosmosClassLibrary.Algorithms
 {
     public static class PairingMathematics
     {

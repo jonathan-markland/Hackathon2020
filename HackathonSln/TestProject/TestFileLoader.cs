@@ -1,6 +1,7 @@
 using Xunit;
 using MCosmosClassLibrary;
 using MCosmosClassLibrary.Models;
+using MCosmosClassLibrary.Algorithms;
 
 namespace TestProject
 {
@@ -22,7 +23,7 @@ namespace TestProject
         [Fact]
         public void ExpectationsForSerialNo_2222222222222222File()
         {
-            var disc = MCosmosClassLibrary.DiscFileLoader.LoadDiscFromFile("ExampleFiles\\SerialNo_2222222222222222.txt");
+            var disc = DiscFileLoader.LoadDiscFromFile("ExampleFiles\\SerialNo_2222222222222222.txt");
 
 			Assert.Equal("2222222222222222", disc.Metadata.SerialNo);
 
@@ -49,7 +50,7 @@ namespace TestProject
 		[Fact]
 		public void ExpectationsForSerNo1File()
 		{
-			var disc = MCosmosClassLibrary.DiscFileLoader.LoadDiscFromFile("ExampleFiles\\Ser No 1    repeat -- 1.txt");
+			var disc = DiscFileLoader.LoadDiscFromFile("ExampleFiles\\Ser No 1    repeat -- 1.txt");
 
 			Assert.Equal("1", disc.Metadata.SerialNo);
 
@@ -76,7 +77,7 @@ namespace TestProject
 		[Fact]
 		public void ExpectationsForSerNo2File()
 		{
-			var disc = MCosmosClassLibrary.DiscFileLoader.LoadDiscFromFile("ExampleFiles\\Ser No 1    repeat -- 2.txt");
+			var disc = DiscFileLoader.LoadDiscFromFile("ExampleFiles\\Ser No 1    repeat -- 2.txt");
 
 			Assert.Equal("2", disc.Metadata.SerialNo);
 

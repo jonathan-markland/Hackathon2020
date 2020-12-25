@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Algorithms\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\GeneralClassLibrary\GeneralClassLibrary.csproj" />
   </ItemGroup>
 

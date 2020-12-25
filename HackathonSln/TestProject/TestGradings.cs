@@ -3,6 +3,7 @@ using System.Linq;
 using Xunit;
 using MCosmosClassLibrary;
 using MCosmosClassLibrary.Models;
+using MCosmosClassLibrary.Algorithms;
 using ExampleFilesCollection;
 
 namespace TestProject
