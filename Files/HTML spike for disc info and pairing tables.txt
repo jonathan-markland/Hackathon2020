@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+	<style>
+    
+    	.horiz-rule {
+        	border: none;
+            margin-bottom: 0.2rem;
+            height: 0.1rem;
+            background-color: grey;
+        }
+    
+    	.disc-summary {
+        	display: grid;
+            grid-template-columns: max-content 1fr 1fr 1fr 1fr;
+            grid-column-gap: 0.5rem;
+            padding-bottom: 2rem;
+        }
+        
+        .disc-serial-no {
+        	padding: 0.2rem;
+        	font-family: 'Courier New', monospace;
+            font-weight: 800;
+            font-size: 16pt;
+            background-color: #FFFFA2;
+        }
+        
+    	.disc-summary table {
+        	border-collapse: collapse;
+        }
+        
+        .disc-summary table tr td { 
+        	padding: 0.2rem;
+        	font-family: 'Courier New', monospace;
+            font-weight: 400;
+            font-size: 10pt;
+            text-align: right;
+        }
+
+        .grade-a { background-color: #FFFFA2; }
+        .grade-b { background-color: #87FFFF; }
+        .grade-c { background-color: #FFA7E1; }
+
+
+        .flatness div {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .flatness div div:nth-child(1) {
+            padding: 0.2rem;
+            background-color: blue;
+            color: white;
+            width: 1em;
+        }
+
+        .flatness div div:nth-child(2) {
+            padding: 0.2rem;
+        }
+
+
+
+        .parallel div {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .parallel div div:nth-child(1) {
+            padding: 0.2rem;
+            background-color: red;
+            color: white;
+            width: 3em;
+        }
+
+        .parallel div div:nth-child(2) {
+            padding: 0.2rem;
+        }
+        
+        
+        
+        .distance div {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .distance div div:nth-child(1) {
+            padding: 0.2rem;
+            background-color: green;
+            color: white;
+            width: 3em;
+        }
+
+        .distance div div:nth-child(2) {
+            padding: 0.2rem;
+        }
+        
+        
+        
+        .header {
+        	background-color: #DDDDDD;
+            padding: 0.2rem;
+        }
+
+
+
+
+    	.pairings {
+        	display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-column-gap: 0.5rem;
+            grid-row-gap: 0.2rem;
+            padding-bottom: 2rem;
+        }
+
+        .pairings div {
+            padding: 0.2rem;
+            text-align: right;
+        }
+
+	</style>
+
+	<div class='horiz-rule'></div>
+
+	<div class='disc-summary'>
+
+		<div class='disc-serial-no grade-c'>134534586734</div>
+
+		<div class='flatness'>
+        	<div class='header'>Flatness</div>
+			<div class='grade-a'><div>F</div><div>28.123</div></div>
+			<div class='grade-a'><div>E</div><div>28.123</div></div>
+			<div class='grade-a'><div>D</div><div>28.123</div></div>
+			<div class='grade-a'><div>G</div><div>28.123</div></div>
+        </div>
+
+		<div class='parallel'>
+        	<div class='header'>Parallelism</div>
+			<div class='grade-a'><div>ELH1</div><div>28.123</div></div>
+			<div class='grade-a'><div>ERH1</div><div>28.123</div></div>
+			<div class='grade-a'><div>GFR1</div><div>28.123</div></div>
+			<div class='grade-a'><div>GBK1</div><div>28.123</div></div>
+        </div>
+
+		<div class='distance'>
+        	<div class='header'>Distances</div>
+			<div class='grade-a'><div>EFL1</div><div>28.123</div></div>
+			<div class='grade-a'><div>EFR1</div><div>28.123</div></div>
+			<div class='grade-a'><div>EFL2</div><div>28.123</div></div>
+			<div class='grade-a'><div>EFR2</div><div>28.123</div></div>
+        </div>
+
+		<div class='distance'>
+        	<div class='header'>Distances</div>
+			<div class='grade-b'><div>GDF1</div><div>28.123</div></div>
+			<div class='grade-a'><div>GDB1</div><div>28.123</div></div>
+			<div class='grade-c'><div>GDF2</div><div>28.123</div></div>
+			<div class='grade-c'><div>GDB2</div><div>28.123</div></div>
+        </div>
+
+    </div>
+
+
+
+	Pairings:
+    
+    
+    <div class='pairings'>
+    
+    	<div class='header'>First Serial No.</div>
+        <div class='header'>Second Serial No.</div>
+        <div class='header'>Euclid. Distance</div>
+    
+    	<div class='grade-a'>2445563456</div>
+        <div class='grade-b'>7890689</div>
+        <div>0.002345459</div>
+        
+    	<div class='grade-a'>24563456</div>
+        <div class='grade-b'>7890689</div>
+        <div>0.002345459</div>
+        
+    	<div class='grade-a'>24563456</div>
+        <div class='grade-b'>7890689</div>
+        <div>0.002345459</div>
+        
+    	<div class='grade-a'>24563456</div>
+        <div class='grade-b'>7890689</div>
+        <div>0.002345459</div>
+    </div>
+
+
+    
+    
+    
+
+</body>
+
+</html>
