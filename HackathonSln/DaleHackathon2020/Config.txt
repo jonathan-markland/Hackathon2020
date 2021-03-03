@@ -1,0 +1,9 @@
+﻿SourceFolder=C:\Users\Jonathan\Documents\Dale\CMMSourceFiles
+HistoryFolder=C:\Users\Jonathan\Documents\Dale\PairingHistory
+NumberOfPairs=15
+FlatParaToleranceGradeA=0.002
+FlatParaToleranceGradeB=0.0025
+DistTarget=28.020
+DistToleranceA=0.001
+DistToleranceB=0.002
+

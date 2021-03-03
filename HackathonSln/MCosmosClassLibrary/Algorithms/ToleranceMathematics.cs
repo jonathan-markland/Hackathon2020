@@ -10,12 +10,12 @@ namespace MCosmosClassLibrary.Algorithms
         /// <summary>
         /// The maximum value permitted for flatness and parallelism for a GradeA disc.
         /// </summary>
-        public static double FlatParaToleranceA = 0.002;
+        public static double FlatParaToleranceGradeA = 0.002;
 
         /// <summary>
         /// The maximum value permitted for flatness and parallelism for a GradeB disc.
         /// </summary>
-        public static double FlatParaToleranceB = 0.0025;
+        public static double FlatParaToleranceGradeB = 0.0025;
 
         /// <summary>
         /// For the distance measurements, the tolerance band is defined by
@@ -72,11 +72,11 @@ namespace MCosmosClassLibrary.Algorithms
         /// </summary>
         public static DiscGrade FlatParaGradeFor(double n)
         {
-            if (n <= FlatParaToleranceA)
+            if (n <= FlatParaToleranceGradeA)
             {
                 return DiscGrade.GradeA;
             }
-            else if (n <= FlatParaToleranceB)
+            else if (n <= FlatParaToleranceGradeB)
             {
                 return DiscGrade.GradeB;
             }

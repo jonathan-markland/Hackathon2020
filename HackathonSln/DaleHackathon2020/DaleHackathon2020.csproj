@@ -10,4 +10,10 @@
     <ProjectReference Include="..\MCosmosClassLibrary\MCosmosClassLibrary.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Config.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
