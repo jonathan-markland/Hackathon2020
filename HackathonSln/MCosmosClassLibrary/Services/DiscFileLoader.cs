@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using MCosmosClassLibrary.Models;
+﻿using MCosmosClassLibrary.Models;
 using GeneralClassLibrary;
 
 namespace MCosmosClassLibrary.Services
