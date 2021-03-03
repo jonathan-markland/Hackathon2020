@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.IO;
+using MCosmosClassLibrary.Models;
 
 namespace DaleHackathon2020
 {
@@ -15,24 +16,33 @@ namespace DaleHackathon2020
         {
             ConfigFilePath = path;
 
-            bool isNotEmpty(string s)
+            bool isNotEmptyOrComment(string s)
             {
-                return !String.IsNullOrWhiteSpace(s);
+                return !(String.IsNullOrWhiteSpace(s) || s.StartsWith("#"));
             }
 
-            var lines = File.ReadAllLines(path).Where(isNotEmpty).ToList();
+            var lines = File.ReadAllLines(path).Where(isNotEmptyOrComment).ToList();
 
             string Find(string keyName)
             {
                 var keyToFind = keyName + "=";
+                string found = null;
                 foreach (string line in lines)
                 {
                     if (line.StartsWith(keyToFind))
                     {
-                        return line.Substring(keyToFind.Length).Trim();
+                        if (found != null)
+                        {
+                            throw new Exception($"The configuration file contains a duplicate key: {keyName}.  Please remove the duplicate.");
+                        }
+                        found = line.Substring(keyToFind.Length).Trim();
                     }
                 }
-                throw new Exception($"Cannot find '{keyName}' key in the configuration file.");
+                if (found == null)
+                {
+                    throw new Exception($"Cannot find '{keyToFind}' key in the configuration file.  The equals sign must be right next to the name.");
+                }
+                return found;
             }
 
             int ParseIntegerInRange(string s, string keyName, int minimum, int maximum)
@@ -63,42 +73,104 @@ namespace DaleHackathon2020
                 return i;
             }
 
+            // Obtain all strings:
+
             var sourceFolder = Find("SourceFolder");
             var historyFolder = Find("HistoryFolder");
+
             var numberOfPairsString = Find("NumberOfPairs");
+
             var flatParaToleranceGradeAString = Find("FlatParaToleranceGradeA");
             var flatParaToleranceGradeBString = Find("FlatParaToleranceGradeB");
+
             var distTargetString = Find("DistTarget");
-            var distToleranceAString = Find("DistToleranceA");
-            var distToleranceBString = Find("DistToleranceB");
+            var distToleranceGradeAString = Find("DistToleranceGradeA");
+            var distToleranceGradeBString = Find("DistToleranceGradeB");
+
+            var flatHead = Find("Flatness section heading");
+            var flatLbl1 = Find("Flatness label 1");
+            var flatLbl2 = Find("Flatness label 2");
+            var flatLbl3 = Find("Flatness label 3");
+            var flatLbl4 = Find("Flatness label 4");
+            var paraHead = Find("Parallelism section heading");
+            var paraLbl1 = Find("Parallelism label 1");
+            var paraLbl2 = Find("Parallelism label 2");
+            var paraLbl3 = Find("Parallelism label 3");
+            var paraLbl4 = Find("Parallelism label 4");
+            var distHead1 = Find("Distance heading 1");
+            var distLbl1 = Find("Distance label 1");
+            var distLbl2 = Find("Distance label 2");
+            var distLbl3 = Find("Distance label 3");
+            var distLbl4 = Find("Distance label 4");
+            var distHead2 = Find("Distance heading 2");
+            var distLbl5 = Find("Distance label 5");
+            var distLbl6 = Find("Distance label 6");
+            var distLbl7 = Find("Distance label 7");
+            var distLbl8 = Find("Distance label 8");
+
+            // Numerics:
 
             var numberOfPairs = ParseIntegerInRange(numberOfPairsString, "NumberOfPairs", 1, 1000);
             var flatParaToleranceGradeA = ParseDoubleInRange(flatParaToleranceGradeAString, "FlatParaToleranceGradeA", 0.0, 1.0);
             var flatParaToleranceGradeB = ParseDoubleInRange(flatParaToleranceGradeBString, "FlatParaToleranceGradeB", 0.0, 1.0);
             var distTarget = ParseDoubleInRange(distTargetString, "DistTarget", 0.0, 1000000.0);
-            var distToleranceA = ParseDoubleInRange(distToleranceAString, "DistToleranceA", 0.0, 1.0);
-            var distToleranceB = ParseDoubleInRange(distToleranceBString, "DistToleranceB", 0.0, 1.0);
+            var distToleranceGradeA = ParseDoubleInRange(distToleranceGradeAString, "DistToleranceGradeA", 0.0, 1.0);
+            var distToleranceGradeB = ParseDoubleInRange(distToleranceGradeBString, "DistToleranceGradeB", 0.0, 1.0);
+
+            // Set properties:
 
             SourceFolder = sourceFolder;
             HistoryFolder = historyFolder;
+
             NumberOfPairs = numberOfPairs;
+
             FlatParaToleranceGradeA = flatParaToleranceGradeA;
             FlatParaToleranceGradeB = flatParaToleranceGradeB;
+
             DistTarget = distTarget;
-            DistToleranceA = distToleranceA;
-            DistToleranceB = distToleranceB;
+            DistToleranceGradeA = distToleranceGradeA;
+            DistToleranceGradeB = distToleranceGradeB;
+
+            FileHeadings = new FileHeadings
+            {
+                FlatHead = flatHead,
+                FlatLbl1 = flatLbl1,
+                FlatLbl2 = flatLbl2,
+                FlatLbl3 = flatLbl3,
+                FlatLbl4 = flatLbl4,
+                ParaHead = paraHead,
+                ParaLbl1 = paraLbl1,
+                ParaLbl2 = paraLbl2,
+                ParaLbl3 = paraLbl3,
+                ParaLbl4 = paraLbl4,
+                DistHead1 = distHead1,
+                DistLbl1 = distLbl1,
+                DistLbl2 = distLbl2,
+                DistLbl3 = distLbl3,
+                DistLbl4 = distLbl4,
+                DistHead2 = distHead2,
+                DistLbl5 = distLbl5,
+                DistLbl6 = distLbl6,
+                DistLbl7 = distLbl7,
+                DistLbl8 = distLbl8,
+            };
         }
 
         public string ConfigFilePath { get; init; }
 
         public string SourceFolder { get; init; }
         public string HistoryFolder { get; init; }
+
         public int NumberOfPairs { get; init; }
+
         public double FlatParaToleranceGradeA { get; init; }
         public double FlatParaToleranceGradeB { get; init; }
+
         public double DistTarget { get; init; }
-        public double DistToleranceA { get; init; }
-        public double DistToleranceB { get; init; }
+        public double DistToleranceGradeA { get; init; }
+        public double DistToleranceGradeB { get; init; }
+
+        public FileHeadings FileHeadings { get; init; }
 
     }
 }

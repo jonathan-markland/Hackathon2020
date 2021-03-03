@@ -2,7 +2,7 @@
 
 namespace MCosmosFolderWatcher.Services
 {
-    public class FolderWatcher
+    public class FolderWatcher // TODO: erase this file for MVP.
     {
         public FolderWatcher(string folderPath)
         {
@@ -11,7 +11,7 @@ namespace MCosmosFolderWatcher.Services
             _thread = new Thread(() => { 
                 while(!_shutdownRequested)
                 {
-                    var updatedFolderData = Algorithms.BatchFolderLoader.LoadDiscsFromFolder(folderPath);
+                    var updatedFolderData = Algorithms.BatchFolderLoader.LoadDiscsFromFolder(folderPath, null /*TODO*/);
                     _threadData.FolderData = updatedFolderData;
                     Thread.Sleep(5000); // TODO: OS watch folder
                 }

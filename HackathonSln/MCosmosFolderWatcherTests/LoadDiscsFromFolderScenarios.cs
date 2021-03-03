@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using Xunit;
+using MCosmosClassLibrary.Models;
 using MCosmosFolderWatcher.Algorithms;
 using MCosmosFolderWatcher.Models;
 
@@ -30,7 +31,8 @@ namespace MCosmosFolderWatcherTests
         {
             var batchLoadResult =
                 BatchFolderLoader.LoadDiscsFromFolder(
-                    PathToExampleFilesCollectionFolder);
+                    PathToExampleFilesCollectionFolder,
+                    FileHeadings.FileHeadingsForTestFramework);
 
             Assert.Equal(PathToExampleFilesCollectionFolder, batchLoadResult.PathToFolder);
 
@@ -48,7 +50,8 @@ namespace MCosmosFolderWatcherTests
         {
             var batchLoadResult =
                 BatchFolderLoader.LoadDiscsFromFolder(
-                    PathThatDoesntExist);
+                    PathThatDoesntExist,
+                    FileHeadings.FileHeadingsForTestFramework);
 
             Assert.Equal(PathThatDoesntExist, batchLoadResult.PathToFolder);
 
@@ -74,7 +77,8 @@ namespace MCosmosFolderWatcherTests
             {
                 var batchLoadResult =
                     BatchFolderLoader.LoadDiscsFromFolder(
-                        PathToExampleFilesCollectionFolder);
+                        PathToExampleFilesCollectionFolder,
+                        FileHeadings.FileHeadingsForTestFramework);
 
                 Assert.Equal(PathToExampleFilesCollectionFolder, batchLoadResult.PathToFolder);
 
@@ -100,7 +104,8 @@ namespace MCosmosFolderWatcherTests
         {
             var batchLoadResult =
                 BatchFolderLoader.LoadDiscsFromFolder(
-                    PathToGoodAndBadFilesCollectionFolder);
+                    PathToGoodAndBadFilesCollectionFolder,
+                    FileHeadings.FileHeadingsForTestFramework);
 
             Assert.Equal(PathToGoodAndBadFilesCollectionFolder, batchLoadResult.PathToFolder);
 

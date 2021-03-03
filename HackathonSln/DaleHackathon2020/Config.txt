@@ -1,9 +1,36 @@
 ﻿SourceFolder=C:\Users\Jonathan\Documents\Dale\CMMSourceFiles
 HistoryFolder=C:\Users\Jonathan\Documents\Dale\PairingHistory
+
 NumberOfPairs=15
+
 FlatParaToleranceGradeA=0.002
 FlatParaToleranceGradeB=0.0025
+
 DistTarget=28.020
-DistToleranceA=0.001
-DistToleranceB=0.002
+DistToleranceGradeA=0.001
+DistToleranceGradeB=0.002
+
+Flatness section heading=Flatness - Datums F, E, D & G (as common zones)
+Flatness label 1=Datum F
+Flatness label 2=Datum E
+Flatness label 3=Datum D
+Flatness label 4=Datum G
+
+Parallelism section heading=Parallelism - 4 opposed positions
+Parallelism label 1=Datum E LH 1
+Parallelism label 2=Datum E RH 1
+Parallelism label 3=Datum G FR 1
+Parallelism label 4=Datum G BK 1
+
+Distance heading 1=Datum E to Datum F - (diagonals at -1.5 & -10.3)
+Distance label 1=E to F at -1.5 LH
+Distance label 2=E to F at -1.5 RH
+Distance label 3=E to F at -10.3 LH
+Distance label 4=E to F at -10.3 RH
+
+Distance heading 2=Datum G to Datum D - (diagonals at -1.5 & -10.3)
+Distance label 5=G to D at -1.5 FR
+Distance label 6=G to D at -1.5 BK
+Distance label 7=G to D at -10.3 FR
+Distance label 8=G to D at -10.3 BK
 

@@ -9,11 +9,11 @@ namespace MCosmosFolderWatcher.Algorithms
 {
     public static class BatchFolderLoader
     {
-        public static BatchBase LoadDiscsFromFolder(string pathToFolder)
+        public static BatchBase LoadDiscsFromFolder(string pathToFolder, FileHeadings fileHeadings)
         {
             try
             {
-                return LoadDiscsFromFolder2(pathToFolder);
+                return LoadDiscsFromFolder2(pathToFolder, fileHeadings);
             }
             catch(Exception ex)
             {
@@ -26,7 +26,7 @@ namespace MCosmosFolderWatcher.Algorithms
         }
 
 
-        private static BatchBase LoadDiscsFromFolder2(string pathToFolder)
+        private static BatchBase LoadDiscsFromFolder2(string pathToFolder, FileHeadings fileHeadings)
         {
             // A best-effort returning error detail for individual files.
 
@@ -37,7 +37,7 @@ namespace MCosmosFolderWatcher.Algorithms
             {
                 try
                 {
-                    var d = DiscFileLoader.LoadDiscFromFile(filePath);
+                    var d = DiscFileLoader.LoadDiscFromFile(filePath, fileHeadings);
                     discs.Add(d);
                 }
                 catch(Exception ex) // TODO: more specific?
