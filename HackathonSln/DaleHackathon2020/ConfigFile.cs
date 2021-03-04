@@ -25,22 +25,26 @@ namespace DaleHackathon2020
 
             string Find(string keyName)
             {
-                var keyToFind = keyName + "=";
                 string found = null;
                 foreach (string line in lines)
                 {
-                    if (line.StartsWith(keyToFind))
+                    var equalsPos = line.IndexOf('=');
+                    if (equalsPos >= 0)
                     {
-                        if (found != null)
+                        var candidateKey = line.Substring(0, equalsPos).Trim();
+                        if (candidateKey == keyName)
                         {
-                            throw new Exception($"The configuration file contains a duplicate key: {keyName}.  Please remove the duplicate.");
+                            if (found != null)
+                            {
+                                throw new Exception($"The configuration file contains a duplicate key: {keyName}.  Please remove the duplicate.");
+                            }
+                            found = line.Substring(equalsPos + 1).Trim();
                         }
-                        found = line.Substring(keyToFind.Length).Trim();
                     }
                 }
                 if (found == null)
                 {
-                    throw new Exception($"Cannot find '{keyToFind}' key in the configuration file.  The equals sign must be right next to the name.");
+                    throw new Exception($"Cannot find '{keyName}' key in the configuration file.");
                 }
                 return found;
             }
