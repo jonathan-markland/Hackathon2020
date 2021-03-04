@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Xunit;
-using MCosmosClassLibrary;
-using MCosmosClassLibrary.Models;
 using MCosmosClassLibrary.Algorithms;
 using ExampleFilesCollection;
 

@@ -1,8 +1,6 @@
 ﻿using System.Collections.ObjectModel;
-using MCosmosClassLibrary;
-using MCosmosClassLibrary.Models;
 
-namespace MCosmosFolderWatcher.Models
+namespace MCosmosClassLibrary.Models
 {
     /// <summary>
     /// Base class for batch folder processing results.

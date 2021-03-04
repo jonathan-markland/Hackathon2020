@@ -1,6 +1,4 @@
-﻿using System;
-using Xunit;
-using MCosmosClassLibrary;
+﻿using Xunit;
 using MCosmosClassLibrary.Models;
 
 namespace TestProject

@@ -1,11 +1,9 @@
-using System;
 using System.IO;
 using Xunit;
 using MCosmosClassLibrary.Models;
-using MCosmosFolderWatcher.Algorithms;
-using MCosmosFolderWatcher.Models;
+using MCosmosClassLibrary.Services;
 
-namespace MCosmosFolderWatcherTests
+namespace TestProject
 {
     public class LoadDiscsFromFolderScenarios
     {

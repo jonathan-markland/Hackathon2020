@@ -11,11 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MCosmosClassLibraryTests", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExampleFilesCollection", "ExampleFilesCollection\ExampleFilesCollection.csproj", "{A5D07FDC-E5D1-49EF-BA02-CA026DF857D7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MCosmosFolderWatcher", "MCosmosFolderWatcher\MCosmosFolderWatcher.csproj", "{381CCEE4-D888-4F68-9B48-1A5A03DD48F1}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MCosmosFolderWatcherTests", "MCosmosFolderWatcherTests\MCosmosFolderWatcherTests.csproj", "{372C7FFB-1CAC-43CA-B6A6-35E69BC667C1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneralClassLibrary", "GeneralClassLibrary\GeneralClassLibrary.csproj", "{3BAC355C-802A-41B6-B5C2-8A4E48AB606B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeneralClassLibrary", "GeneralClassLibrary\GeneralClassLibrary.csproj", "{3BAC355C-802A-41B6-B5C2-8A4E48AB606B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,14 +35,6 @@ Global
 		{A5D07FDC-E5D1-49EF-BA02-CA026DF857D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5D07FDC-E5D1-49EF-BA02-CA026DF857D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5D07FDC-E5D1-49EF-BA02-CA026DF857D7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{381CCEE4-D888-4F68-9B48-1A5A03DD48F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{381CCEE4-D888-4F68-9B48-1A5A03DD48F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{381CCEE4-D888-4F68-9B48-1A5A03DD48F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{381CCEE4-D888-4F68-9B48-1A5A03DD48F1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{372C7FFB-1CAC-43CA-B6A6-35E69BC667C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{372C7FFB-1CAC-43CA-B6A6-35E69BC667C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{372C7FFB-1CAC-43CA-B6A6-35E69BC667C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{372C7FFB-1CAC-43CA-B6A6-35E69BC667C1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3BAC355C-802A-41B6-B5C2-8A4E48AB606B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3BAC355C-802A-41B6-B5C2-8A4E48AB606B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3BAC355C-802A-41B6-B5C2-8A4E48AB606B}.Release|Any CPU.ActiveCfg = Release|Any CPU
