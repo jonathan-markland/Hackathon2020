@@ -14,7 +14,7 @@ namespace TestProject
         }
 
         private string PathToExampleFilesCollectionFolder =>
-            InCurrentDirectory(@"ExampleFiles");
+            InCurrentDirectory(@"ExampleFiles");  // TODO: There are races within the test framework since two groups of tests compete for this folder (file lock acquisition issue).
         
         private string PathThatDoesntExist =>
             InCurrentDirectory(@"PathThatDoesntExist");
