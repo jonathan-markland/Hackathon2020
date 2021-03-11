@@ -123,8 +123,8 @@ namespace DaleHackathon2020
 
             // Set properties:
 
-            SourceFolder = sourceFolder;
-            HistoryFolder = historyFolder;
+            SourceFolderPath = sourceFolder;
+            HistoryFolderPath = historyFolder;
 
             NumberOfPairs = numberOfPairs;
 
@@ -162,8 +162,8 @@ namespace DaleHackathon2020
 
         public string ConfigFilePath { get; init; }
 
-        public string SourceFolder { get; init; }
-        public string HistoryFolder { get; init; }
+        public string SourceFolderPath { get; init; }
+        public string HistoryFolderPath { get; init; }
 
         public int NumberOfPairs { get; init; }
 

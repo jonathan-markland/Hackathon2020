@@ -7,8 +7,6 @@ namespace MCosmosClassLibrary.Models
     /// </summary>
     public class BatchBase
     {
-        // Nothing to put here yet.
-
         /// <summary>
         /// The folder on which the load was attempted.
         /// </summary>
