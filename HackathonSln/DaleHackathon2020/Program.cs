@@ -126,7 +126,11 @@ namespace DaleHackathon2020
             void explanationForSuccessfulLoadSection()
             {
                 output("This section contains serial numbers and information");
-                output("about those CMM disc files that were successfully loaded.");
+                output("of all CMM disc files currently in the source folder");
+                output("that can be successfully understood by this software.");
+                blank();
+                output("Only these files will be considered for pairing.");
+                output("There may be more files listed than needed in this round.");
                 blank();
             }
 
@@ -136,7 +140,7 @@ namespace DaleHackathon2020
                 output("been loaded successfully, and why.  The number in brackets");
                 output("is the line number within the file of the error.");
                 blank();
-                output("NOTE: - These files will NOT be considered for processing!");
+                output("NOTE: - These files will NOT be considered for pairing!");
                 output("      - Please consider removing these files from the source folder.");
                 blank();
             }
