@@ -72,6 +72,8 @@ namespace DaleHackathon2020
             Library.AttemptToCreateDistinctFolder("the pairings output folder", outputPath);
             Library.AttemptFileCopy(configFile.ConfigFilePath, outputPath, "Copy of Config file that was used on this date.txt");
 
+            var pairings = batch.Discs.AsListOfMatchedPairs().Take(configFile.NumberOfPairs);
+
             void discLoadingReport(System.IO.StreamWriter streamWriter)
             {
                 DiscLoadingReport(batch, streamWriter);
@@ -79,13 +81,13 @@ namespace DaleHackathon2020
 
             void discPairingReport(System.IO.StreamWriter streamWriter)
             {
-                var pairings = batch.Discs.AsListOfMatchedPairs().Take(configFile.NumberOfPairs);
                 DiscPairingReport(pairings, streamWriter);
             }
 
             GenerateAndSaveReportFile(discLoadingReport, outputPath, "disc-loading-report.txt");
             GenerateAndSaveReportFile(discPairingReport, outputPath, "disc-pairing-report.txt");
 
+            MovePairedToOutputFolder(pairings, outputPath);
         }
 
         private static void GenerateAndSaveReportFile(
@@ -202,12 +204,12 @@ namespace DaleHackathon2020
                 output("");
             }
 
-            void heading(string s, char underscore)
+            void heading(string headingText, char underlineChar)
             {
                 blank();
                 blank();
-                output(s);
-                output(new string(underscore, s.Length));
+                output(headingText);
+                output(new string(underlineChar, headingText.Length));
                 blank();
             }
 
@@ -273,6 +275,27 @@ namespace DaleHackathon2020
             ifEmpty(
                 pairings,
                 () => output("No pairings could be established."));
+        }
+
+
+
+        private static void MovePairedToOutputFolder(
+            IEnumerable<Pair> pairings, 
+            string outputPath)
+        {
+            void move(DiscInfo disc)
+            {
+                var sourcePath = disc.Metadata.OriginFilePath;
+                var fileName = System.IO.Path.GetFileName(sourcePath);
+                var destPath = System.IO.Path.Combine(outputPath, fileName);
+                System.IO.File.Move(sourcePath, destPath);
+            }
+
+            foreach(var pair in pairings)
+            {
+                move(pair.Disc1);
+                move(pair.Disc2);
+            }
         }
 
     }
