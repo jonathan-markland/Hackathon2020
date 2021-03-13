@@ -76,7 +76,7 @@ namespace DaleHackathon2020
 
             void discLoadingReport(System.IO.StreamWriter streamWriter)
             {
-                DiscLoadingReport(batch, streamWriter);
+                DiscLoadingReport(configFile.SourceFolderPath, outputPath, batch, streamWriter);
             }
 
             void discPairingReport(System.IO.StreamWriter streamWriter)
@@ -87,7 +87,7 @@ namespace DaleHackathon2020
             GenerateAndSaveReportFile(discLoadingReport, outputPath, "disc-loading-report.txt");
             GenerateAndSaveReportFile(discPairingReport, outputPath, "disc-pairing-report.txt");
 
-            MovePairedToOutputFolder(pairings, outputPath);
+            // MovePairedToOutputFolder(pairings, outputPath);
         }
 
         private static void GenerateAndSaveReportFile(
@@ -104,7 +104,7 @@ namespace DaleHackathon2020
 
 
 
-        private static void DiscLoadingReport(Batch batch, System.IO.StreamWriter outputStream)
+        private static void DiscLoadingReport(string sourceFolderPath, string outputFolderPath, Batch batch, System.IO.StreamWriter outputStream)
         {
             void output(string s)
             {
@@ -127,12 +127,12 @@ namespace DaleHackathon2020
 
             void explanationForSuccessfulLoadSection()
             {
-                output("This section contains serial numbers and information");
-                output("of all CMM disc files currently in the source folder");
-                output("that can be successfully understood by this software.");
+                output("This section contains serial numbers and information about");
+                output("the CMM disc files that were in the source folder");
+                output("that are understood by this software.");
                 blank();
-                output("Only these files will be considered for pairing.");
-                output("There may be more files listed than needed in this round.");
+                output("Only these files were considered for pairing.");
+                output("There may be more files listed than were needed in this round.");
                 blank();
             }
 
@@ -147,18 +147,13 @@ namespace DaleHackathon2020
                 blank();
             }
 
-            void collection<T>(string title, Action explanationEmitter, IEnumerable<T> collection, Action<T> outputter)
+            void collection<T>(string title, Action explanationEmitter, IEnumerable<string> headings, IEnumerable<T> collection, Func<T, int, List<string>> rowOfStringsGetter)
             {
                 if (collection.Any())
                 {
                     heading(title, '-');
-
                     explanationEmitter();
-
-                    foreach (T item in collection)
-                    {
-                        outputter(item);
-                    }
+                    AsciiArtTable.OutputTable(headings, collection, rowOfStringsGetter, output);
                 }
             }
 
@@ -170,14 +165,47 @@ namespace DaleHackathon2020
                 }
             }
 
+            List<string> loadingReportHeadings = new List<string>
+            {
+                "", "Serial No.", "Overall Disc Grade"
+            };
+
+            List<string> loadingReportLine(DiscInfo disc, int index)
+            {
+                return new List<string>
+                {
+                    $"{index+1}",
+                    $"{disc.Metadata.SerialNo}",
+                    $"{disc.OverallGrade.ToGradeLetter()}",
+                };
+            }
+
+            List<string> errorHeadings = new List<string>
+            {
+                "Error file",
+            };
+
+            List<string> fileProcessingErrorLine(FileProcessingError error, int index)   // This fits with the table outputting, but is probably not massively worthwhile.
+            {
+                return new List<string>
+                {
+                    $"{error.Error}",
+                };
+            }
+
+
 
             heading("FILE LOADING REPORT", '=');
+
+            output($"Source folder was:  {sourceFolderPath}");
+            output($"Output folder was:  {outputFolderPath}");
 
             collection(
                 $"{batch.Discs.Count()} x CMM disc files successfully loaded", 
                 explanationForSuccessfulLoadSection,
-                batch.Discs, 
-                disc => output($"{disc.Metadata.SerialNo}    {disc.OverallGrade.ToGradeLetter()}"));
+                loadingReportHeadings,
+                batch.Discs,
+                loadingReportLine);
 
             ifEmpty(
                 batch.Discs,
@@ -186,8 +214,9 @@ namespace DaleHackathon2020
             collection(
                 "Files in error",
                 explanationForErrorSection,
+                errorHeadings,
                 batch.FileProcessingErrors,
-                error => output(error.Error));
+                fileProcessingErrorLine);
         }
 
 
@@ -224,20 +253,13 @@ namespace DaleHackathon2020
                 blank();
             }
 
-            void collection<T>(string title, Action explanationEmitter, IEnumerable<T> collection, Action<T, int> outputter)
+            void collection<T>(string title, Action explanationEmitter, IEnumerable<string> headings, IEnumerable<T> collection, Func<T, int, List<string>> rowOfStringsGetter)
             {
                 if (collection.Any())
                 {
                     heading(title, '-');
-
                     explanationEmitter();
-
-                    int index = 0;
-                    foreach (T item in collection)
-                    {
-                        outputter(item, index);
-                        ++index;
-                    }
+                    AsciiArtTable.OutputTable(headings, collection, rowOfStringsGetter, output);
                 }
             }
 
@@ -249,17 +271,22 @@ namespace DaleHackathon2020
                 }
             }
 
-            void pairingLine(Pair pair, int index)
+            List<string> pairingHeadings = new List<string>
             {
-                var euclid = pair.EuclideanDistance;
+                "", "Euclidean Distance", "Grade 1", "Serial No. 1", "Serial No. 2", "Grade 2"
+            };
 
-                var serial1 = pair.Disc1.Metadata.SerialNo;
-                var serial2 = pair.Disc2.Metadata.SerialNo;
-
-                var grade1 = pair.Disc1.OverallGrade.ToGradeLetter();
-                var grade2 = pair.Disc2.OverallGrade.ToGradeLetter();
-
-                output($"{index+1}.  {euclid}   {grade1} {serial1} <=> {serial2} {grade2}");
+            List<string> pairingLine(Pair pair, int index)
+            {
+                return new List<string>
+                {
+                    $"{index+1}",
+                    $"{pair.EuclideanDistance}",
+                    $"{pair.Disc1.OverallGrade.ToGradeLetter()}",
+                    $"{pair.Disc1.Metadata.SerialNo}",
+                    $"{pair.Disc2.Metadata.SerialNo}",
+                    $"{pair.Disc2.OverallGrade.ToGradeLetter()}",
+                };
             }
 
 
@@ -269,6 +296,7 @@ namespace DaleHackathon2020
             collection(
                 $"{pairings.Count()} x pairings successfully established",
                 explanationForPairedSection,
+                pairingHeadings,
                 pairings,
                 pairingLine);
 
@@ -308,12 +336,11 @@ namespace DaleHackathon2020
         {
             switch (discGrade)
             {
-                case DiscGrade.GradeA: return "(A)";
-                case DiscGrade.GradeB: return "(B)";
-                case DiscGrade.GradeC: return "(C)";
+                case DiscGrade.GradeA: return "-A-";
+                case DiscGrade.GradeB: return "-B-";
+                case DiscGrade.GradeC: return "-C-";
                 default: throw new System.Exception("Disc grade is unknown to the system.");  // Will never happen unless enum extended.
             }
         }
     }
-
 }
