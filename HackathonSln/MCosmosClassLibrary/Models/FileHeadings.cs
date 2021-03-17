@@ -11,49 +11,69 @@ namespace MCosmosClassLibrary.Models
     /// </summary>
     public class FileHeadings
     {
-        public string FlatHead { get; init; }
-        public string FlatLbl1 { get; init; }
-        public string FlatLbl2 { get; init; }
-        public string FlatLbl3 { get; init; }
-        public string FlatLbl4 { get; init; }
-        public string ParaHead { get; init; }
-        public string ParaLbl1 { get; init; }
-        public string ParaLbl2 { get; init; }
-        public string ParaLbl3 { get; init; }
-        public string ParaLbl4 { get; init; }
-        public string DistHead1 { get; init; }
-        public string DistLbl1 { get; init; }
-        public string DistLbl2 { get; init; }
-        public string DistLbl3 { get; init; }
-        public string DistLbl4 { get; init; }
-        public string DistHead2 { get; init; }
-        public string DistLbl5 { get; init; }
-        public string DistLbl6 { get; init; }
-        public string DistLbl7 { get; init; }
-        public string DistLbl8 { get; init; }
+        public string ProgramNameLabel { get; init; }
+        public string DateTimeLabel { get; init; }
+        public string DrawingNumberLabel { get; init; }
+        public string SerialNumberLabel { get; init; }
+        public string IssueNumberLabel { get; init; }
+        public string DescriptionLabel { get; init; }
+
+        public string FlatHeading { get; init; }
+        public string FlatSubHeading1 { get; init; }
+        public string FlatSubHeading2 { get; init; }
+        public string FlatSubHeading3 { get; init; }
+        public string FlatSubHeading4 { get; init; }
+        public string FlatValueLabel { get; init; }
+
+        public string ParaHeading { get; init; }
+        public string ParaLabel1 { get; init; }
+        public string ParaLabel2 { get; init; }
+        public string ParaLabel3 { get; init; }
+        public string ParaLabel4 { get; init; }
+
+        public string DistHeading1 { get; init; }
+        public string DistLabel1 { get; init; }
+        public string DistLabel2 { get; init; }
+        public string DistLabel3 { get; init; }
+        public string DistLabel4 { get; init; }
+        public string DistHeading2 { get; init; }
+        public string DistLabel5 { get; init; }
+        public string DistLabel6 { get; init; }
+        public string DistLabel7 { get; init; }
+        public string DistLabel8 { get; init; }
 
         public static FileHeadings FileHeadingsForTestFramework = new FileHeadings
         {
-            FlatHead = "Flatness - Datums F, E, D & G (as common zones)",
-            FlatLbl1 = "Datum F",
-            FlatLbl2 = "Datum E",
-            FlatLbl3 = "Datum D",
-            FlatLbl4 = "Datum G",
-            ParaHead = "Parallelism - 4 opposed positions",
-            ParaLbl1 = "Datum E LH 1",
-            ParaLbl2 = "Datum E RH 1",
-            ParaLbl3 = "Datum G FR 1",
-            ParaLbl4 = "Datum G BK 1",
-            DistHead1 = "Datum E to Datum F - (diagonals at -1.5 & -10.3)",
-            DistLbl1 = "E to F at -1.5 LH",
-            DistLbl2 = "E to F at -1.5 RH",
-            DistLbl3 = "E to F at -10.3 LH",
-            DistLbl4 = "E to F at -10.3 RH",
-            DistHead2 = "Datum G to Datum D - (diagonals at -1.5 & -10.3)",
-            DistLbl5 = "G to D at -1.5 FR",
-            DistLbl6 = "G to D at -1.5 BK",
-            DistLbl7 = "G to D at -10.3 FR",
-            DistLbl8 = "G to D at -10.3 BK",
+            ProgramNameLabel   = "Program Name   :",
+            DateTimeLabel      = "Date / Time    :",
+            DrawingNumberLabel = "Drawing No     :",
+            SerialNumberLabel  = "Serial No      :",
+            IssueNumberLabel   = "Issue No       :",
+            DescriptionLabel   = "Description    :",
+
+            FlatHeading = "Flatness - Datums F, E, D & G (as common zones)",
+            FlatSubHeading1 = "Datum F",
+            FlatSubHeading2 = "Datum E",
+            FlatSubHeading3 = "Datum D",
+            FlatSubHeading4 = "Datum G",
+            FlatValueLabel  = "Flatness",
+            
+            ParaHeading = "Parallelism - 4 opposed positions",
+            ParaLabel1 = "Datum E LH 1",
+            ParaLabel2 = "Datum E RH 1",
+            ParaLabel3 = "Datum G FR 1",
+            ParaLabel4 = "Datum G BK 1",
+            
+            DistHeading1 = "Datum E to Datum F - (diagonals at -1.5 & -10.3)",
+            DistLabel1 = "E to F at -1.5 LH",
+            DistLabel2 = "E to F at -1.5 RH",
+            DistLabel3 = "E to F at -10.3 LH",
+            DistLabel4 = "E to F at -10.3 RH",
+            DistHeading2 = "Datum G to Datum D - (diagonals at -1.5 & -10.3)",
+            DistLabel5 = "G to D at -1.5 FR",
+            DistLabel6 = "G to D at -1.5 BK",
+            DistLabel7 = "G to D at -10.3 FR",
+            DistLabel8 = "G to D at -10.3 BK",
         };
     }
 }

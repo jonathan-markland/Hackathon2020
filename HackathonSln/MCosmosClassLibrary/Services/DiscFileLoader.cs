@@ -42,11 +42,11 @@ namespace MCosmosClassLibrary.Services
         private DiscMetadata LoadMetadata()
         {
             reader
-                .ExpectLineStartingWith("Program Name   :")
-                .ExpectLineStartingWith("Date / Time    :")
-                .Parameter("Drawing No     :", Parse.StringFromSecondColumn("Serial No      :"), out StringBox serialNo)
-                .ExpectLineStartingWith("Issue No       :")
-                .ExpectLineStartingWith("Description    :");
+                .ExpectLineStartingWith(fileHeadings.ProgramNameLabel /* Program Name   : */ )
+                .ExpectLineStartingWith(fileHeadings.DateTimeLabel /* Date / Time    : */)
+                .Parameter(fileHeadings.DrawingNumberLabel /* Drawing No     : */, Parse.StringFromSecondColumn(fileHeadings.SerialNumberLabel /* Serial No      : */), out StringBox serialNo)
+                .ExpectLineStartingWith(fileHeadings.IssueNumberLabel /* Issue No       : */)
+                .ExpectLineStartingWith(fileHeadings.DescriptionLabel /* Description    : */);
 
             return new DiscMetadata(serialNo.Value, SourceFilePath);
         }
@@ -54,11 +54,11 @@ namespace MCosmosClassLibrary.Services
         private FlatnessMeasurements LoadFlatness()
         {
             reader
-                .ExpectWholeLine(fileHeadings.FlatHead) // was: "Flatness - Datums F, E, D & G (as common zones)"
-                .ExpectWholeLine(fileHeadings.FlatLbl1 /*"Datum F"*/).Parameter("Flatness", Parse.FlatnessNumber, out FlatnessMeasure flatF)
-                .ExpectWholeLine(fileHeadings.FlatLbl2 /*"Datum E"*/).Parameter("Flatness", Parse.FlatnessNumber, out FlatnessMeasure flatE)
-                .ExpectWholeLine(fileHeadings.FlatLbl3 /*"Datum D"*/).Parameter("Flatness", Parse.FlatnessNumber, out FlatnessMeasure flatD)
-                .ExpectWholeLine(fileHeadings.FlatLbl4 /*"Datum G"*/).Parameter("Flatness", Parse.FlatnessNumber, out FlatnessMeasure flatG);
+                .ExpectWholeLine(fileHeadings.FlatHeading) // was: "Flatness - Datums F, E, D & G (as common zones)"
+                .ExpectWholeLine(fileHeadings.FlatSubHeading1 /* Datum F */).Parameter(fileHeadings.FlatValueLabel /* Flatness */, Parse.FlatnessNumber, out FlatnessMeasure flatF)
+                .ExpectWholeLine(fileHeadings.FlatSubHeading2 /* Datum E */).Parameter(fileHeadings.FlatValueLabel /* Flatness */, Parse.FlatnessNumber, out FlatnessMeasure flatE)
+                .ExpectWholeLine(fileHeadings.FlatSubHeading3 /* Datum D */).Parameter(fileHeadings.FlatValueLabel /* Flatness */, Parse.FlatnessNumber, out FlatnessMeasure flatD)
+                .ExpectWholeLine(fileHeadings.FlatSubHeading4 /* Datum G */).Parameter(fileHeadings.FlatValueLabel /* Flatness */, Parse.FlatnessNumber, out FlatnessMeasure flatG);
 
             return new FlatnessMeasurements(
                 datumF: flatF,
@@ -71,11 +71,11 @@ namespace MCosmosClassLibrary.Services
         private ParallelMeasurements LoadParallelism()
         {
             reader
-                .ExpectWholeLine(fileHeadings.ParaHead) // was: "Parallelism - 4 opposed positions")
-                .Parameter(fileHeadings.ParaLbl1 /*"Datum E LH 1"*/, Parse.ParallelNumber, out ParallelMeasure datumELH1)
-                .Parameter(fileHeadings.ParaLbl2 /*"Datum E RH 1"*/, Parse.ParallelNumber, out ParallelMeasure datumERH1)
-                .Parameter(fileHeadings.ParaLbl3 /*"Datum G FR 1"*/, Parse.ParallelNumber, out ParallelMeasure datumGFR1)
-                .Parameter(fileHeadings.ParaLbl4 /*"Datum G BK 1"*/, Parse.ParallelNumber, out ParallelMeasure datumGBK1);
+                .ExpectWholeLine(fileHeadings.ParaHeading) // was: "Parallelism - 4 opposed positions")
+                .Parameter(fileHeadings.ParaLabel1 /* Datum E LH 1 */, Parse.ParallelNumber, out ParallelMeasure datumELH1)
+                .Parameter(fileHeadings.ParaLabel2 /* Datum E RH 1 */, Parse.ParallelNumber, out ParallelMeasure datumERH1)
+                .Parameter(fileHeadings.ParaLabel3 /* Datum G FR 1 */, Parse.ParallelNumber, out ParallelMeasure datumGFR1)
+                .Parameter(fileHeadings.ParaLabel4 /* Datum G BK 1 */, Parse.ParallelNumber, out ParallelMeasure datumGBK1);
 
             return new ParallelMeasurements(
                 datumELH1: datumELH1,
@@ -88,17 +88,17 @@ namespace MCosmosClassLibrary.Services
         private DistanceMeasurements LoadDistances()
         {
             reader
-                .ExpectWholeLine(fileHeadings.DistHead1) // was: "Datum E to Datum F - (diagonals at -1.5 & -10.3)"
-                .Parameter(fileHeadings.DistLbl1 /*"E to F at -1.5 LH" */, Parse.DistanceNumber, out DistanceMeasure EtoFLeft1 )
-                .Parameter(fileHeadings.DistLbl2 /*"E to F at -1.5 RH" */, Parse.DistanceNumber, out DistanceMeasure EtoFRight1)
-                .Parameter(fileHeadings.DistLbl3 /*"E to F at -10.3 LH"*/, Parse.DistanceNumber, out DistanceMeasure EtoFLeft2 )
-                .Parameter(fileHeadings.DistLbl4 /*"E to F at -10.3 RH"*/, Parse.DistanceNumber, out DistanceMeasure EtoFRight2)
+                .ExpectWholeLine(fileHeadings.DistHeading1) // was: "Datum E to Datum F - (diagonals at -1.5 & -10.3)"
+                .Parameter(fileHeadings.DistLabel1 /* E to F at -1.5 LH  */, Parse.DistanceNumber, out DistanceMeasure EtoFLeft1 )
+                .Parameter(fileHeadings.DistLabel2 /* E to F at -1.5 RH  */, Parse.DistanceNumber, out DistanceMeasure EtoFRight1)
+                .Parameter(fileHeadings.DistLabel3 /* E to F at -10.3 LH */, Parse.DistanceNumber, out DistanceMeasure EtoFLeft2 )
+                .Parameter(fileHeadings.DistLabel4 /* E to F at -10.3 RH */, Parse.DistanceNumber, out DistanceMeasure EtoFRight2)
 
-                .ExpectWholeLine(fileHeadings.DistHead2) // was: "Datum G to Datum D - (diagonals at -1.5 & -10.3)"
-                .Parameter(fileHeadings.DistLbl5 /*"G to D at -1.5 FR" */, Parse.DistanceNumber, out DistanceMeasure GtoDFront1) 
-                .Parameter(fileHeadings.DistLbl6 /*"G to D at -1.5 BK" */, Parse.DistanceNumber, out DistanceMeasure GtoDBack1 ) 
-                .Parameter(fileHeadings.DistLbl7 /*"G to D at -10.3 FR"*/, Parse.DistanceNumber, out DistanceMeasure GtoDFront2) 
-                .Parameter(fileHeadings.DistLbl8 /*"G to D at -10.3 BK"*/, Parse.DistanceNumber, out DistanceMeasure GtoDBack2 );
+                .ExpectWholeLine(fileHeadings.DistHeading2) // was: "Datum G to Datum D - (diagonals at -1.5 & -10.3)"
+                .Parameter(fileHeadings.DistLabel5 /* G to D at -1.5 FR  */, Parse.DistanceNumber, out DistanceMeasure GtoDFront1) 
+                .Parameter(fileHeadings.DistLabel6 /* G to D at -1.5 BK  */, Parse.DistanceNumber, out DistanceMeasure GtoDBack1 ) 
+                .Parameter(fileHeadings.DistLabel7 /* G to D at -10.3 FR */, Parse.DistanceNumber, out DistanceMeasure GtoDFront2) 
+                .Parameter(fileHeadings.DistLabel8 /* G to D at -10.3 BK */, Parse.DistanceNumber, out DistanceMeasure GtoDBack2 );
 
             return new DistanceMeasurements(
                 etoFLeft1  : EtoFLeft1 ,

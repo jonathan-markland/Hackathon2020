@@ -10,11 +10,19 @@ DistTarget=28.020
 DistToleranceGradeA= 0.001
 DistToleranceGradeB =0.002
 
+Program name label   = Program Name   :
+Date time label      = Date / Time    :
+Drawing number label = Drawing No     :
+Serial number label  = Serial No      :
+Issue number label   = Issue No       :
+Description label    = Description    :
+
 Flatness section heading = Flatness - Datums F, E, D & G (as common zones)
 Flatness label 1 = Datum F
 Flatness label 2 = Datum E
 Flatness label 3 = Datum D
 Flatness label 4 = Datum G
+Flatness value label = Flatness
 
 Parallelism section heading = Parallelism - 4 opposed positions
 Parallelism label 1 = Datum E LH 1

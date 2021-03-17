@@ -91,26 +91,36 @@ namespace DaleHackathon2020
             var distToleranceGradeAString = Find("DistToleranceGradeA");
             var distToleranceGradeBString = Find("DistToleranceGradeB");
 
+            var programNameLabel   = Find("Program name label");
+            var dateTimeLabel      = Find("Date time label");
+            var drawingNumberLabel = Find("Drawing number label");
+            var serialNumberLabel  = Find("Serial number label");
+            var issueNumberLabel   = Find("Issue number label");
+            var descriptionLabel   = Find("Description label");
+
             var flatHead = Find("Flatness section heading");
             var flatLbl1 = Find("Flatness label 1");
             var flatLbl2 = Find("Flatness label 2");
             var flatLbl3 = Find("Flatness label 3");
             var flatLbl4 = Find("Flatness label 4");
+            var flatValueLabel = Find("Flatness value label");
+
             var paraHead = Find("Parallelism section heading");
             var paraLbl1 = Find("Parallelism label 1");
             var paraLbl2 = Find("Parallelism label 2");
             var paraLbl3 = Find("Parallelism label 3");
             var paraLbl4 = Find("Parallelism label 4");
+
             var distHead1 = Find("Distance heading 1");
-            var distLbl1 = Find("Distance label 1");
-            var distLbl2 = Find("Distance label 2");
-            var distLbl3 = Find("Distance label 3");
-            var distLbl4 = Find("Distance label 4");
+            var distLbl1  = Find("Distance label 1");
+            var distLbl2  = Find("Distance label 2");
+            var distLbl3  = Find("Distance label 3");
+            var distLbl4  = Find("Distance label 4");
             var distHead2 = Find("Distance heading 2");
-            var distLbl5 = Find("Distance label 5");
-            var distLbl6 = Find("Distance label 6");
-            var distLbl7 = Find("Distance label 7");
-            var distLbl8 = Find("Distance label 8");
+            var distLbl5  = Find("Distance label 5");
+            var distLbl6  = Find("Distance label 6");
+            var distLbl7  = Find("Distance label 7");
+            var distLbl8  = Find("Distance label 8");
 
             // Numerics:
 
@@ -137,26 +147,36 @@ namespace DaleHackathon2020
 
             FileHeadings = new FileHeadings
             {
-                FlatHead = flatHead,
-                FlatLbl1 = flatLbl1,
-                FlatLbl2 = flatLbl2,
-                FlatLbl3 = flatLbl3,
-                FlatLbl4 = flatLbl4,
-                ParaHead = paraHead,
-                ParaLbl1 = paraLbl1,
-                ParaLbl2 = paraLbl2,
-                ParaLbl3 = paraLbl3,
-                ParaLbl4 = paraLbl4,
-                DistHead1 = distHead1,
-                DistLbl1 = distLbl1,
-                DistLbl2 = distLbl2,
-                DistLbl3 = distLbl3,
-                DistLbl4 = distLbl4,
-                DistHead2 = distHead2,
-                DistLbl5 = distLbl5,
-                DistLbl6 = distLbl6,
-                DistLbl7 = distLbl7,
-                DistLbl8 = distLbl8,
+                ProgramNameLabel = programNameLabel,
+                DateTimeLabel = dateTimeLabel,
+                DrawingNumberLabel = drawingNumberLabel,
+                SerialNumberLabel = serialNumberLabel,
+                IssueNumberLabel = issueNumberLabel,
+                DescriptionLabel = descriptionLabel,
+
+                FlatHeading = flatHead,
+                FlatSubHeading1 = flatLbl1,
+                FlatSubHeading2 = flatLbl2,
+                FlatSubHeading3 = flatLbl3,
+                FlatSubHeading4 = flatLbl4,
+                FlatValueLabel  = flatValueLabel,
+
+                ParaHeading = paraHead,
+                ParaLabel1 = paraLbl1,
+                ParaLabel2 = paraLbl2,
+                ParaLabel3 = paraLbl3,
+                ParaLabel4 = paraLbl4,
+
+                DistHeading1 = distHead1,
+                DistLabel1 = distLbl1,
+                DistLabel2 = distLbl2,
+                DistLabel3 = distLbl3,
+                DistLabel4 = distLbl4,
+                DistHeading2 = distHead2,
+                DistLabel5 = distLbl5,
+                DistLabel6 = distLbl6,
+                DistLabel7 = distLbl7,
+                DistLabel8 = distLbl8,
             };
         }
 
