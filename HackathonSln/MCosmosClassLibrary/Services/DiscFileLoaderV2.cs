@@ -67,8 +67,7 @@ namespace MCosmosClassLibrary.Services
 
         private ParallelMeasurements LoadParallelism()
         {
-            // TODO: Heading:
-            // 
+            // TODO: Heading need to be configurable:
 
             // Parallelism - 4 opposed positions
             // eg:

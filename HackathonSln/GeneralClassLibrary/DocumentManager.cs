@@ -189,5 +189,4 @@ namespace GeneralClassLibrary
             throw new System.Exception($"Failed to obtain text for label, where label is already found."); // Should never happen.
         }
     }
-
 }
