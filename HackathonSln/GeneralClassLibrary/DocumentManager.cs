@@ -19,14 +19,28 @@ namespace GeneralClassLibrary
         public string AllTextToTheRightOf(string label)
         {
             var locationsWhereFound = LocationsOf.AllTextToTheRightOf(Lines, label);
-            EnsureNotConsumedPreviously(locationsWhereFound, () => $"Error:  More than one search tried to fetch data from the '{label}' slot.");
+            
+            EnsureFoundOnceOrAllSame(
+                locationsWhereFound, 
+                "label", 
+                label, 
+                line => ExtractFrom.AllTextToTheRightOf(label, line));
+
+            EnsureNotConsumedPreviously(
+                locationsWhereFound, 
+                () => $"Error:  More than one search tried to fetch data from the '{label}' slot.");
+
             return ExtractFrom.AllTextToTheRightOf(label, Lines[locationsWhereFound[0]]);
         }
 
         public double ValueUnderneathHeading(string subHeading, string label, int rowValueIndex, int numberOfValuesOnRow)
         {
             var locationsWhereFound = LocationsOf.ValueUnderneathHeading(Lines, subHeading, label, numberOfValuesOnRow);
-            EnsureNotConsumedPreviously(locationsWhereFound, () => $"Error:  More than one search tried to fetch data from the '{label}' slot under heading '{subHeading}'.");
+
+            EnsureNotConsumedPreviously(
+                locationsWhereFound, 
+                () => $"Error:  More than one search tried to fetch data from the '{label}' slot under heading '{subHeading}'.");
+
             return ExtractFrom.ValueUnderneathHeading(label, rowValueIndex, numberOfValuesOnRow, Lines[locationsWhereFound[0]]);
         }
 
@@ -41,6 +55,25 @@ namespace GeneralClassLibrary
                 LinesConsumed[i] = true;
             }
         }
+
+        private void EnsureFoundOnceOrAllSame(List<int> locationsWhereFound, string what, string content, Func<string, string> extractor)
+        {
+            if (locationsWhereFound.Count == 0)
+            {
+                throw new Exception($"Cannot find a {what} '{content}' in this file.");
+            }
+            else if (locationsWhereFound.Count > 1)
+            {
+                var distinctValues = locationsWhereFound.Select(i => extractor(Lines[i])).Distinct();
+                if (distinctValues.Count() > 1)
+                {
+                    var report = String.Join(", ", distinctValues);
+                    throw new Exception(
+                        $"More than one {what} '{content}' was found in this file, resulting in contradicting information: {report}");
+                }
+            }
+        }
+
     }
 
 
@@ -50,8 +83,6 @@ namespace GeneralClassLibrary
     {
         public static List<int> AllTextToTheRightOf(string[] Lines, string label)
         {
-            bool labelSeen = false;
-            string labelLine = "";
             var foundLocations = new List<int>();
 
             var n = Lines.Length;
@@ -62,24 +93,11 @@ namespace GeneralClassLibrary
 
                 if (Match.AllTextToTheRightOf(label, thisLine))
                 {
-                    if (labelSeen && labelLine != thisLine)
-                    {
-                        throw new Exception($"Error: Label '{label}' exists more than once in this file!");
-                    }
-                    labelLine = thisLine;
-                    labelSeen = true;
                     foundLocations.Add(i);
                 }
             }
 
-            if (labelSeen)
-            {
-                return foundLocations;
-            }
-            else
-            {
-                throw new Exception($"Cannot find a label '{label}' in this file.");
-            }
+            return foundLocations;
         }
 
 

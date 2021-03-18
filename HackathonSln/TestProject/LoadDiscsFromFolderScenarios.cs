@@ -111,8 +111,8 @@ namespace TestProject
             Assert.NotNull(batch);
 
             Assert.Equal(2, batch.FileProcessingErrors.Count);
-            Assert.Contains("Could not find a line", batch.FileProcessingErrors[0].Error);
-            Assert.Contains("Could not find a line", batch.FileProcessingErrors[1].Error);
+            Assert.Equal("More than one label 'Serial No      :' was found in this file, resulting in contradicting information: 5, 1", batch.FileProcessingErrors[0].Error);
+            Assert.Equal("Cannot find a label 'Serial No      :' in this file.", batch.FileProcessingErrors[1].Error);
 
             Assert.Equal(3, batch.Discs.Count);
             Assert.Equal("1", batch.Discs[0].Metadata.SerialNo);
