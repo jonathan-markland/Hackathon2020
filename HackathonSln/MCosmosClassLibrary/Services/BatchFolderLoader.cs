@@ -35,7 +35,7 @@ namespace MCosmosClassLibrary.Services
             {
                 try
                 {
-                    var d = DiscFileLoaderV2.LoadDiscFromFile(filePath, fileHeadings);
+                    var d = DiscFileLoader.LoadDiscFromFile(filePath, fileHeadings);
                     discs.Add(d);
                 }
                 catch(Exception ex) // TODO: more specific?
