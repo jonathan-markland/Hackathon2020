@@ -20,14 +20,14 @@ namespace GeneralClassLibrary
         {
             var locationsWhereFound = LocationsOf.AllTextToTheRightOf(Lines, label);
             EnsureNotConsumedPreviously(locationsWhereFound, () => $"Error:  More than one search tried to fetch data from the '{label}' slot.");
-            return ExtractFrom.AllTextToTheRightOf(label, Lines[0]);
+            return ExtractFrom.AllTextToTheRightOf(label, Lines[locationsWhereFound[0]]);
         }
 
         public double ValueUnderneathHeading(string subHeading, string label, int rowValueIndex, int numberOfValuesOnRow)
         {
             var locationsWhereFound = LocationsOf.ValueUnderneathHeading(Lines, subHeading, label, numberOfValuesOnRow);
             EnsureNotConsumedPreviously(locationsWhereFound, () => $"Error:  More than one search tried to fetch data from the '{label}' slot under heading '{subHeading}'.");
-            return ExtractFrom.ValueUnderneathHeading(label, rowValueIndex, numberOfValuesOnRow, Lines[0]);
+            return ExtractFrom.ValueUnderneathHeading(label, rowValueIndex, numberOfValuesOnRow, Lines[locationsWhereFound[0]]);
         }
 
         private void EnsureNotConsumedPreviously(List<int> locationsWhereFound, Func<string> errorMessageGetter)
@@ -89,7 +89,6 @@ namespace GeneralClassLibrary
         {
             bool subHeadingSeen = false;
             bool labelSeen = false;
-            string labelLine = "";
             var foundLocations = new List<int>();
 
             var n = Lines.Length;
@@ -106,13 +105,8 @@ namespace GeneralClassLibrary
                     }
                     subHeadingSeen = true;
                 }
-                else if (Match.Label(label, numberOfValuesOnRow, thisLine) && subHeadingSeen)
+                else if (!labelSeen && subHeadingSeen && Match.Label(label, numberOfValuesOnRow, thisLine))
                 {
-                    if (labelSeen && labelLine != thisLine)
-                    {
-                        throw new Exception($"Error: Label '{label}' exists more than once in this file!");
-                    }
-                    labelLine = thisLine;
                     labelSeen = true;
                     foundLocations.Add(i);
                 }
