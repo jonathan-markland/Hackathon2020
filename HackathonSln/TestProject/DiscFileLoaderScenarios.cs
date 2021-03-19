@@ -6,8 +6,7 @@ namespace TestProject
 {
     public class DiscFileLoaderScenarios
 	{
-		// TODO: Manually examine that the disc grades are correct anyway.
-		// TODO: We have no tests on known-bad files, except in the LoadDiscsFromFolderScenarios.
+		// TODO: We have no tests on known-bad files, except transitively via the LoadDiscsFromFolderScenarios.
 
 
 
@@ -22,7 +21,9 @@ namespace TestProject
         [Fact]
         public void ExpectationsForSerialNo_2222222222222222File()
         {
-            var disc = DiscFileLoader.LoadDiscFromFile(
+			// NB: This was manually checked against the file on 19/03/2021
+
+			var disc = DiscFileLoader.LoadDiscFromFile(
 					"ExampleFiles\\SerialNo_2222222222222222.txt",
 					FileHeadings.FileHeadingsForTestFramework);
 
@@ -82,6 +83,8 @@ namespace TestProject
 		[Fact]
 		public void ExpectationsForSerNo2File()
 		{
+			// NB: This was manually checked against the file on 19/03/2021
+
 			var disc = DiscFileLoader.LoadDiscFromFile(
 					"ExampleFiles\\Ser No 1    repeat -- 2.txt",
 					FileHeadings.FileHeadingsForTestFramework);
