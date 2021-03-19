@@ -18,7 +18,6 @@ namespace MCosmosClassLibrary.Models
         public string IssueNumberLabel { get; init; }
         public string DescriptionLabel { get; init; }
 
-        public string FlatHeading { get; init; }
         public string FlatSubHeading1 { get; init; }
         public string FlatSubHeading2 { get; init; }
         public string FlatSubHeading3 { get; init; }
@@ -51,7 +50,6 @@ namespace MCosmosClassLibrary.Models
             IssueNumberLabel   = "Issue No       :",
             DescriptionLabel   = "Description    :",
 
-            FlatHeading = "Flatness - Datums F, E, D & G (as common zones)",
             FlatSubHeading1 = "Datum F",
             FlatSubHeading2 = "Datum E",
             FlatSubHeading3 = "Datum D",
@@ -69,6 +67,7 @@ namespace MCosmosClassLibrary.Models
             DistLabel2 = "E to F at -1.5 RH",
             DistLabel3 = "E to F at -10.3 LH",
             DistLabel4 = "E to F at -10.3 RH",
+
             DistHeading2 = "Datum G to Datum D - (diagonals at -1.5 & -10.3)",
             DistLabel5 = "G to D at -1.5 FR",
             DistLabel6 = "G to D at -1.5 BK",

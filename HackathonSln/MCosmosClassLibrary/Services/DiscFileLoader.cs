@@ -40,8 +40,6 @@ namespace MCosmosClassLibrary.Services
 
         private FlatnessMeasurements LoadFlatness()
         {
-            // TODO: no longer read:  fileHeadings.FlatHeading     // "Flatness - Datums F, E, D & G (as common zones)"
-
             var flatF = ValueUnderneathHeading(fileHeadings.FlatSubHeading1 /* Datum F */, fileHeadings.FlatValueLabel /* Flatness */, 0, 1);
             var flatE = ValueUnderneathHeading(fileHeadings.FlatSubHeading2 /* Datum E */, fileHeadings.FlatValueLabel /* Flatness */, 0, 1);
             var flatD = ValueUnderneathHeading(fileHeadings.FlatSubHeading3 /* Datum D */, fileHeadings.FlatValueLabel /* Flatness */, 0, 1);
@@ -62,16 +60,14 @@ namespace MCosmosClassLibrary.Services
 
         private ParallelMeasurements LoadParallelism()
         {
-            // TODO: Heading need to be configurable:
-
             // Parallelism - 4 opposed positions
             // eg:
             //                   202 Datum E LH 1                          0.00200           0.00180
 
-            var datumELH1 = ValueUnderneathHeading("Parallelism - 4 opposed positions", fileHeadings.ParaLabel1 /* Datum E LH 1 */, 1, 2);
-            var datumERH1 = ValueUnderneathHeading("Parallelism - 4 opposed positions", fileHeadings.ParaLabel2 /* Datum E RH 1 */, 1, 2);
-            var datumGFR1 = ValueUnderneathHeading("Parallelism - 4 opposed positions", fileHeadings.ParaLabel3 /* Datum G FR 1 */, 1, 2);
-            var datumGBK1 = ValueUnderneathHeading("Parallelism - 4 opposed positions", fileHeadings.ParaLabel4 /* Datum G BK 1 */, 1, 2);
+            var datumELH1 = ValueUnderneathHeading(fileHeadings.ParaHeading, fileHeadings.ParaLabel1 /* Datum E LH 1 */, 1, 2);
+            var datumERH1 = ValueUnderneathHeading(fileHeadings.ParaHeading, fileHeadings.ParaLabel2 /* Datum E RH 1 */, 1, 2);
+            var datumGFR1 = ValueUnderneathHeading(fileHeadings.ParaHeading, fileHeadings.ParaLabel3 /* Datum G FR 1 */, 1, 2);
+            var datumGBK1 = ValueUnderneathHeading(fileHeadings.ParaHeading, fileHeadings.ParaLabel4 /* Datum G BK 1 */, 1, 2);
 
             return new ParallelMeasurements(
                 datumELH1: new ParallelMeasure(datumELH1),

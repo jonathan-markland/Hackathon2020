@@ -79,48 +79,48 @@ namespace DaleHackathon2020
 
             // Obtain all strings:
 
-            var sourceFolder = Find("SourceFolder");
-            var historyFolder = Find("HistoryFolder");
+            var sourceFolder = Find("SourceFolder");    /* C:\Users\Jonathan\Documents\Dale\CMMSourceFiles */
+            var historyFolder = Find("HistoryFolder");  /* C:\Users\Jonathan\Documents\Dale\PairingHistory */
 
-            var numberOfPairsString = Find("NumberOfPairs");
+            var numberOfPairsString = Find("NumberOfPairs");   /* 15 */
 
-            var flatParaToleranceGradeAString = Find("FlatParaToleranceGradeA");
-            var flatParaToleranceGradeBString = Find("FlatParaToleranceGradeB");
+            var flatParaToleranceGradeAString = Find("FlatParaToleranceGradeA");  /* 0.002 */
+            var flatParaToleranceGradeBString = Find("FlatParaToleranceGradeB");  /* 0.0025 */
 
-            var distTargetString = Find("DistTarget");
-            var distToleranceGradeAString = Find("DistToleranceGradeA");
-            var distToleranceGradeBString = Find("DistToleranceGradeB");
+            var distTargetString          = Find("DistTarget");            /* 28.020 */
+            var distToleranceGradeAString = Find("DistToleranceGradeA");   /*  0.001 */
+            var distToleranceGradeBString = Find("DistToleranceGradeB");   /*  0.002 */
 
-            var programNameLabel   = Find("Program name label");
-            var dateTimeLabel      = Find("Date time label");
-            var drawingNumberLabel = Find("Drawing number label");
-            var serialNumberLabel  = Find("Serial number label");
-            var issueNumberLabel   = Find("Issue number label");
-            var descriptionLabel   = Find("Description label");
+            var programNameLabel   = Find("Program name label");   /* Program name label  */
+            var dateTimeLabel      = Find("Date time label");      /* Date time label     */
+            var drawingNumberLabel = Find("Drawing number label"); /* Drawing number label*/
+            var serialNumberLabel  = Find("Serial number label");  /* Serial number label */
+            var issueNumberLabel   = Find("Issue number label");   /* Issue number label  */
+            var descriptionLabel   = Find("Description label");    /* Description label   */
 
-            var flatHead = Find("Flatness section heading");
-            var flatLbl1 = Find("Flatness label 1");
-            var flatLbl2 = Find("Flatness label 2");
-            var flatLbl3 = Find("Flatness label 3");
-            var flatLbl4 = Find("Flatness label 4");
-            var flatValueLabel = Find("Flatness value label");
+            var flatHeadingF = Find("Flatness F heading");         /* Datum F */
+            var flatHeadingE = Find("Flatness E heading");         /* Datum E */
+            var flatHeadingD = Find("Flatness D heading");         /* Datum D */
+            var flatHeadingG = Find("Flatness G heading");         /* Datum G */
+            var flatValueLabel = Find("Flatness value label");     /* Flatness */
 
-            var paraHead = Find("Parallelism section heading");
-            var paraLbl1 = Find("Parallelism label 1");
-            var paraLbl2 = Find("Parallelism label 2");
-            var paraLbl3 = Find("Parallelism label 3");
-            var paraLbl4 = Find("Parallelism label 4");
+            var paraHead = Find("Parallelism section heading");    /* Parallelism - 4 opposed positions */
+            var paraLbl1 = Find("Parallelism label 1");            /* Datum E LH 1 */
+            var paraLbl2 = Find("Parallelism label 2");            /* Datum E RH 1 */
+            var paraLbl3 = Find("Parallelism label 3");            /* Datum G FR 1 */
+            var paraLbl4 = Find("Parallelism label 4");            /* Datum G BK 1 */
 
-            var distHead1 = Find("Distance heading 1");
-            var distLbl1  = Find("Distance label 1");
-            var distLbl2  = Find("Distance label 2");
-            var distLbl3  = Find("Distance label 3");
-            var distLbl4  = Find("Distance label 4");
-            var distHead2 = Find("Distance heading 2");
-            var distLbl5  = Find("Distance label 5");
-            var distLbl6  = Find("Distance label 6");
-            var distLbl7  = Find("Distance label 7");
-            var distLbl8  = Find("Distance label 8");
+            var distHead1 = Find("Distance heading 1");            /* Datum E to Datum F - (diagonals at -1.5 & -10.3) */
+            var distLbl1  = Find("Distance label 1");              /* E to F at -1.5 LH */
+            var distLbl2  = Find("Distance label 2");              /* E to F at -1.5 RH */
+            var distLbl3  = Find("Distance label 3");              /* E to F at -10.3 LH */
+            var distLbl4  = Find("Distance label 4");              /* E to F at -10.3 RH */
+
+            var distHead2 = Find("Distance heading 2");   /* Datum G to Datum D - (diagonals at -1.5 & -10.3) */
+            var distLbl5  = Find("Distance label 5");     /* G to D at -1.5 FR */
+            var distLbl6  = Find("Distance label 6");     /* G to D at -1.5 BK */
+            var distLbl7  = Find("Distance label 7");     /* G to D at -10.3 FR */
+            var distLbl8  = Find("Distance label 8");     /* G to D at -10.3 BK */
 
             // Numerics:
 
@@ -154,11 +154,10 @@ namespace DaleHackathon2020
                 IssueNumberLabel = issueNumberLabel,
                 DescriptionLabel = descriptionLabel,
 
-                FlatHeading = flatHead,
-                FlatSubHeading1 = flatLbl1,
-                FlatSubHeading2 = flatLbl2,
-                FlatSubHeading3 = flatLbl3,
-                FlatSubHeading4 = flatLbl4,
+                FlatSubHeading1 = flatHeadingF,
+                FlatSubHeading2 = flatHeadingE,
+                FlatSubHeading3 = flatHeadingD,
+                FlatSubHeading4 = flatHeadingG,
                 FlatValueLabel  = flatValueLabel,
 
                 ParaHeading = paraHead,

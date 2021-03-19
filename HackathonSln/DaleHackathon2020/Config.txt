@@ -17,11 +17,10 @@ Serial number label  = Serial No      :
 Issue number label   = Issue No       :
 Description label    = Description    :
 
-Flatness section heading = Flatness - Datums F, E, D & G (as common zones)
-Flatness label 1 = Datum F
-Flatness label 2 = Datum E
-Flatness label 3 = Datum D
-Flatness label 4 = Datum G
+Flatness F heading = Datum F
+Flatness E heading = Datum E
+Flatness D heading = Datum D
+Flatness G heading = Datum G
 Flatness value label = Flatness
 
 Parallelism section heading = Parallelism - 4 opposed positions
