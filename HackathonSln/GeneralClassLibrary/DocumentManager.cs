@@ -5,6 +5,7 @@ using System.Linq;
 
 namespace GeneralClassLibrary
 {
+    // TODO: DocumentManager tests, although this is transitively done through the DiscFileLoaderScenarios
     public class DocumentManager
     {
         private string[] Lines;

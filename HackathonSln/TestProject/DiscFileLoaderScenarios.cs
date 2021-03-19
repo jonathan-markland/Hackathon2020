@@ -7,7 +7,7 @@ namespace TestProject
     public class DiscFileLoaderScenarios
 	{
 		// TODO: Manually examine that the disc grades are correct anyway.
-		// TODO: We have no tests on known-bad files.
+		// TODO: We have no tests on known-bad files, except in the LoadDiscsFromFolderScenarios.
 
 
 
@@ -51,6 +51,8 @@ namespace TestProject
 		[Fact]
 		public void ExpectationsForSerNo1File()
 		{
+			// NB: This was manually checked against the file on 19/03/2021
+
 			var disc = DiscFileLoader.LoadDiscFromFile(
 					"ExampleFiles\\Ser No 1    repeat -- 1.txt",
 					FileHeadings.FileHeadingsForTestFramework);

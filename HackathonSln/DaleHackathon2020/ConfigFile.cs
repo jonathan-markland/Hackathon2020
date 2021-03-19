@@ -5,6 +5,8 @@ using MCosmosClassLibrary.Models;
 
 namespace DaleHackathon2020
 {
+    // TODO: test framework for config file, positive load case at least.
+
     public class ConfigFile
     {
         public static ConfigFile Load(string path)
