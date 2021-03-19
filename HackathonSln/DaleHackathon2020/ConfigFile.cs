@@ -93,12 +93,7 @@ namespace DaleHackathon2020
             var distToleranceGradeAString = Find("DistToleranceGradeA");   /*  0.001 */
             var distToleranceGradeBString = Find("DistToleranceGradeB");   /*  0.002 */
 
-            var programNameLabel   = Find("Program name label");   /* Program name label  */
-            var dateTimeLabel      = Find("Date time label");      /* Date time label     */
-            var drawingNumberLabel = Find("Drawing number label"); /* Drawing number label*/
             var serialNumberLabel  = Find("Serial number label");  /* Serial number label */
-            var issueNumberLabel   = Find("Issue number label");   /* Issue number label  */
-            var descriptionLabel   = Find("Description label");    /* Description label   */
 
             var flatHeadingF = Find("Flatness F heading");         /* Datum F */
             var flatHeadingE = Find("Flatness E heading");         /* Datum E */
@@ -149,12 +144,7 @@ namespace DaleHackathon2020
 
             FileHeadings = new FileHeadings
             {
-                ProgramNameLabel = programNameLabel,
-                DateTimeLabel = dateTimeLabel,
-                DrawingNumberLabel = drawingNumberLabel,
                 SerialNumberLabel = serialNumberLabel,
-                IssueNumberLabel = issueNumberLabel,
-                DescriptionLabel = descriptionLabel,
 
                 FlatSubHeading1 = flatHeadingF,
                 FlatSubHeading2 = flatHeadingE,

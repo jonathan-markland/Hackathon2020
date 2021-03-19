@@ -11,12 +11,7 @@ namespace MCosmosClassLibrary.Models
     /// </summary>
     public class FileHeadings
     {
-        public string ProgramNameLabel { get; init; }
-        public string DateTimeLabel { get; init; }
-        public string DrawingNumberLabel { get; init; }
         public string SerialNumberLabel { get; init; }
-        public string IssueNumberLabel { get; init; }
-        public string DescriptionLabel { get; init; }
 
         public string FlatSubHeading1 { get; init; }
         public string FlatSubHeading2 { get; init; }
@@ -43,12 +38,7 @@ namespace MCosmosClassLibrary.Models
 
         public static FileHeadings FileHeadingsForTestFramework = new FileHeadings
         {
-            ProgramNameLabel   = "Program Name   :",
-            DateTimeLabel      = "Date / Time    :",
-            DrawingNumberLabel = "Drawing No     :",
             SerialNumberLabel  = "Serial No      :",
-            IssueNumberLabel   = "Issue No       :",
-            DescriptionLabel   = "Description    :",
 
             FlatSubHeading1 = "Datum F",
             FlatSubHeading2 = "Datum E",
