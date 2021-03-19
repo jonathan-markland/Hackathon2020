@@ -75,6 +75,17 @@ if you need to.
 Configuration Options
 =====================
 
+!! All of these must be present in the Config.txt, please do not remove !!
+
+To best understand this section, please review the real Config.txt file side-by-side
+with this documentation.  The supplied Config.txt file is set up to the same labels
+and settings as was used in the CMM files at the Hackathon.
+
+Some of these settings adjust HEADINGS and LABELS that the software will used to
+locate data within the file.  The file order is flexible except that the headings
+must exist, and must come before the related labels.
+
+
 	SourceFolder  | Contains the location of the source CMM files, the input "hopper".
 	
 	HistoryFolder | Contains the location of the output files, which will automatically
@@ -83,45 +94,57 @@ Configuration Options
 
 	NumberOfPairs | The number of pairs you want at a time.
 
-	FlatParaToleranceGradeA | Flatness and parallelism tolerances in microns.
-	FlatParaToleranceGradeB | The worst tolerance (microns) permitted for Grade A    eg: 0.002
-	                        | The worst tolerance (microns) permitted for Grade B    eg: 0.0025
+	                        | Flatness and parallelism tolerances in microns:
+	FlatParaToleranceGradeA | The worst deviation (microns) permitted for Grade A    eg: 0.002
+	FlatParaToleranceGradeB | The worst deviation (microns) permitted for Grade B    eg: 0.0025
 	                        | Note that anything worse that these will be a Grade C
 
-	DistTarget=28.020
-	DistToleranceGradeA= 0.001
-	DistToleranceGradeB =0.002
+	DistTarget              | The target diagonal distance (microns) eg: 28.020
+	DistToleranceGradeA     | The worst deviation microns, either side, for Grade A eg: 0.001
+	DistToleranceGradeB     | The worst deviation microns, either side, for Grade B eg: 0.002
 
-	Program name label   = Program Name   :
-	Date time label      = Date / Time    :
-	Drawing number label = Drawing No     :
-	Serial number label  = Serial No      :
-	Issue number label   = Issue No       :
-	Description label    = Description    :
+	Serial number label     | The exact text to the left of the serial number in the CMM file.
+	                        | This must include the colon, and any and all internal spaces.
+	                        | Copy these *precisely* from the CMM file.
+	                        | For example:   
+	                        |                             vvvvvv--------- important spaces!
+	                        |                    Serial No      :
 
-	Flatness F heading = Datum F
-	Flatness E heading = Datum E
-	Flatness D heading = Datum D
-	Flatness G heading = Datum G
-	Flatness value label = Flatness
+	Flatness F heading      | The heading above the Datum F flatness field.  Needed to latch in.
+	Flatness E heading      | The heading above the Datum E flatness field.  Needed to latch in.
+	Flatness D heading      | The heading above the Datum D flatness field.  Needed to latch in.
+	Flatness G heading      | The heading above the Datum G flatness field.  Needed to latch in.
+	Flatness value label    | The label to the left of the flatness fields.
 
-	Parallelism section heading = Parallelism - 4 opposed positions
-	Parallelism label 1 = Datum E LH 1
-	Parallelism label 2 = Datum E RH 1
-	Parallelism label 3 = Datum G FR 1
-	Parallelism label 4 = Datum G BK 1
+	Parallelism section heading | The section heading above the parallelism section.  This is
+	                            | used to latch in for accuracy, and must exist.
+								
+	Parallelism label 1         | The label that introduces the  Datum E LH 1  value.
+	Parallelism label 2         | The label that introduces the  Datum E RH 1  value.
+	Parallelism label 3         | The label that introduces the  Datum G FR 1  value.
+	Parallelism label 4         | The label that introduces the  Datum G BK 1  value.
 
-	Distance heading 1=Datum E to Datum F - (diagonals at -1.5 & -10.3)
-	Distance label 1 = E to F at -1.5 LH
-	Distance label 2 = E to F at -1.5 RH
-	Distance label 3 = E to F at -10.3 LH
-	Distance label 4 = E to F at -10.3 RH
+	Distance heading 1          | The section heading above the E-F distance section.  This is
+	                            | used to latch in for accuracy, and must exist.
 
-	Distance heading 2 = Datum G to Datum D - (diagonals at -1.5 & -10.3)
-	Distance label 5 = G to D at -1.5 FR
-	Distance label 6 = G to D at -1.5 BK
-	Distance label 7 = G to D at -10.3 FR
-	Distance label 8 = G to D at -10.3 BK
+	Distance label 1            | The label that introduces the  E to F at -1.5 LH   value.
+	Distance label 2            | The label that introduces the  E to F at -1.5 RH   value.
+	Distance label 3            | The label that introduces the  E to F at -10.3 LH  value.
+	Distance label 4            | The label that introduces the  E to F at -10.3 RH  value.
+
+	Distance heading 2          | The section heading above the G-D distance section.  This is
+	                            | used to latch in for accuracy, and must exist.
+							
+	Distance label 5            | The label that introduces the  G to D at -1.5 FR   value.
+	Distance label 6            | The label that introduces the  G to D at -1.5 BK   value.
+	Distance label 7            | The label that introduces the  G to D at -10.3 FR  value.
+	Distance label 8            | The label that introduces the  G to D at -10.3 BK  value.
+
+Using the software
+==================
+As part of installation, we made a desktop icon.
+Double-clicking the icon will activate the software, which performs these processes:
+
 
 
 
