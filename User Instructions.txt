@@ -1,0 +1,147 @@
+
+Alignment Disc Measurement Pairing software - User Instructions
+===============================================================
+
+	** Please do not use this software until you have read the STAGING section **
+
+Deliverables
+============
+(Because of time constraints some of this is less nice than it could be)
+The software consists of a ZIP file to be unzipped onto the computer that will perform 
+the file processing.  
+
+Installation
+============
+You will need to make a folder for the program installation.
+Then you will need to make two folders for the program's operation with the CMM
+files.
+
+For the program installation:-
+I suggest making a folder inside the "Documents" folder belonging to the user that 
+will use the software, because this will ensure appropriate access rights to the 
+program's files and also to the Config.txt file.  For example something like:
+
+	C:\Users\Dale\Documents\CMMProcessor
+
+Unzip the ZIP file in order to establish the program files within the above folder.
+
+For the CMM operation:-
+You will need to create two folders for the CMM machine's file sets, the first of
+which is like an input hopper, and the second contains the processing output history.
+This will be described further in 'Configuring the software'.
+
+Creating a Desktop Shortcut
+===========================
+One you have installed:-
+Locate the 'DaleHackathon2020.exe' program file.  We need this to make the shortcut.
+Use the RIGHT HAND mouse button to drag the program file to the desktop.  When the
+menu appears select 'Create shortcuts here'.  
+
+The icon should appear but DO NOT CLICK IT YET.  The program needs configuring first.
+
+Configuring the software
+========================
+Locate the 'Config.txt' file, in the installation.  This contains the configuration
+settings that you will need to tune the software.
+
+You cannot move the Config.txt file, but you could keep copies elsewhere, which I
+strongly suggest, in case you have problems and need to revert settings.
+
+You should open the Config.txt file in a Notepad program.  I suggest using the 
+Notepad++ software, and this has a good undo facility, search, and replace.
+
+The organisation of the Config.txt file
+=======================================
+The config file has "keys" and "values".  The "keys" are to the left of the equals
+signs, and the values are to the right, for example:
+
+			SourceFolder = C:\Users\Jonathan\Documents\Dale\CMMSourceFiles
+			HistoryFolder = C:\Users\Jonathan\Documents\Dale\PairingHistory
+
+			NumberOfPairs = 15
+
+			FlatParaToleranceGradeA =0.002
+					... etc
+
+
+		!! You need to be careful not to change the "keys", !!
+		!! particularly with search and replace.  Do not    !!
+		!! remove any keys, either.                         !!
+
+
+You can use a # sign at the left side, to make a comment in the Config.txt file, 
+if you need to.
+
+Configuration Options
+=====================
+
+	SourceFolder  | Contains the location of the source CMM files, the input "hopper".
+	
+	HistoryFolder | Contains the location of the output files, which will automatically
+	              | be turned into a history format, since sub-folders are made by the
+	              | software that include the date and time of processing.
+
+	NumberOfPairs | The number of pairs you want at a time.
+
+	FlatParaToleranceGradeA | Flatness and parallelism tolerances in microns.
+	FlatParaToleranceGradeB | The worst tolerance (microns) permitted for Grade A    eg: 0.002
+	                        | The worst tolerance (microns) permitted for Grade B    eg: 0.0025
+	                        | Note that anything worse that these will be a Grade C
+
+	DistTarget=28.020
+	DistToleranceGradeA= 0.001
+	DistToleranceGradeB =0.002
+
+	Program name label   = Program Name   :
+	Date time label      = Date / Time    :
+	Drawing number label = Drawing No     :
+	Serial number label  = Serial No      :
+	Issue number label   = Issue No       :
+	Description label    = Description    :
+
+	Flatness F heading = Datum F
+	Flatness E heading = Datum E
+	Flatness D heading = Datum D
+	Flatness G heading = Datum G
+	Flatness value label = Flatness
+
+	Parallelism section heading = Parallelism - 4 opposed positions
+	Parallelism label 1 = Datum E LH 1
+	Parallelism label 2 = Datum E RH 1
+	Parallelism label 3 = Datum G FR 1
+	Parallelism label 4 = Datum G BK 1
+
+	Distance heading 1=Datum E to Datum F - (diagonals at -1.5 & -10.3)
+	Distance label 1 = E to F at -1.5 LH
+	Distance label 2 = E to F at -1.5 RH
+	Distance label 3 = E to F at -10.3 LH
+	Distance label 4 = E to F at -10.3 RH
+
+	Distance heading 2 = Datum G to Datum D - (diagonals at -1.5 & -10.3)
+	Distance label 5 = G to D at -1.5 FR
+	Distance label 6 = G to D at -1.5 BK
+	Distance label 7 = G to D at -10.3 FR
+	Distance label 8 = G to D at -10.3 BK
+
+
+
+
+STAGING
+=======
+The term "Staging" is when new software is tested for the first time.  This should
+always be performed using computers, files, and folders, that are completely separate 
+from the real "Live" system.
+
+You can achieve this by initially installing the program on an office laptop, and
+taking some copies of CMM files over.  You will need to alter the Config.txt file
+as described above, but use staged folders, not the real ones!
+
+Once you are satisfied that the software works, and you understand how to deal with
+any operational issues, only then should you install and configure the software on 
+the Live system.
+
+
+
+
+
+
