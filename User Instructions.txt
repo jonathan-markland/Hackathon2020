@@ -170,6 +170,59 @@ Using the software
 As part of installation, we made a desktop icon.
 Double-clicking the icon will activate the software, which performs these processes:
 
+	- Checks access is possible to the SourceFolder
+	- Checks access is possible to the HistoryFolder
+	- Checks the number of files in the SourceFolder is less than 1000
+	  which is a measure to protect against long software run times.
+	- Examines every file in the SourceFolder, stopping if any overall failure.
+	- Chooses a new name for the output folder for this session, based on
+	  the current date and time instant at which the program was run.
+	- Attempts to create the output folder, raising an error if it already 
+	  exists (although this should never happen because of the date/time usage!)
+	- For your traceability, copies the Config.txt file to the output folder.
+	- Calculate the disc pairings using those files that could successfully
+	  be read.  We only take the best-matched pairs (quantity as configured).
+	- We generate, and save, the disc loading report, to the output folder.
+	- We generate, and save, the disc pairing report, to the output folder.
+	- All CMM files that successfully paired off are moved to the output
+	  folder to keep them out of the way of future pairing exercises.
+	- A success message is written to the black console window.
+	
+If the program fails, then an error may be written to the black console window,
+or you will find details of the situation described within the Loading Report
+or Pairing Report files that were saved to the output history folder.
+
+
+Undo!
+=====
+If you wished you hadn't pressed the button(!) then simply navigate to the
+HistoryFolder, and find the latest output folder (sorting by name is recommended 
+for this).
+
+Then, simply move any CMM files therein back to the SourceFolder.
+
+If you do this, you could consider erasing the output folder in question
+since its report files will no longer contain up-to-date information, and 
+could cause confusion for end-users in future, although there is no 
+requirement from the software to do this.
+
+
+
+What happens when you get more than one CMM machine
+===================================================
+You can install separate copies of this software on whichever computers you
+require.
+
+However, whatever you do in this situation, I strongly recommend that separate
+software installations use DIFFERENT Source and History folders, because
+otherwise operation will conflict.
+
+If you have two sites measuring discs, and you also wanted to pair discs across
+sites, I suggest that you collect the CMM files at a central site, and only
+one copy of this program should process the pairing.  This is only a software
+recommendation, I cannot comment on the appropriateness of pairing discs that
+have been measured on different CMM machines!  If you are an operator reading 
+this manual, please seek management approval first.
 
 
 
@@ -182,7 +235,8 @@ from the real "Live" system.
 
 You can achieve this by initially installing the program on an office laptop, and
 taking some copies of CMM files over.  You will need to alter the Config.txt file
-as described above, but use staged folders, not the real ones!
+as described above, but use folders on the local laptop, not the real folders on
+the network!
 
 Once you are satisfied that the software works, and you understand how to deal with
 any operational issues, only then should you install and configure the software on 
