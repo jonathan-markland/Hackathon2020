@@ -152,21 +152,46 @@ namespace GeneralClassLibrary
 
 
     internal static class Match
-    { 
+    {
+        /// <summary>
+        /// Match function that confirms whether a label is present on the line.
+        /// Intended for when the caller ultimately wants the text to the right of the label.
+        /// </summary>
         public static bool AllTextToTheRightOf(string label, string line)
         {
             return line.Contains(label);
         }
 
+        /// <summary>
+        /// Match function that confirms whether the line matches a required heading.
+        /// </summary>
         public static bool SubHeadingLine(string subHeading, string line)
         {
             return line.Trim().Equals(subHeading);
         }
 
+        /// <summary>
+        /// Match function that confirms whether a label is present on a line, along with
+        /// a number of subequent double type values.
+        /// </summary>
         public static bool Label(string label, int numberOfValuesOnRow, string line)
         {
             // TODO: onyl return true if the double values x numberOfValuesOnRow are seen
-            return line.Contains(label);
+
+            var remainder = line.TextToRightOfLast(label);
+            if (remainder == null) return false;
+
+            System.Diagnostics.Trace.WriteLine(numberOfValuesOnRow);
+
+            var splittings = remainder.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            if (splittings.Length != numberOfValuesOnRow) return false;
+
+            foreach(string s in splittings)
+            {
+                if (!double.TryParse(s, out double _)) return false;
+            }
+
+            return true;
         }
     }
 
@@ -188,11 +213,9 @@ namespace GeneralClassLibrary
         {
             System.Diagnostics.Debug.Assert(rowValueIndex < numberOfValuesOnRow);  // The index requested is out of bounds of the number of items you set.
 
-            var i = line.LastIndexOf(label);
-            if (i >= 0)
+            var remainder = line.TextToRightOfLast(label);
+            if (remainder != null)
             {
-                var remainder = line.Substring(i + label.Length);
-
                 var splittings = remainder.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
                 if (splittings.Length == numberOfValuesOnRow)
                 {
@@ -206,6 +229,21 @@ namespace GeneralClassLibrary
                 throw new System.Exception($"Expected {numberOfValuesOnRow} numbers for label '{label}' but only got {splittings.Length}.");
             }
             throw new System.Exception($"Failed to obtain text for label, where label is already found."); // Should never happen.
+        }
+    }
+
+
+    internal static class StringExtensions
+    {
+        internal static string TextToRightOfLast(this string self, string label)   // TODO: Ideally "string?"
+        {
+            var i = self.LastIndexOf(label);
+            if (i >= 0)
+            {
+                var remainder = self.Substring(i + label.Length);
+                return remainder;
+            }
+            return null;
         }
     }
 }
