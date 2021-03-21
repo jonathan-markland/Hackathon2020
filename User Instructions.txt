@@ -10,6 +10,7 @@ Deliverables
 The software consists of a ZIP file to be unzipped onto the computer that will perform 
 the file processing.  
 
+
 Installation
 ============
 You will need to make a folder for the program installation.
@@ -27,28 +28,32 @@ Unzip the ZIP file in order to establish the program files within the above fold
 
 For the CMM operation:-
 You will need to create two folders for the CMM machine's file sets, the first of
-which is like an input hopper, and the second contains the processing output history.
-This will be described further in 'Configuring the software'.
+which is like an input hopper where you will save the CMM files.  The second will 
+contain the processing output history each time this software is used.
+(This will be described further in 'Configuring the software').
+
 
 Creating a Desktop Shortcut
 ===========================
 One you have installed:-
-Locate the 'DaleHackathon2020.exe' program file.  We need this to make the shortcut.
+Locate the 'ProcessCMM.bat' program file.  We need this to make the shortcut.
 Use the RIGHT HAND mouse button to drag the program file to the desktop.  When the
 menu appears select 'Create shortcuts here'.  
 
 The icon should appear but DO NOT CLICK IT YET.  The program needs configuring first.
 
+
 Configuring the software
 ========================
-Locate the 'Config.txt' file, in the installation.  This contains the configuration
-settings that you will need to tune the software.
+Locate the 'Config.txt' file, in the installation folder.  This contains the 
+configuration settings that you will need to tune the software.
 
 You cannot move the Config.txt file, but you could keep copies elsewhere, which I
 strongly suggest, in case you have problems and need to revert settings.
 
 You should open the Config.txt file in a Notepad program.  I suggest using the 
 Notepad++ software, and this has a good undo facility, search, and replace.
+
 
 The organisation of the Config.txt file
 =======================================
@@ -72,10 +77,12 @@ signs, and the values are to the right, for example:
 You can use a # sign at the left side, to make a comment in the Config.txt file, 
 if you need to.
 
+
 Configuration Options
 =====================
 
-!! All of these must be present in the Config.txt, please do not remove !!
+				!! All settings described below must be present in the 
+				   Config.txt, please do not remove any of them. !!
 
 To best understand this section, please review the real Config.txt file side-by-side
 with this documentation.  The supplied Config.txt file is set up to the same labels
@@ -87,12 +94,13 @@ must exist, and must come before the related labels.
 
 
 	SourceFolder  | Contains the location of the source CMM files, the input "hopper".
+	              | When saving out from the CMM software, this is the folder to save to.
 	
-	HistoryFolder | Contains the location of the output files, which will automatically
-	              | be turned into a history format, since sub-folders are made by the
-	              | software that include the date and time of processing.
+	HistoryFolder | Contains the location of the output file sets.  The software automatically
+	              | uses a history format, where new sub-folders are made including the date 
+	              | and time of processing.
 
-	NumberOfPairs | The number of pairs you want at a time.
+	NumberOfPairs | The number of disc pairs you want, each time you run this software.
 
 	                        | Flatness and parallelism tolerances in microns:
 	FlatParaToleranceGradeA | The worst deviation (microns) permitted for Grade A    eg: 0.002
@@ -100,8 +108,8 @@ must exist, and must come before the related labels.
 	                        | Note that anything worse that these will be a Grade C
 
 	DistTarget              | The target diagonal distance (microns) eg: 28.020
-	DistToleranceGradeA     | The worst deviation microns, either side, for Grade A eg: 0.001
-	DistToleranceGradeB     | The worst deviation microns, either side, for Grade B eg: 0.002
+	DistToleranceGradeA     | The worst deviation (microns), either side, for Grade A eg: 0.001
+	DistToleranceGradeB     | The worst deviation (microns), either side, for Grade B eg: 0.002
 
 	Serial number label     | The exact text to the left of the serial number in the CMM file.
 	                        | This must include the colon, and any and all internal spaces.
@@ -110,11 +118,15 @@ must exist, and must come before the related labels.
 	                        |                             vvvvvv--------- important spaces!
 	                        |                    Serial No      :
 
-	Flatness F heading      | The heading above the Datum F flatness field.  Needed to latch in.
-	Flatness E heading      | The heading above the Datum E flatness field.  Needed to latch in.
-	Flatness D heading      | The heading above the Datum D flatness field.  Needed to latch in.
-	Flatness G heading      | The heading above the Datum G flatness field.  Needed to latch in.
+	Flatness F heading      | The heading above the Datum F flatness field.  (Needed for locating data).
+	Flatness E heading      | The heading above the Datum E flatness field.  (Needed for locating data).
+	Flatness D heading      | The heading above the Datum D flatness field.  (Needed for locating data).
+	Flatness G heading      | The heading above the Datum G flatness field.  (Needed for locating data).
 	Flatness value label    | The label to the left of the flatness fields.
+	                        | !! While this label can be altered, the flatness label must have only
+	                        |    one numeric value to the right of it, which is the flatness reading. 
+	                        |    This is because of time constraints on this project, and because the
+	                        |    original CMM machine report used this layout. !!
 
 	Parallelism section heading | The section heading above the parallelism section.  This is
 	                            | used to latch in for accuracy, and must exist.
@@ -123,6 +135,10 @@ must exist, and must come before the related labels.
 	Parallelism label 2         | The label that introduces the  Datum E RH 1  value.
 	Parallelism label 3         | The label that introduces the  Datum G FR 1  value.
 	Parallelism label 4         | The label that introduces the  Datum G BK 1  value.
+	                            | !! While these labels can be altered, each label must have TWO
+	                            |    numeric values to its right, the second of which is the reading.
+	                            |    This is because of time constraints on this project, and because
+	                            |    the original CMM machine report used this layout. !!
 
 	Distance heading 1          | The section heading above the E-F distance section.  This is
 	                            | used to latch in for accuracy, and must exist.
@@ -131,6 +147,10 @@ must exist, and must come before the related labels.
 	Distance label 2            | The label that introduces the  E to F at -1.5 RH   value.
 	Distance label 3            | The label that introduces the  E to F at -10.3 LH  value.
 	Distance label 4            | The label that introduces the  E to F at -10.3 RH  value.
+	                            | !! While these labels can be altered, each label must have FOUR
+	                            |    numeric values to its right, the third of which is the reading.
+	                            |    This is because of time constraints on this project, and because
+	                            |    the original CMM machine report used this layout. !!
 
 	Distance heading 2          | The section heading above the G-D distance section.  This is
 	                            | used to latch in for accuracy, and must exist.
@@ -139,6 +159,11 @@ must exist, and must come before the related labels.
 	Distance label 6            | The label that introduces the  G to D at -1.5 BK   value.
 	Distance label 7            | The label that introduces the  G to D at -10.3 FR  value.
 	Distance label 8            | The label that introduces the  G to D at -10.3 BK  value.
+	                            | !! While these labels can be altered, each label must have FOUR
+	                            |    numeric values to its right, the third of which is the reading.
+	                            |    This is because of time constraints on this project, and because
+	                            |    the original CMM machine report used this layout. !!
+
 
 Using the software
 ==================

@@ -11,21 +11,9 @@ namespace DaleHackathon2020
 {
     class Program
     {
-
-
-        // DONE: Obtain configured source folder path
-        // DONE: Obtain configured output folder path
-        // DONE: Test access right to output folder by creating date/timestamped output folder (without allowing overwriting)
-        // TODO: Parse and load the input folder
         // TODO: Uniqueness validation on the SerialNos.
-        // TODO: Do pairing
-        // TODO: Emit report summary file to output folder.
-        // TODO: Move the successfully paired files to the output folder.
-
 
         // TODO: Process output:  Explain why a disc is the grade it is. (HTML colours on pre-filtered data).
-        // TODO: Process output:  Summary list of those DiscGradeInfos that were paired off this time.
-        // TODO: Process output:  Summary list of those DiscGradeInfos that were left over.
 
         private static string ConfigFileName = "Config.txt";
 
@@ -59,6 +47,7 @@ namespace DaleHackathon2020
             var error = content as BatchOverallError;
             if (error != null)
             {
+                // This means there is no specific file in error.  Something general happened.
                 throw new Exception(error.OverallErrorMessage);
             }
 
@@ -87,7 +76,9 @@ namespace DaleHackathon2020
             GenerateAndSaveReportFile(discLoadingReport, outputPath, "disc-loading-report.txt");
             GenerateAndSaveReportFile(discPairingReport, outputPath, "disc-pairing-report.txt");
 
-            // MovePairedToOutputFolder(pairings, outputPath);
+            MovePairedToOutputFolder(pairings, outputPath);
+
+            Console.WriteLine($"Success!  Please see file set at:  {outputPath}");
         }
 
         private static void GenerateAndSaveReportFile(
@@ -182,14 +173,14 @@ namespace DaleHackathon2020
 
             List<string> errorHeadings = new List<string>
             {
-                "Error file",
+                "Error Information",
             };
 
             List<string> fileProcessingErrorLine(FileProcessingError error, int index)   // This fits with the table outputting, but is probably not massively worthwhile.
             {
                 return new List<string>
                 {
-                    $"{error.Error}",
+                    $"{error.PathToErrantFile}: {error.Error}",
                 };
             }
 
