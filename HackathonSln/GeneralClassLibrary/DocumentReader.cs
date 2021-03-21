@@ -5,13 +5,13 @@ using System.Linq;
 
 namespace GeneralClassLibrary
 {
-    // TODO: DocumentManager tests, although this is transitively done through the DiscFileLoaderScenarios
-    public class DocumentManager
+    // TODO: DocumentReader tests, although this is transitively done through the DiscFileLoaderScenarios
+    public class DocumentReader
     {
         private string[] Lines;
         private bool[] LinesConsumed;
 
-        public DocumentManager(string[] lines)
+        public DocumentReader(string[] lines)
         {
             Lines = lines;
             LinesConsumed = new bool[lines.Length];

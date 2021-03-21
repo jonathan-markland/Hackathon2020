@@ -7,7 +7,7 @@ namespace MCosmosClassLibrary.Services
     {
         private string SourceFilePath;
         private DiscInfo results;
-        private DocumentManager Document;
+        private DocumentReader Document;
         private FileHeadings fileHeadings;
 
         public static DiscInfo LoadDiscFromFile(string sourceFilePath, FileHeadings fileHeadings)
@@ -18,7 +18,7 @@ namespace MCosmosClassLibrary.Services
         private DiscFileLoader(string sourceFilePath, FileHeadings fileHeadings)
         {
             SourceFilePath = sourceFilePath;
-            Document = new DocumentManager(System.IO.File.ReadAllLines(sourceFilePath));
+            Document = new DocumentReader(System.IO.File.ReadAllLines(sourceFilePath));
             this.fileHeadings = fileHeadings;
             results = Load();
         }
