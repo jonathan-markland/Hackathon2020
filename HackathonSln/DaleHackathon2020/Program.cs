@@ -209,6 +209,10 @@ namespace DaleHackathon2020
                 errorHeadings,
                 batch.FileProcessingErrors,
                 fileProcessingErrorLine);
+
+            ifEmpty(
+                batch.FileProcessingErrors,
+                () => output("No files have errors."));
         }
 
 
@@ -265,7 +269,7 @@ namespace DaleHackathon2020
 
             List<string> pairingHeadings = new List<string>
             {
-                "", "Euclidean Distance", "Grade 1", "Serial No. 1", "Serial No. 2", "Grade 2"
+                "", "Euclidean Distance", "Disc Grade", "Disc Serial No.", "Partner Serial No.", "Partner Grade"
             };
 
             List<string> pairingLine(Pair pair, int index)

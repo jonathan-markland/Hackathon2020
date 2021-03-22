@@ -81,12 +81,15 @@ namespace DaleHackathon2020
                 discs.Select(disc => disc.Metadata.SerialNo)
                     .GroupBy(x => x)
                     .Where(g => g.Count() > 1)
-                    .ToDictionary(x => x.Key, y => y.Count());
+                    .ToDictionary(x => x.Key, y => y.Count())
+                    .Select(x => x.Key)
+                    .OrderBy(x => x)
+                    .ToList();
 
             if (nonUniqueSerialNumbers.Count() > 0)
             {
                 var problemSerialNumbers = string.Join(", ", nonUniqueSerialNumbers);
-                throw new System.Exception($"Error:  The file set has duplicate serial numbers.  Please resolve by checking the files:  {problemSerialNumbers}");
+                throw new System.Exception($"Error:  The file set has duplicate serial numbers.  Please search for files with serial number(s):  {problemSerialNumbers}");
             }
         }
     }
