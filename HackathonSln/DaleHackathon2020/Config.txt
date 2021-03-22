@@ -3,12 +3,14 @@ HistoryFolder = C:\Users\Jonathan\Documents\Dale\PairingHistory
 
 NumberOfPairs = 15
 
-FlatParaToleranceGradeA =0.002
-FlatParaToleranceGradeB=0.0025
+Euclidean cutoff above  = 0.001
 
-DistTarget=28.020
-DistToleranceGradeA= 0.001
-DistToleranceGradeB =0.002
+FlatParaToleranceGradeA = 0.002
+FlatParaToleranceGradeB = 0.0025
+
+DistTarget          = 28.020
+DistToleranceGradeA = 0.001
+DistToleranceGradeB = 0.002
 
 Serial number label = Serial No      :
 

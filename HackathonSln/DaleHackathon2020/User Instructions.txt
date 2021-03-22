@@ -102,6 +102,10 @@ must exist, and must come before the related labels.
 
 	NumberOfPairs | The number of disc pairs you want, each time you run this software.
 
+	Euclidean cutoff above  | The maximum Euclidean Distance cutoff.  The software considers all
+	                        | discs for pairing, but will reject pairs with distances above this
+	                        | value, leaving the rejected files in the source folder.  eg: 0.001
+
 	                        | Flatness and parallelism tolerances in microns:
 	FlatParaToleranceGradeA | The worst deviation (microns) permitted for Grade A    eg: 0.002
 	FlatParaToleranceGradeB | The worst deviation (microns) permitted for Grade B    eg: 0.0025

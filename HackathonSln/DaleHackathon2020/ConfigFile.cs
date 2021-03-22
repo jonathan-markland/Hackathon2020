@@ -85,6 +85,7 @@ namespace DaleHackathon2020
             var historyFolder = Find("HistoryFolder");  /* C:\Users\Jonathan\Documents\Dale\PairingHistory */
 
             var numberOfPairsString = Find("NumberOfPairs");   /* 15 */
+            var euclideanCutoffAboveString = Find("Euclidean cutoff above");   /* 0.001 */
 
             var flatParaToleranceGradeAString = Find("FlatParaToleranceGradeA");  /* 0.002 */
             var flatParaToleranceGradeBString = Find("FlatParaToleranceGradeB");  /* 0.0025 */
@@ -122,6 +123,7 @@ namespace DaleHackathon2020
             // Numerics:
 
             var numberOfPairs = ParseIntegerInRange(numberOfPairsString, "NumberOfPairs", 1, 1000);
+            var euclideanCutoffAbove = ParseDoubleInRange(euclideanCutoffAboveString, "Euclidean cutoff above", 0.0, 1.0);
             var flatParaToleranceGradeA = ParseDoubleInRange(flatParaToleranceGradeAString, "FlatParaToleranceGradeA", 0.0, 1.0);
             var flatParaToleranceGradeB = ParseDoubleInRange(flatParaToleranceGradeBString, "FlatParaToleranceGradeB", 0.0, 1.0);
             var distTarget = ParseDoubleInRange(distTargetString, "DistTarget", 0.0, 1000000.0);
@@ -134,6 +136,7 @@ namespace DaleHackathon2020
             HistoryFolderPath = historyFolder;
 
             NumberOfPairs = numberOfPairs;
+            EuclideanCutoffAbove = euclideanCutoffAbove;
 
             FlatParaToleranceGradeA = flatParaToleranceGradeA;
             FlatParaToleranceGradeB = flatParaToleranceGradeB;
@@ -177,6 +180,8 @@ namespace DaleHackathon2020
         public string HistoryFolderPath { get; init; }
 
         public int NumberOfPairs { get; init; }
+
+        public double EuclideanCutoffAbove { get; init; }
 
         public double FlatParaToleranceGradeA { get; init; }
         public double FlatParaToleranceGradeB { get; init; }

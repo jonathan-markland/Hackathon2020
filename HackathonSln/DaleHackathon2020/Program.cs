@@ -60,7 +60,11 @@ namespace DaleHackathon2020
             Library.AttemptFileCopy(configFile.ConfigFilePath, outputPath, "Copy of Config file that was used on this date.txt");
             Library.EnsureDiscSerialNumbersAreUnique(batch.Discs);
 
-            var pairings = batch.Discs.AsListOfMatchedPairs().Take(configFile.NumberOfPairs);
+            var pairings = 
+                batch.Discs
+                    .AsListOfMatchedPairs()
+                    .Where(pair => pair.EuclideanDistance <= configFile.EuclideanCutoffAbove)
+                    .Take(configFile.NumberOfPairs);
 
             void discLoadingReport(System.IO.StreamWriter streamWriter)
             {
