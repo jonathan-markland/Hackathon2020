@@ -1,0 +1,257 @@
+
+Alignment Disc Measurement Pairing software - User Instructions
+===============================================================
+
+	** Please do not use this software until you have read the STAGING section **
+
+Deliverables
+============
+(Because of time constraints some of this is less nice than it could be)
+The software consists of a ZIP file to be unzipped onto the computer that will perform 
+the file processing.  
+
+
+Installation
+============
+You will need to make a folder for the program installation.
+Then you will need to make two folders for the program's operation with the CMM
+files.
+
+For the program installation:-
+I suggest making a folder inside the "Documents" folder belonging to the user that 
+will use the software, because this will ensure appropriate access rights to the 
+program's files and also to the Config.txt file.  For example something like:
+
+	C:\Users\Dale\Documents\CMMProcessor
+
+Unzip the ZIP file in order to establish the program files within the above folder.
+
+For the CMM operation:-
+You will need to create two folders for the CMM machine's file sets, the first of
+which is like an input hopper where you will save the CMM files.  The second will 
+contain the processing output history each time this software is used.
+(This will be described further in 'Configuring the software').
+
+
+Creating a Desktop Shortcut
+===========================
+One you have installed:-
+Locate the 'ProcessCMM.bat' program file.  We need this to make the shortcut.
+Use the RIGHT HAND mouse button to drag the program file to the desktop.  When the
+menu appears select 'Create shortcuts here'.  
+
+The icon should appear but DO NOT CLICK IT YET.  The program needs configuring first.
+
+
+Configuring the software
+========================
+Locate the 'Config.txt' file, in the installation folder.  This contains the 
+configuration settings that you will need to tune the software.
+
+You cannot move the Config.txt file, but you could keep copies elsewhere, which I
+strongly suggest, in case you have problems and need to revert settings.
+
+You should open the Config.txt file in a Notepad program.  I suggest using the 
+Notepad++ software, and this has a good undo facility, search, and replace.
+
+
+The organisation of the Config.txt file
+=======================================
+The config file has "keys" and "values".  The "keys" are to the left of the equals
+signs, and the values are to the right, for example:
+
+			SourceFolder = C:\Users\Jonathan\Documents\Dale\CMMSourceFiles
+			HistoryFolder = C:\Users\Jonathan\Documents\Dale\PairingHistory
+
+			NumberOfPairs = 15
+
+			FlatParaToleranceGradeA =0.002
+					... etc
+
+
+		!! You need to be careful not to change the "keys", !!
+		!! particularly with search and replace.  Do not    !!
+		!! remove any keys, either.                         !!
+
+
+You can use a # sign at the left side, to make a comment in the Config.txt file, 
+if you need to.
+
+
+Configuration Options
+=====================
+
+				!! All settings described below must be present in the 
+				   Config.txt, please do not remove any of them. !!
+
+To best understand this section, please review the real Config.txt file side-by-side
+with this documentation.  The supplied Config.txt file is set up to the same labels
+and settings as was used in the CMM files at the Hackathon.
+
+Some of these settings adjust HEADINGS and LABELS that the software will used to
+locate data within the file.  The file order is flexible except that the headings
+must exist, and must come before the related labels.
+
+
+	SourceFolder  | Contains the location of the source CMM files, the input "hopper".
+	              | When saving out from the CMM software, this is the folder to save to.
+	
+	HistoryFolder | Contains the location of the output file sets.  The software automatically
+	              | uses a history format, where new sub-folders are made including the date 
+	              | and time of processing.
+
+	NumberOfPairs | The number of disc pairs you want, each time you run this software.
+
+	                        | Flatness and parallelism tolerances in microns:
+	FlatParaToleranceGradeA | The worst deviation (microns) permitted for Grade A    eg: 0.002
+	FlatParaToleranceGradeB | The worst deviation (microns) permitted for Grade B    eg: 0.0025
+	                        | Note that anything worse that these will be a Grade C
+
+	DistTarget              | The target diagonal distance (microns) eg: 28.020
+	DistToleranceGradeA     | The worst deviation (microns), either side, for Grade A eg: 0.001
+	DistToleranceGradeB     | The worst deviation (microns), either side, for Grade B eg: 0.002
+
+	Serial number label     | The exact text to the left of the serial number in the CMM file.
+	                        | This must include the colon, and any and all internal spaces.
+	                        | Copy these *precisely* from the CMM file.
+	                        | For example:   
+	                        |                             vvvvvv--------- important spaces!
+	                        |                    Serial No      :
+
+	Flatness F heading      | The heading above the Datum F flatness field.  (Needed for locating data).
+	Flatness E heading      | The heading above the Datum E flatness field.  (Needed for locating data).
+	Flatness D heading      | The heading above the Datum D flatness field.  (Needed for locating data).
+	Flatness G heading      | The heading above the Datum G flatness field.  (Needed for locating data).
+	Flatness value label    | The label to the left of the flatness fields.
+	                        | !! While this label can be altered, the flatness label must have only
+	                        |    one numeric value to the right of it, which is the flatness reading. 
+	                        |    This is because of time constraints on this project, and because the
+	                        |    original CMM machine report used this layout. !!
+
+	Parallelism section heading | The section heading above the parallelism section.  This is
+	                            | used to latch in for accuracy, and must exist.
+								
+	Parallelism label 1         | The label that introduces the  Datum E LH 1  value.
+	Parallelism label 2         | The label that introduces the  Datum E RH 1  value.
+	Parallelism label 3         | The label that introduces the  Datum G FR 1  value.
+	Parallelism label 4         | The label that introduces the  Datum G BK 1  value.
+	                            | !! While these labels can be altered, each label must have TWO
+	                            |    numeric values to its right, the second of which is the reading.
+	                            |    This is because of time constraints on this project, and because
+	                            |    the original CMM machine report used this layout. !!
+
+	Distance heading 1          | The section heading above the E-F distance section.  This is
+	                            | used to latch in for accuracy, and must exist.
+
+	Distance label 1            | The label that introduces the  E to F at -1.5 LH   value.
+	Distance label 2            | The label that introduces the  E to F at -1.5 RH   value.
+	Distance label 3            | The label that introduces the  E to F at -10.3 LH  value.
+	Distance label 4            | The label that introduces the  E to F at -10.3 RH  value.
+	                            | !! While these labels can be altered, each label must have FOUR
+	                            |    numeric values to its right, the third of which is the reading.
+	                            |    This is because of time constraints on this project, and because
+	                            |    the original CMM machine report used this layout. !!
+
+	Distance heading 2          | The section heading above the G-D distance section.  This is
+	                            | used to latch in for accuracy, and must exist.
+							
+	Distance label 5            | The label that introduces the  G to D at -1.5 FR   value.
+	Distance label 6            | The label that introduces the  G to D at -1.5 BK   value.
+	Distance label 7            | The label that introduces the  G to D at -10.3 FR  value.
+	Distance label 8            | The label that introduces the  G to D at -10.3 BK  value.
+	                            | !! While these labels can be altered, each label must have FOUR
+	                            |    numeric values to its right, the third of which is the reading.
+	                            |    This is because of time constraints on this project, and because
+	                            |    the original CMM machine report used this layout. !!
+
+
+Using the software
+==================
+As part of installation, we made a desktop icon.
+Double-clicking the icon will activate the software, which performs these processes:
+
+	- Checks access is possible to the SourceFolder
+	- Checks access is possible to the HistoryFolder
+	- Checks the number of files in the SourceFolder is less than 1000
+	  which is a measure to protect against long software run times.
+	- Examines every file in the SourceFolder, stopping if any overall failure.
+	- Chooses a new name for the output folder for this session, based on
+	  the current date and time instant at which the program was run.
+	- Attempts to create the output folder, raising an error if it already 
+	  exists (although this should never happen because of the date/time usage!)
+	- For your traceability, copies the Config.txt file to the output folder.
+	- Calculate the disc pairings using those files that could successfully
+	  be read.  We only take the best-matched pairs (quantity as configured).
+	- We generate, and save, the disc loading report, to the output folder.
+	- We generate, and save, the disc pairing report, to the output folder.
+	- All CMM files that successfully paired off are moved to the output
+	  folder to keep them out of the way of future pairing exercises.
+	- A success message is written to the black console window.
+	
+If the program fails, then an error may be written to the black console window,
+or you will find details of the situation described within the Loading Report
+or Pairing Report files that were saved to the output history folder.
+
+
+Undo!
+=====
+If you wished you hadn't pressed the button(!) then simply navigate to the
+HistoryFolder, and find the latest output folder (sorting by name is recommended 
+for this).
+
+Then, simply move any CMM files therein back to the SourceFolder.
+
+If you do this, you could consider erasing the output folder in question
+since its report files will no longer contain up-to-date information, and 
+could cause confusion for end-users in future, although there is no 
+requirement from the software to do this.
+
+
+
+What happens when you get more than one CMM machine
+===================================================
+You can install separate copies of this software on whichever computers you
+require.
+
+However, whatever you do in this situation, I strongly recommend that separate
+software installations use DIFFERENT Source and History folders, because
+otherwise operation will conflict.
+
+If you have two sites measuring discs, and you also wanted to pair discs across
+sites, I suggest that you collect the CMM files at a central site, and only
+one copy of this program should process the pairing.  This is only a software
+recommendation, I cannot comment on the appropriateness of pairing discs that
+have been measured on different CMM machines!  If you are an operator reading 
+this manual, please seek management approval first.
+
+
+
+Maintenance of the folders
+==========================
+Over time the history folder will collect multiple pairing report sub-folders.
+There is no requirement to keep these, except for your records. 
+They can be archived to another location if desired, without impacting the
+operation of the software for future pairing operations.
+
+
+
+STAGING
+=======
+The term "Staging" is when new software is tested for the first time.  This should
+always be performed using computers, files, and folders, that are completely separate 
+from the real "Live" system.
+
+You can achieve this by initially installing the program on an office laptop, and
+taking some copies of CMM files over.  You will need to alter the Config.txt file
+as described above, but use folders on the local laptop, not the real folders on
+the network!
+
+Once you are satisfied that the software works, and you understand how to deal with
+any operational issues, only then should you install and configure the software on 
+the Live system.
+
+
+
+
+
+
