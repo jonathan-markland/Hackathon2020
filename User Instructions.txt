@@ -226,6 +226,14 @@ this manual, please seek management approval first.
 
 
 
+Maintenance of the folders
+==========================
+Over time the history folder will collect multiple pairing report sub-folders.
+There is no requirement to keep these, except for your records. 
+They can be archived to another location if desired, without impacting the
+operation of the software for future pairing operations.
+
+
 
 STAGING
 =======
