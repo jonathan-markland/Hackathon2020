@@ -10,12 +10,7 @@ DistTarget=28.020
 DistToleranceGradeA= 0.001
 DistToleranceGradeB =0.002
 
-Program name label   = Program Name   :
-Date time label      = Date / Time    :
-Drawing number label = Drawing No     :
-Serial number label  = Serial No      :
-Issue number label   = Issue No       :
-Description label    = Description    :
+Serial number label = Serial No      :
 
 Flatness F heading = Datum F
 Flatness E heading = Datum E
