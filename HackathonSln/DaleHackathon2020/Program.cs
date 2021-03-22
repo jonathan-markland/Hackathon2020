@@ -11,8 +11,6 @@ namespace DaleHackathon2020
 {
     class Program
     {
-        // TODO: Uniqueness validation on the SerialNos.
-
         // TODO: Process output:  Explain why a disc is the grade it is. (HTML colours on pre-filtered data).
 
         private static string ConfigFileName = "Config.txt";
@@ -159,7 +157,28 @@ namespace DaleHackathon2020
 
             List<string> loadingReportHeadings = new List<string>
             {
-                "", "Serial No.", "Overall Disc Grade"
+                "", 
+                "Serial No.", 
+                "Overall Disc Grade",
+
+                "Flat F",
+                "Flat E",
+                "Flat D",
+                "Flat G",
+
+                "Parallel ELH1",
+                "Parallel ERH1",
+                "Parallel GFR1",
+                "Parallel GBK1",
+
+                "E to F Left 1",
+                "E to F Right 1",
+                "E to F Left 2",
+                "E to F Right 2",
+                "G to D Front 1",
+                "G to D Back 1",
+                "G to D Front 2",
+                "G to D Back 2",
             };
 
             List<string> loadingReportLine(DiscInfo disc, int index)
@@ -167,8 +186,29 @@ namespace DaleHackathon2020
                 return new List<string>
                 {
                     $"{index+1}",
+                    
                     $"{disc.Metadata.SerialNo}",
+                    
                     $"{disc.OverallGrade.ToGradeLetter()}",
+
+                    $"{disc.Flatness.DatumF.ToReport()}",
+                    $"{disc.Flatness.DatumE.ToReport()}",
+                    $"{disc.Flatness.DatumD.ToReport()}",
+                    $"{disc.Flatness.DatumG.ToReport()}",
+
+                    $"{disc.Parallel.DatumELH1.ToReport()}", 
+                    $"{disc.Parallel.DatumERH1.ToReport()}", 
+                    $"{disc.Parallel.DatumGFR1.ToReport()}", 
+                    $"{disc.Parallel.DatumGBK1.ToReport()}", 
+
+                    $"{disc.Distances.EtoFLeft1.ToReport()}",
+                    $"{disc.Distances.EtoFRight1.ToReport()}",
+                    $"{disc.Distances.EtoFLeft2.ToReport()}",
+                    $"{disc.Distances.EtoFRight2.ToReport()}",
+                    $"{disc.Distances.GtoDFront1.ToReport()}",
+                    $"{disc.Distances.GtoDBack1.ToReport()}",
+                    $"{disc.Distances.GtoDFront2.ToReport()}",
+                    $"{disc.Distances.GtoDBack2.ToReport()}",
                 };
             }
 
@@ -332,11 +372,21 @@ namespace DaleHackathon2020
         {
             switch (discGrade)
             {
-                case DiscGrade.GradeA: return "-A-";
-                case DiscGrade.GradeB: return "-B-";
-                case DiscGrade.GradeC: return "-C-";
+                case DiscGrade.GradeA: return "(A)";
+                case DiscGrade.GradeB: return "(B)";
+                case DiscGrade.GradeC: return "(C)";
                 default: throw new System.Exception("Disc grade is unknown to the system.");  // Will never happen unless enum extended.
             }
+        }
+    }
+
+
+
+    public static class MeasureAndGradeExtensionMethods
+    {
+        public static string ToReport(this MeasureAndGrade measureAndGrade)
+        {
+            return $"{measureAndGrade.Value} {measureAndGrade.Grade.ToGradeLetter()}";
         }
     }
 }

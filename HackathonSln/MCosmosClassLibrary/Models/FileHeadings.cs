@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 namespace MCosmosClassLibrary.Models
 {
     /// <summary>
-    /// The file headings are configurable.  These are expected by the file parser.
+    /// Contains the headings and labels that the file parser will use.  
+    /// These are configurable.
     /// </summary>
     public class FileHeadings
     {
