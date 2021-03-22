@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Collections.ObjectModel;
+using MCosmosClassLibrary.Models;
 
 namespace DaleHackathon2020
 {
@@ -70,6 +72,21 @@ namespace DaleHackathon2020
             catch(IOException e)
             {
                 throw new System.Exception($"Error:  Cannot copy file to '{outputFolderPath}' because of error:  {e.Message}");
+            }
+        }
+
+        public static void EnsureDiscSerialNumbersAreUnique(ReadOnlyCollection<DiscInfo> discs)
+        {
+            var nonUniqueSerialNumbers = 
+                discs.Select(disc => disc.Metadata.SerialNo)
+                    .GroupBy(x => x)
+                    .Where(g => g.Count() > 1)
+                    .ToDictionary(x => x.Key, y => y.Count());
+
+            if (nonUniqueSerialNumbers.Count() > 0)
+            {
+                var problemSerialNumbers = string.Join(", ", nonUniqueSerialNumbers);
+                throw new System.Exception($"Error:  The file set has duplicate serial numbers.  Please resolve by checking the files:  {problemSerialNumbers}");
             }
         }
     }

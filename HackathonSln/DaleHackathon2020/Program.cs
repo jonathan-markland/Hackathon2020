@@ -60,8 +60,7 @@ namespace DaleHackathon2020
             var outputPath = Library.OutputPathForCurrentTime(configFile.HistoryFolderPath);
             Library.AttemptToCreateDistinctFolder("the pairings output folder", outputPath);
             Library.AttemptFileCopy(configFile.ConfigFilePath, outputPath, "Copy of Config file that was used on this date.txt");
-
-            // TODO: uniqueness check on serial numbers?
+            Library.EnsureDiscSerialNumbersAreUnique(batch.Discs);
 
             var pairings = batch.Discs.AsListOfMatchedPairs().Take(configFile.NumberOfPairs);
 
