@@ -35,7 +35,9 @@ namespace TestProject
         [InlineData(0.002501, DiscGrade.GradeC)]
         public void FlatParaGradeFor(double measurement, DiscGrade expected)
         {
-            var actual = ToleranceMathematics.FlatParaGradeFor(measurement);
+            var flatParaBounds = DiscConfig.DiscConfigForTestFramework.FlatParaBounds;
+
+            var actual = ToleranceMathematics.FlatParaGradeFor(flatParaBounds, measurement);
             Assert.Equal(expected, actual);
         }
 
@@ -53,7 +55,9 @@ namespace TestProject
         [InlineData(28.020 + 0.00201, DiscGrade.GradeC)]
         public void DistanceGradeFor(double measurement, DiscGrade expected)
         {
-            var actual = ToleranceMathematics.DistanceGradeFor(measurement);
+            var diagDistBounds = DiscConfig.DiscConfigForTestFramework.DistBounds;
+
+            var actual = ToleranceMathematics.DistanceGradeFor(diagDistBounds, measurement);
             Assert.Equal(expected, actual);
         }
 

@@ -30,7 +30,7 @@ namespace TestProject
             var batchLoadResult =
                 BatchFolderLoader.LoadDiscsFromFolder(
                     PathToExampleFilesCollectionFolder,
-                    FileHeadings.FileHeadingsForTestFramework);
+                    DiscConfig.DiscConfigForTestFramework);
 
             Assert.Equal(PathToExampleFilesCollectionFolder, batchLoadResult.PathToFolder);
 
@@ -49,7 +49,7 @@ namespace TestProject
             var batchLoadResult =
                 BatchFolderLoader.LoadDiscsFromFolder(
                     PathThatDoesntExist,
-                    FileHeadings.FileHeadingsForTestFramework);
+                    DiscConfig.DiscConfigForTestFramework);
 
             Assert.Equal(PathThatDoesntExist, batchLoadResult.PathToFolder);
 
@@ -76,7 +76,7 @@ namespace TestProject
                 var batchLoadResult =
                     BatchFolderLoader.LoadDiscsFromFolder(
                         PathToExampleFilesCollectionFolder,
-                        FileHeadings.FileHeadingsForTestFramework);
+                        DiscConfig.DiscConfigForTestFramework);
 
                 Assert.Equal(PathToExampleFilesCollectionFolder, batchLoadResult.PathToFolder);
 
@@ -103,7 +103,7 @@ namespace TestProject
             var batchLoadResult =
                 BatchFolderLoader.LoadDiscsFromFolder(
                     PathToGoodAndBadFilesCollectionFolder,
-                    FileHeadings.FileHeadingsForTestFramework);
+                    DiscConfig.DiscConfigForTestFramework);
 
             Assert.Equal(PathToGoodAndBadFilesCollectionFolder, batchLoadResult.PathToFolder);
 

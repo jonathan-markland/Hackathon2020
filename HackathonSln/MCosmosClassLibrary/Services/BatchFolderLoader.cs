@@ -7,11 +7,11 @@ namespace MCosmosClassLibrary.Services
 {
     public static class BatchFolderLoader
     {
-        public static BatchBase LoadDiscsFromFolder(string pathToFolder, FileHeadings fileHeadings)
+        public static BatchBase LoadDiscsFromFolder(string pathToFolder, DiscConfig discConfig)
         {
             try
             {
-                return LoadDiscsFromFolder2(pathToFolder, fileHeadings);
+                return LoadDiscsFromFolder2(pathToFolder, discConfig);
             }
             catch(Exception ex)
             {
@@ -24,7 +24,7 @@ namespace MCosmosClassLibrary.Services
         }
 
 
-        private static BatchBase LoadDiscsFromFolder2(string pathToFolder, FileHeadings fileHeadings)
+        private static BatchBase LoadDiscsFromFolder2(string pathToFolder, DiscConfig discConfig)
         {
             // A best-effort returning error detail for individual files.
 
@@ -35,7 +35,7 @@ namespace MCosmosClassLibrary.Services
             {
                 try
                 {
-                    var d = DiscFileLoader.LoadDiscFromFile(filePath, fileHeadings);
+                    var d = DiscFileLoader.LoadDiscFromFile(filePath, discConfig);
                     discs.Add(d);
                 }
                 catch(Exception ex) // TODO: more specific?

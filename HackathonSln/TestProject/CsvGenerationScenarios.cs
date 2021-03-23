@@ -10,18 +10,23 @@ namespace TestProject
         {
             var metadata = new DiscMetadata("123", "C:\\CMMFiles\\123.txt");
 
+            var flatParaBounds = DiscConfig.DiscConfigForTestFramework.FlatParaBounds;
+            var diagDistBounds = DiscConfig.DiscConfigForTestFramework.DistBounds;
+
             var flatness = new FlatnessMeasurements(
                 datumF: new FlatnessMeasure(1.0),
                 datumE: new FlatnessMeasure(2.0),
                 datumD: new FlatnessMeasure(3.0),
-                datumG: new FlatnessMeasure(4.0)
+                datumG: new FlatnessMeasure(4.0),
+                flatParaBounds
             );
 
             var parallel = new ParallelMeasurements(
                 datumELH1: new ParallelMeasure(5.0),
                 datumERH1: new ParallelMeasure(6.0),
                 datumGFR1: new ParallelMeasure(7.0),
-                datumGBK1: new ParallelMeasure(8.0)
+                datumGBK1: new ParallelMeasure(8.0),
+                flatParaBounds
             );
 
             var distances = new DistanceMeasurements(
@@ -32,7 +37,8 @@ namespace TestProject
                 gtoDFront1 : new DistanceMeasure(13.0),
                 gtoDBack1  : new DistanceMeasure(14.0),
                 gtoDFront2 : new DistanceMeasure(15.0),
-                gtoDBack2  : new DistanceMeasure(16.0)
+                gtoDBack2  : new DistanceMeasure(16.0),
+                bounds     : diagDistBounds
             );
 
             var discInfo = new DiscInfo(metadata, flatness, parallel, distances);

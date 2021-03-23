@@ -40,7 +40,7 @@ namespace DaleHackathon2020
 
             var content = BatchFolderLoader.LoadDiscsFromFolder(
                 configFile.SourceFolderPath,
-                configFile.FileHeadings);
+                configFile.DiscConfig);
 
             var error = content as BatchOverallError;
             if (error != null)

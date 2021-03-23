@@ -25,7 +25,7 @@ namespace TestProject
 
 			var disc = DiscFileLoader.LoadDiscFromFile(
 					"ExampleFiles\\SerialNo_2222222222222222.txt",
-					FileHeadings.FileHeadingsForTestFramework);
+					DiscConfig.DiscConfigForTestFramework);
 
 			Assert.Equal("2222222222222222", disc.Metadata.SerialNo);
 
@@ -56,7 +56,7 @@ namespace TestProject
 
 			var disc = DiscFileLoader.LoadDiscFromFile(
 					"ExampleFiles\\Ser No 1    repeat -- 1.txt",
-					FileHeadings.FileHeadingsForTestFramework);
+					DiscConfig.DiscConfigForTestFramework);
 
 			Assert.Equal("1", disc.Metadata.SerialNo);
 
@@ -87,7 +87,7 @@ namespace TestProject
 
 			var disc = DiscFileLoader.LoadDiscFromFile(
 					"ExampleFiles\\Ser No 1    repeat -- 2.txt",
-					FileHeadings.FileHeadingsForTestFramework);
+					DiscConfig.DiscConfigForTestFramework);
 
 			Assert.Equal("2", disc.Metadata.SerialNo);
 

@@ -7,26 +7,6 @@ namespace MCosmosClassLibrary.Algorithms
 {
     public static class ToleranceMathematics
     {
-        /// <summary>
-        /// The maximum value permitted for flatness and parallelism for a GradeA disc.
-        /// </summary>
-        public static double FlatParaToleranceGradeA = 0.002;
-
-        /// <summary>
-        /// The maximum value permitted for flatness and parallelism for a GradeB disc.
-        /// </summary>
-        public static double FlatParaToleranceGradeB = 0.0025;
-
-        /// <summary>
-        /// For the distance measurements, the tolerance band is defined by
-        /// an amount either side of this.
-        /// </summary>
-        public static double DistTarget = 28.020;
-        public static double DistToleranceA = 0.001;
-        public static double DistToleranceB = 0.002;
-
-
-
         public static IEnumerable<DiscInfo> IncludingGradeAandBonly(this IEnumerable<DiscInfo> discList)
         {
             return discList.Where(disc =>
@@ -70,13 +50,13 @@ namespace MCosmosClassLibrary.Algorithms
         /// <summary>
         /// Get parallel and flatness grading for respective reading.
         /// </summary>
-        public static DiscGrade FlatParaGradeFor(double n)
+        public static DiscGrade FlatParaGradeFor(FlatParaGradeBoundaries bounds, double n)
         {
-            if (n <= FlatParaToleranceGradeA)
+            if (n <= bounds.BoundaryGradeA)
             {
                 return DiscGrade.GradeA;
             }
-            else if (n <= FlatParaToleranceGradeB)
+            else if (n <= bounds.BoundaryGradeB)
             {
                 return DiscGrade.GradeB;
             }
@@ -89,18 +69,20 @@ namespace MCosmosClassLibrary.Algorithms
         /// <summary>
         /// Get distance grading for respective reading.
         /// </summary>
-        public static DiscGrade DistanceGradeFor(double n)
+        public static DiscGrade DistanceGradeFor(DistanceGradeBoundaries bounds, double n)
         {
+            var distTarget = bounds.DistTarget;
+
             bool liesInBand(double n, double target, double tolerance)
             {
                 return (n >= target - tolerance) && (n <= target + tolerance);
             }
 
-            if (liesInBand(n, DistTarget, DistToleranceA))
+            if (liesInBand(n, distTarget, bounds.BoundaryEitherSideGradeA))
             {
                 return DiscGrade.GradeA;
             }
-            else if (liesInBand(n, DistTarget, DistToleranceB))
+            else if (liesInBand(n, distTarget, bounds.BoundaryEitherSideGradeB))
             {
                 return DiscGrade.GradeB;
             }

@@ -90,11 +90,11 @@ namespace DaleHackathon2020
             var flatParaToleranceGradeAString = Find("FlatParaToleranceGradeA");  /* 0.002 */
             var flatParaToleranceGradeBString = Find("FlatParaToleranceGradeB");  /* 0.0025 */
 
-            var distTargetString          = Find("DistTarget");            /* 28.020 */
+            var distTargetString = Find("DistTarget");            /* 28.020 */
             var distToleranceGradeAString = Find("DistToleranceGradeA");   /*  0.001 */
             var distToleranceGradeBString = Find("DistToleranceGradeB");   /*  0.002 */
 
-            var serialNumberLabel  = Find("Serial number label");  /* Serial number label */
+            var serialNumberLabel = Find("Serial number label");  /* Serial number label */
 
             var flatHeadingF = Find("Flatness F heading");         /* Datum F */
             var flatHeadingE = Find("Flatness E heading");         /* Datum E */
@@ -109,18 +109,18 @@ namespace DaleHackathon2020
             var paraLbl4 = Find("Parallelism label 4");            /* Datum G BK 1 */
 
             var distHead1 = Find("Distance heading 1");            /* Datum E to Datum F - (diagonals at -1.5 & -10.3) */
-            var distLbl1  = Find("Distance label 1");              /* E to F at -1.5 LH */
-            var distLbl2  = Find("Distance label 2");              /* E to F at -1.5 RH */
-            var distLbl3  = Find("Distance label 3");              /* E to F at -10.3 LH */
-            var distLbl4  = Find("Distance label 4");              /* E to F at -10.3 RH */
+            var distLbl1 = Find("Distance label 1");              /* E to F at -1.5 LH */
+            var distLbl2 = Find("Distance label 2");              /* E to F at -1.5 RH */
+            var distLbl3 = Find("Distance label 3");              /* E to F at -10.3 LH */
+            var distLbl4 = Find("Distance label 4");              /* E to F at -10.3 RH */
 
             var distHead2 = Find("Distance heading 2");   /* Datum G to Datum D - (diagonals at -1.5 & -10.3) */
-            var distLbl5  = Find("Distance label 5");     /* G to D at -1.5 FR */
-            var distLbl6  = Find("Distance label 6");     /* G to D at -1.5 BK */
-            var distLbl7  = Find("Distance label 7");     /* G to D at -10.3 FR */
-            var distLbl8  = Find("Distance label 8");     /* G to D at -10.3 BK */
+            var distLbl5 = Find("Distance label 5");     /* G to D at -1.5 FR */
+            var distLbl6 = Find("Distance label 6");     /* G to D at -1.5 BK */
+            var distLbl7 = Find("Distance label 7");     /* G to D at -10.3 FR */
+            var distLbl8 = Find("Distance label 8");     /* G to D at -10.3 BK */
 
-            // Numerics:
+            // Collect values:
 
             var numberOfPairs = ParseIntegerInRange(numberOfPairsString, "NumberOfPairs", 1, 1000);
             var euclideanCutoffAbove = ParseDoubleInRange(euclideanCutoffAboveString, "Euclidean cutoff above", 0.0, 1.0);
@@ -130,22 +130,20 @@ namespace DaleHackathon2020
             var distToleranceGradeA = ParseDoubleInRange(distToleranceGradeAString, "DistToleranceGradeA", 0.0, 1.0);
             var distToleranceGradeB = ParseDoubleInRange(distToleranceGradeBString, "DistToleranceGradeB", 0.0, 1.0);
 
-            // Set properties:
+            var flatParaGradeBoundaries = new FlatParaGradeBoundaries
+            {
+                BoundaryGradeA = flatParaToleranceGradeA,
+                BoundaryGradeB = flatParaToleranceGradeB
+            };
 
-            SourceFolderPath = sourceFolder;
-            HistoryFolderPath = historyFolder;
+            var distanceGradeBoundaries = new DistanceGradeBoundaries
+            {
+                DistTarget = distTarget,
+                BoundaryEitherSideGradeA = distToleranceGradeA,
+                BoundaryEitherSideGradeB = distToleranceGradeB,
+            };
 
-            NumberOfPairs = numberOfPairs;
-            EuclideanCutoffAbove = euclideanCutoffAbove;
-
-            FlatParaToleranceGradeA = flatParaToleranceGradeA;
-            FlatParaToleranceGradeB = flatParaToleranceGradeB;
-
-            DistTarget = distTarget;
-            DistToleranceGradeA = distToleranceGradeA;
-            DistToleranceGradeB = distToleranceGradeB;
-
-            FileHeadings = new FileHeadings
+            var fileHeadings = new FileHeadings
             {
                 SerialNumberLabel = serialNumberLabel,
 
@@ -153,7 +151,7 @@ namespace DaleHackathon2020
                 FlatSubHeading2 = flatHeadingE,
                 FlatSubHeading3 = flatHeadingD,
                 FlatSubHeading4 = flatHeadingG,
-                FlatValueLabel  = flatValueLabel,
+                FlatValueLabel = flatValueLabel,
 
                 ParaHeading = paraHead,
                 ParaLabel1 = paraLbl1,
@@ -172,6 +170,21 @@ namespace DaleHackathon2020
                 DistLabel7 = distLbl7,
                 DistLabel8 = distLbl8,
             };
+
+            // Set properties:
+
+            SourceFolderPath = sourceFolder;
+            HistoryFolderPath = historyFolder;
+
+            NumberOfPairs = numberOfPairs;
+            EuclideanCutoffAbove = euclideanCutoffAbove;
+
+            DiscConfig = new DiscConfig
+            { 
+                DistBounds = distanceGradeBoundaries,
+                FileHeadings = fileHeadings,
+                FlatParaBounds = flatParaGradeBoundaries
+            };
         }
 
         public string ConfigFilePath { get; init; }
@@ -183,14 +196,7 @@ namespace DaleHackathon2020
 
         public double EuclideanCutoffAbove { get; init; }
 
-        public double FlatParaToleranceGradeA { get; init; }
-        public double FlatParaToleranceGradeB { get; init; }
-
-        public double DistTarget { get; init; }
-        public double DistToleranceGradeA { get; init; }
-        public double DistToleranceGradeB { get; init; }
-
-        public FileHeadings FileHeadings { get; init; }
+        public DiscConfig DiscConfig { get; init; }
 
     }
 }

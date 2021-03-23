@@ -15,18 +15,33 @@ namespace ExampleFilesCollection
         {
             var metadata = new DiscMetadata(serialNo, $"C:\\CMMFiles\\{serialNo}.txt");
 
+            var flatParaBounds = new FlatParaGradeBoundaries
+            {
+                BoundaryGradeA = 0.002, 
+                BoundaryGradeB = 0.0025
+            };
+
+            var diagDistBounds = new DistanceGradeBoundaries
+            { 
+                BoundaryEitherSideGradeA = 0.001,
+                BoundaryEitherSideGradeB = 0.002,
+                DistTarget = 28.020
+            };
+
             var flatness = new FlatnessMeasurements(
                 datumF: new FlatnessMeasure(flatF), 
                 datumE: new FlatnessMeasure(flatE), 
                 datumD: new FlatnessMeasure(flatD), 
-                datumG: new FlatnessMeasure(flatG) 
+                datumG: new FlatnessMeasure(flatG),
+                flatParaBounds
             );
 
             var parallel = new ParallelMeasurements(
                 datumELH1: new ParallelMeasure(elh1), 
                 datumERH1: new ParallelMeasure(erh1), 
                 datumGFR1: new ParallelMeasure(gfr1), 
-                datumGBK1: new ParallelMeasure(gbk1) 
+                datumGBK1: new ParallelMeasure(gbk1),
+                flatParaBounds
             );
             
             var distance = new DistanceMeasurements(
@@ -37,7 +52,8 @@ namespace ExampleFilesCollection
                 gtoDBack1  : new DistanceMeasure(gd15fr),
                 gtoDFront1 : new DistanceMeasure(gd15bk),
                 gtoDFront2 : new DistanceMeasure(gd103fr),
-                gtoDBack2  : new DistanceMeasure(gd103bk)
+                gtoDBack2  : new DistanceMeasure(gd103bk),
+                bounds     : diagDistBounds
             );
 
             return new DiscInfo(metadata, flatness, parallel, distance);

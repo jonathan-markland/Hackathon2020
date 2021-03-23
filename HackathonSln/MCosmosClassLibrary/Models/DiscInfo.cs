@@ -79,11 +79,12 @@ namespace MCosmosClassLibrary.Models
             FlatnessMeasure datumF,
             FlatnessMeasure datumE,
             FlatnessMeasure datumD,
-            FlatnessMeasure datumG)
+            FlatnessMeasure datumG,
+            FlatParaGradeBoundaries bounds)
         {
             MeasureAndGrade flatGraded(double n) 
             { 
-                return new MeasureAndGrade(n, ToleranceMathematics.FlatParaGradeFor(n)); 
+                return new MeasureAndGrade(n, ToleranceMathematics.FlatParaGradeFor(bounds, n)); 
             }
             
             DatumF = flatGraded(datumF.Flatness);
@@ -118,11 +119,12 @@ namespace MCosmosClassLibrary.Models
             ParallelMeasure datumELH1,
             ParallelMeasure datumERH1,
             ParallelMeasure datumGFR1,
-            ParallelMeasure datumGBK1)
+            ParallelMeasure datumGBK1,
+            FlatParaGradeBoundaries bounds)
         {
             MeasureAndGrade paraGraded(double n) 
             { 
-                return new MeasureAndGrade(n, ToleranceMathematics.FlatParaGradeFor(n)); 
+                return new MeasureAndGrade(n, ToleranceMathematics.FlatParaGradeFor(bounds, n)); 
             }
 
             DatumELH1 = paraGraded(datumELH1.Parallel);
@@ -171,11 +173,12 @@ namespace MCosmosClassLibrary.Models
             DistanceMeasure gtoDFront1,
             DistanceMeasure gtoDBack1,
             DistanceMeasure gtoDFront2,
-            DistanceMeasure gtoDBack2)
+            DistanceMeasure gtoDBack2,
+            DistanceGradeBoundaries bounds)
         {
             MeasureAndGrade distGraded(double n) 
             { 
-                return new MeasureAndGrade(n, ToleranceMathematics.DistanceGradeFor(n)); 
+                return new MeasureAndGrade(n, ToleranceMathematics.DistanceGradeFor(bounds, n)); 
             }
 
             EtoFLeft1  = distGraded(etoFLeft1 .Distance);

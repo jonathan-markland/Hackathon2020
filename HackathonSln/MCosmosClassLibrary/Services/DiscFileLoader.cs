@@ -8,18 +8,22 @@ namespace MCosmosClassLibrary.Services
         private string SourceFilePath;
         private DiscInfo results;
         private DocumentReader Document;
-        private FileHeadings fileHeadings;
+        private DiscConfig DiscConfig;
 
-        public static DiscInfo LoadDiscFromFile(string sourceFilePath, FileHeadings fileHeadings)
+        public static DiscInfo LoadDiscFromFile(
+            string sourceFilePath,
+            DiscConfig discConfig)
         {
-            return new DiscFileLoader(sourceFilePath, fileHeadings).results;
+            return new DiscFileLoader(sourceFilePath, discConfig).results;
         }
 
-        private DiscFileLoader(string sourceFilePath, FileHeadings fileHeadings)
+        private DiscFileLoader(
+            string sourceFilePath,
+            DiscConfig discConfig)
         {
             SourceFilePath = sourceFilePath;
             Document = new DocumentReader(System.IO.File.ReadAllLines(sourceFilePath));
-            this.fileHeadings = fileHeadings;
+            DiscConfig = discConfig;
             results = Load();
         }
 
@@ -34,12 +38,14 @@ namespace MCosmosClassLibrary.Services
 
         private DiscMetadata LoadMetadata()
         {
-            var serialNo = AllTextToTheRightOf(fileHeadings.SerialNumberLabel /* Serial No      : */);
+            var serialNo = AllTextToTheRightOf(DiscConfig.FileHeadings.SerialNumberLabel /* Serial No      : */);
             return new DiscMetadata(serialNo, SourceFilePath);
         }
 
         private FlatnessMeasurements LoadFlatness()
         {
+            var fileHeadings = DiscConfig.FileHeadings;
+
             var flatF = ValueUnderneathHeading(fileHeadings.FlatSubHeading1 /* Datum F */, fileHeadings.FlatValueLabel /* Flatness */, 0, 1);
             var flatE = ValueUnderneathHeading(fileHeadings.FlatSubHeading2 /* Datum E */, fileHeadings.FlatValueLabel /* Flatness */, 0, 1);
             var flatD = ValueUnderneathHeading(fileHeadings.FlatSubHeading3 /* Datum D */, fileHeadings.FlatValueLabel /* Flatness */, 0, 1);
@@ -54,7 +60,8 @@ namespace MCosmosClassLibrary.Services
                 datumF: new FlatnessMeasure(flatF),
                 datumE: new FlatnessMeasure(flatE),
                 datumD: new FlatnessMeasure(flatD),
-                datumG: new FlatnessMeasure(flatG)
+                datumG: new FlatnessMeasure(flatG),
+                DiscConfig.FlatParaBounds
             );
         }
 
@@ -63,6 +70,8 @@ namespace MCosmosClassLibrary.Services
             // Parallelism - 4 opposed positions
             // eg:
             //                   202 Datum E LH 1                          0.00200           0.00180
+
+            var fileHeadings = DiscConfig.FileHeadings;
 
             var datumELH1 = ValueUnderneathHeading(fileHeadings.ParaHeading, fileHeadings.ParaLabel1 /* Datum E LH 1 */, 1, 2);
             var datumERH1 = ValueUnderneathHeading(fileHeadings.ParaHeading, fileHeadings.ParaLabel2 /* Datum E RH 1 */, 1, 2);
@@ -73,7 +82,8 @@ namespace MCosmosClassLibrary.Services
                 datumELH1: new ParallelMeasure(datumELH1),
                 datumERH1: new ParallelMeasure(datumERH1),
                 datumGFR1: new ParallelMeasure(datumGFR1),
-                datumGBK1: new ParallelMeasure(datumGBK1)
+                datumGBK1: new ParallelMeasure(datumGBK1),
+                DiscConfig.FlatParaBounds
             );
         }
 
@@ -83,6 +93,8 @@ namespace MCosmosClassLibrary.Services
             //      Datum E to Datum F - (diagonals at -1.5 & -10.3)
             // ... lines ...
             //                   112 E to F at -1.5 LH            28.02000 -0.00500 28.01644 -0.00356
+
+            var fileHeadings = DiscConfig.FileHeadings;
 
             var EtoFLeft1  = ValueUnderneathHeading(fileHeadings.DistHeading1, fileHeadings.DistLabel1 /* E to F at -1.5 LH  */, 2, 4);
             var EtoFRight1 = ValueUnderneathHeading(fileHeadings.DistHeading1, fileHeadings.DistLabel2 /* E to F at -1.5 RH  */, 2, 4);
@@ -102,7 +114,8 @@ namespace MCosmosClassLibrary.Services
                 gtoDFront1: new DistanceMeasure(GtoDFront1),
                 gtoDBack1:  new DistanceMeasure(GtoDBack1),
                 gtoDFront2: new DistanceMeasure(GtoDFront2),
-                gtoDBack2:  new DistanceMeasure(GtoDBack2)
+                gtoDBack2:  new DistanceMeasure(GtoDBack2),
+                DiscConfig.DistBounds
             );
         }
 
