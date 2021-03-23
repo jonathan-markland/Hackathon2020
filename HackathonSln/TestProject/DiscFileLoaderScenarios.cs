@@ -28,6 +28,7 @@ namespace TestProject
 					FileHeadings.FileHeadingsForTestFramework);
 
 			Assert.Equal("2222222222222222", disc.Metadata.SerialNo);
+			Assert.Equal(DiscGrade.GradeC, disc.OverallGrade);
 
 			Assert.Equal(mg(0.20532, DiscGrade.GradeC), disc.Flatness.DatumF);
 			Assert.Equal(mg(0.23289, DiscGrade.GradeC), disc.Flatness.DatumE);
@@ -59,6 +60,7 @@ namespace TestProject
 					FileHeadings.FileHeadingsForTestFramework);
 
 			Assert.Equal("1", disc.Metadata.SerialNo);
+			Assert.Equal(DiscGrade.GradeC, disc.OverallGrade);
 
 			Assert.Equal(mg(0.00127, DiscGrade.GradeA), disc.Flatness.DatumF);
 			Assert.Equal(mg(0.00145, DiscGrade.GradeA), disc.Flatness.DatumE);
@@ -90,6 +92,7 @@ namespace TestProject
 					FileHeadings.FileHeadingsForTestFramework);
 
 			Assert.Equal("2", disc.Metadata.SerialNo);
+			Assert.Equal(DiscGrade.GradeC, disc.OverallGrade);
 
 			Assert.Equal(mg(0.00124, DiscGrade.GradeA), disc.Flatness.DatumF);
 			Assert.Equal(mg(0.00145, DiscGrade.GradeA), disc.Flatness.DatumE);
